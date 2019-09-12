@@ -13,6 +13,6 @@ export const HomeComponent = {
 }
 
 function HomeController($scope, local, ngMeta, MetaFunction) {
-  $scope.asd = "TESTE"
+  $scope.home = "HOME"
   console.log("TESTE CONTROLLER")
 }

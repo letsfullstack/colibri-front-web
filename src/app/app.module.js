@@ -5,6 +5,8 @@ import uiRouter from '@uirouter/angularjs';
 
 import '../styles.scss';
 
+import 'animate.css'
+
 import { Constant } from './app.constants'
 
 import { AppComponent } from './app.component'
@@ -49,11 +51,13 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
 
     $logProvider.debugEnabled(true)
     
-    ngMetaProvider.useTitleSuffix(true);
-    
-    ngMetaProvider.setDefaultTitleSuffix(' | Best Website on the Internet!');
+    ngMetaProvider.setDefaultTitle('Fallback Title');
 
-    ngMetaProvider.setDefaultTag('author', 'John Doe');
+    ngMetaProvider.useTitleSuffix(true)
+    
+    ngMetaProvider.setDefaultTitleSuffix(' | Best Website on the Internet!')
+
+    ngMetaProvider.setDefaultTag('author', 'John Doe')
 }).run(['ngMeta', ConstructorModule])
 
 function ConstructorModule(ngMeta) {
