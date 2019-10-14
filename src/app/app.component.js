@@ -1,10 +1,12 @@
 export const AppComponent = {
     selector: 'root',
     template: require("./app.component.html"),
+    sass: require('./app.component.scss'),
     controllerAs: 'main',
-    controller: AppComponentController()
+    controller: ["$state",  AppComponentController]
 }
 
-function AppComponentController() {
-    console.log("asd")
+function AppComponentController($state) {
+
+    
 }

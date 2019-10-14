@@ -1,11 +1,15 @@
-import angular from 'angular';
-import ngResource from 'angular-resource';
-import ngMeta from 'ng-meta';
-import uiRouter from '@uirouter/angularjs';
-
 import '../styles.scss';
-
 import 'animate.css'
+
+import angular from 'angular'
+import ngResource from 'angular-resource'
+import ngMeta from 'ng-meta'
+import uiRouter from 'angular-ui-router'
+import Swiper from 'swiper/dist/js/swiper.js';
+import * as $ from 'jquery'
+import Swal from 'sweetalert2'
+import moment from 'moment';
+import uiMask from 'angular-ui-mask';
 
 import { Constant } from './app.constants'
 
@@ -16,8 +20,9 @@ import { MetaService } from './services/meta.service'
 
 const MODULE_IMPORTS = [
     ngResource,
-    uiRouter,
-    'ngMeta'
+    'ui.router',
+    'ngMeta',
+    'ui.mask'
 ]
 
 const COMPONENTS_IMPORTS = [
@@ -28,12 +33,19 @@ const SERVICES_IMPORTS = [
     MetaService
 ]
 
+const DIRETIVES_IMPORTS = [
+]
+
 var app = angular.module(AppComponent.selector, MODULE_IMPORTS)
+
+window.$ = $
+window.Swal = Swal
+window.Swiper = Swiper
+window.moment = moment
 
 app.component(AppComponent.selector, AppComponent)
 
-for (const key in Constant) 
-    app.constant(key, Constant[key])
+app.constant("constants", Constant)
 
 for (const SERVICE of SERVICES_IMPORTS)
     app.service(SERVICE.name, SERVICE.function)
@@ -41,7 +53,11 @@ for (const SERVICE of SERVICES_IMPORTS)
 for (const COMPONENT of COMPONENTS_IMPORTS)
     app.controller(COMPONENT.options.controller, COMPONENT.controller)
 
+for (const DIRETIVE of DIRETIVES_IMPORTS)
+    app.directive(DIRETIVE.element, DIRETIVE.options)
+
 app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider, ngMetaProvider) => {
+
     $urlRouterProvider.otherwise('/')
 
     for (const COMPONENT of COMPONENTS_IMPORTS)
@@ -58,6 +74,9 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
     ngMetaProvider.setDefaultTitleSuffix(' | Best Website on the Internet!')
 
     ngMetaProvider.setDefaultTag('author', 'John Doe')
+    
+    window.moment.locale('pt-BR');
+
 }).run(['ngMeta', ConstructorModule])
 
 function ConstructorModule(ngMeta) {

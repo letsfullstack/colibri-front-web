@@ -52,8 +52,16 @@ const rules = [
     ]
   },
   {
-      test: /\.css$/,
-      use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+    test: /\.css$/,
+    use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
+  },
+  {
+    test: /\.(gif|png|jpe?g|svg)$/i,
+    loader: 'file-loader'
+  },
+  {
+    test: /\.(ttf|eot|woff|svg)$/i,
+    loader:'url-loader'
   }
 ];
 
@@ -69,7 +77,7 @@ const plugins = [
     hash: false
   }),
   new FaviconsWebpackPlugin({
-    logo: 'src/favicon.ico',
+    logo: 'src/favicon.png',
     inject: true
   })
 ];
@@ -98,7 +106,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: 'sourcemap',
+  devtool: 'inline-source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
     compress: true,
@@ -134,8 +142,9 @@ module.exports = {
     minimizer: [new UglifyJsPlugin({
       sourceMap: true,
       uglifyOptions: {
-        ie8: false,
-        mangle: true,
+        beautify : true,
+        mangle   : false,
+        ie8: false,        
         toplevel: false,
         compress: {
           booleans: true,
