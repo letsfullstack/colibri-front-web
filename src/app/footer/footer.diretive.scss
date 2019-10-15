@@ -1,0 +1,116 @@
+footer{
+    font-size: 10px;
+
+    .top{
+        padding: 90px 0;
+
+        ul{
+            list-style: none;
+
+            li{
+                a{
+                    display: block;
+                    color: unset;
+                }
+
+                &:first-of-type{
+                    font-size: 2em;
+                    letter-spacing: -0.45px;
+                    color: #000000;
+                    margin-bottom: 20px;
+                }
+        
+                &:not(:first-of-type){
+                    font-size: 1.5em;
+                    color: rgba(0, 0, 0, 0.85);
+        
+                    &:not(:last-of-type){
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    .mid{
+        background-color: #f5f5f5;
+        height: 270px;
+
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+
+            .left{
+                display: flex;
+                align-items: center;
+    
+                img{
+                    width: 100px;
+                    margin-right: 200px;
+                }
+        
+                .informations{
+                    max-width: 270px;
+                    margin: 0;  
+                    font-size: 1.4em;
+                    line-height: 1.8;
+                    color: rgba(0, 0, 0, 0.85);
+                }
+            }
+    
+            .group-a{
+                display: flex;
+                
+                a{
+                    width: 35px;
+                    height: 35px;
+                    border-radius: 50%;
+                    color: white;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+    
+                    &:not(:last-of-type){
+                        margin-right: 10px;
+                    }
+    
+                    &.face{
+                        background-color: #365b98;
+                    }
+    
+                    &.insta{  
+                        background-color: #8a3ab9;
+                    }
+    
+                    &.link{  
+                        background-color: #007ab5;
+                    }
+    
+                    &.you{
+                        background-color: #fe0008;
+                    }
+                }
+            }
+        }
+    }
+
+    .bot{
+        display: flex;
+        justify-content: space-between;
+        margin: 50px auto;  
+        font-size: 1.2em;  
+        color: rgba(0, 0, 0, 0.5);
+
+        .right{
+
+            span{
+                
+                &:not(:last-of-type){
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}

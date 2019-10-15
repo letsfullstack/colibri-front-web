@@ -14,5 +14,12 @@ export const HomeComponent = {
 
 function HomeController($scope, ngMeta, MetaFunction) {
   $scope.home = "HOME"
+
+  $(document).ready(() => {
+    new Swiper('.products .mid .swiper-container, .blog .mid .swiper-container', {
+      
+    })
+  })
+
   console.log("TESTE CONTROLLER")
 }

@@ -1,5 +1,11 @@
-import '../styles.scss';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import 'animate.css'
+import 'swiper/dist/css/swiper.css'
+import '@fortawesome/fontawesome-free/js/fontawesome'
+import '@fortawesome/fontawesome-free/js/solid'
+import '@fortawesome/fontawesome-free/js/regular'
+import '@fortawesome/fontawesome-free/js/brands'
+import '../styles.scss'
 
 import angular from 'angular'
 import ngResource from 'angular-resource'
@@ -18,6 +24,9 @@ import { HomeComponent } from './home/home.component'
 
 import { MetaService } from './services/meta.service'
 
+import { FooterDiretive } from './footer/footer.diretive'
+import { NavbarDiretive } from './navbar/navbar.diretive'
+
 const MODULE_IMPORTS = [
     ngResource,
     'ui.router',
@@ -34,6 +43,8 @@ const SERVICES_IMPORTS = [
 ]
 
 const DIRETIVES_IMPORTS = [
+    FooterDiretive,
+    NavbarDiretive
 ]
 
 var app = angular.module(AppComponent.selector, MODULE_IMPORTS)
