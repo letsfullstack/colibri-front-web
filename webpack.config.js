@@ -56,12 +56,8 @@ const rules = [
     use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
   },
   {
-    test: /\.(gif|png|jpe?g|svg)$/i,
+    test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
     loader: 'file-loader'
-  },
-  {
-    test: /\.(ttf|eot|woff|svg)$/i,
-    loader:'url-loader'
   }
 ];
 
@@ -106,7 +102,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: {
     contentBase: path.resolve(__dirname, 'build'),
     compress: true,
@@ -143,7 +139,7 @@ module.exports = {
       sourceMap: true,
       uglifyOptions: {
         beautify : true,
-        mangle   : false,
+        mangle   : true,
         ie8: false,        
         toplevel: false,
         compress: {

@@ -1,41 +1,44 @@
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'animate.css'
 import 'swiper/dist/css/swiper.css'
-import '@fortawesome/fontawesome-free/js/fontawesome'
-import '@fortawesome/fontawesome-free/js/solid'
-import '@fortawesome/fontawesome-free/js/regular'
-import '@fortawesome/fontawesome-free/js/brands'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 import '../styles.scss'
 
+import 'ng-meta'
+import 'angular-ui-router'
+import 'angular-ui-mask';
+import 'angular-sanitize'
 import angular from 'angular'
 import ngResource from 'angular-resource'
-import ngMeta from 'ng-meta'
-import uiRouter from 'angular-ui-router'
 import Swiper from 'swiper/dist/js/swiper.js';
 import * as $ from 'jquery'
 import Swal from 'sweetalert2'
 import moment from 'moment';
-import uiMask from 'angular-ui-mask';
 
-import { Constant } from './app.constants'
+import Constants from './app.constants'
 
 import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
+import { SubComponent } from './sub/sub.component'
 
-import { MetaService } from './services/meta.service'
-
+import { NewsDiretive } from './newsletter/newsletter.diretive'
+import { CatalogDiretive } from './catalog/catalog.diretive'
 import { FooterDiretive } from './footer/footer.diretive'
 import { NavbarDiretive } from './navbar/navbar.diretive'
+
+import MetaService from './services/meta.service'
 
 const MODULE_IMPORTS = [
     ngResource,
     'ui.router',
     'ngMeta',
-    'ui.mask'
+    'ui.mask',
+    'ngSanitize'
 ]
 
 const COMPONENTS_IMPORTS = [
-    HomeComponent
+    HomeComponent,
+    SubComponent
 ]
 
 const SERVICES_IMPORTS = [
@@ -43,8 +46,10 @@ const SERVICES_IMPORTS = [
 ]
 
 const DIRETIVES_IMPORTS = [
+    NewsDiretive,
     FooterDiretive,
-    NavbarDiretive
+    NavbarDiretive,
+    CatalogDiretive
 ]
 
 var app = angular.module(AppComponent.selector, MODULE_IMPORTS)
@@ -56,10 +61,10 @@ window.moment = moment
 
 app.component(AppComponent.selector, AppComponent)
 
-app.constant("constants", Constant)
+app.constant("constants", Constants)
 
 for (const SERVICE of SERVICES_IMPORTS)
-    app.service(SERVICE.name, SERVICE.function)
+    app.service(SERVICE.name, SERVICE.service)
 
 for (const COMPONENT of COMPONENTS_IMPORTS)
     app.controller(COMPONENT.options.controller, COMPONENT.controller)

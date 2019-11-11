@@ -1,0 +1,107 @@
+news-diretive{
+
+    .newsletter{
+        height: 440px;
+        position: relative;
+    
+        img{
+            width: 100%;
+            height: inherit;
+            object-fit: cover;
+            object-position: center;
+        }
+    
+        .overlay{
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+    
+            h1, p{
+                text-align: center;
+                color: #ffffff;
+            }
+    
+            h1{
+                font-size: 4.0em;
+                font-weight: 300;
+                line-height: 1;
+                margin-bottom: 30px;
+                letter-spacing: -0.85px;
+            }
+    
+            p{
+                font-size: 1.6em;
+                line-height: 1.75;
+                letter-spacing: -0.5px;
+                margin-bottom: 40px;
+            }
+    
+            form{
+    
+                input, button{
+                    padding: 20px 25px;
+                    width: 270px;
+                    border-radius: 5px;
+                    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+                    border: none;
+                    font-size: 1.4em;
+                    height: 60px;
+                }
+    
+                input{
+                    background-color: #ffffff;
+                    margin-right: 15px;
+                }
+    
+                button{
+                    background-color: #25e779;
+                    color: white;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 900px) {
+
+        .newsletter{
+            
+            .overlay{
+                padding: 0 15px;
+    
+                form{
+                    display: flex;
+                    flex-direction: column;
+                    width: 400px;
+    
+                    button, input{
+                        width: 100%;
+                    }
+    
+                    input{
+                        text-align: center;
+                        margin: 0 0 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 576px) {
+        
+        .newsletter{
+            
+            .overlay{
+    
+                form{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

@@ -1,8 +1,6 @@
-export const MetaService = {
-    name: MetaFunction.name,
-    function: [MetaFunction]
-}
-
-function MetaFunction() {
-    console.log("TESTE SERVICE")
+export default {
+    name: 'MetaService',
+    service: ['constants', function (constants) {
+        // console.log(constants)
+    }]
 }

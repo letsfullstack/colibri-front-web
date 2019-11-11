@@ -4,7 +4,7 @@
   "description": "Any",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
-    "build:dev": "cross-env NODE_ENV=development webpack-dev-server --host 127.0.0.1",
+    "build:dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0",
     "build:prod": "npm run clean && npm run build",
     "clean": "rimraf build",
     "start": "npm run build:dev"
@@ -24,6 +24,7 @@
     "@uirouter/angularjs": "^1.0.20",
     "angular": "^1.7.3",
     "angular-resource": "^1.7.8",
+    "angular-sanitize": "^1.7.8",
     "angular-swiper": "^0.4.0",
     "angular-ui-mask": "^1.8.7",
     "angular-ui-router": "^1.0.23",

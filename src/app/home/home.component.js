@@ -9,17 +9,13 @@ export const HomeComponent = {
     controllerAs: "vm",
     authenticate: false
   },
-  controller: ["$scope", "ngMeta", "MetaFunction", HomeController]
+  controller: ["$scope", "ngMeta", "MetaService", HomeController]
 }
 
-function HomeController($scope, ngMeta, MetaFunction) {
+function HomeController($scope, ngMeta, MetaService) {
   $scope.home = "HOME"
 
   $(document).ready(() => {
-    new Swiper('.products .mid .swiper-container, .blog .mid .swiper-container', {
-      
-    })
+    new Swiper('.products .mid .swiper-container')
   })
-
-  console.log("TESTE CONTROLLER")
 }
