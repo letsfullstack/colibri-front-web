@@ -4,6 +4,8 @@ import 'swiper/dist/css/swiper.css'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import '../styles.scss'
 
+import 'bootstrap/dist/js/bootstrap.min.js'
+
 import 'ng-meta'
 import 'angular-ui-router'
 import 'angular-ui-mask';

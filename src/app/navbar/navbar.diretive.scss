@@ -1,3 +1,106 @@
-nav{
+$height: 90px;
 
+navbar-diretive{
+    display: block;
+    position: fixed;
+    width: 100%;
+    background-color: #22222d;
+    top: 0;
+    font-size: 10px;
+    z-index: 1000;
+    transition: background 300ms;
+
+    &.invert{
+        background-color: transparent;
+
+        nav{
+
+            img{
+                filter: brightness(0.5) invert(0);
+            }
+        }
+    }
+
+    nav{
+        display: flex;  
+        height: $height;
+        justify-content: space-between;
+        align-items: center;
+
+        img{
+            filter: brightness(0) invert(1);
+        }
+
+        ul{
+            margin: 0;
+            display: flex;
+            align-items: center;
+
+            li{
+                list-style: none;
+            }
+        }
+
+        .navigation{
+            margin-right: 290px;
+            padding-top: 3px;
+
+            .dropdown{
+
+                &:not(:last-of-type){
+                    margin-right: 50px;
+                }
+
+                .dropdown-toggle{
+
+                    &:after{
+                        content: none;
+                    }
+
+                    i{
+                        margin-left: 10px;
+                        font-size: 0.8em;
+                    }
+
+                    color: white;
+                    text-decoration: none;
+                    font-size: 1.6em;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            @media (max-width: 992px){
+                display: none;
+            }
+        }
+
+        .menu{
+
+            li{
+                width: 40px;
+                height: 40px;
+                box-shadow: 10px 20px 40px 0 rgba(0, 0, 0, 0.1);
+                background-color: #ffffff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                font-size: 1.6em;
+
+                a{  
+                    color: #000000;
+                    text-decoration: none;
+                }
+
+                &:not(:last-of-type){
+                    margin-right: 15px;
+                }
+            }
+        }
+    }
+}
+
+main{
+    margin-top: $height;
 }
