@@ -33,6 +33,7 @@
     "jquery": "^3.4.1",
     "moment": "^2.24.0",
     "ng-meta": "^1.0.3",
+    "popper.js": "^1.16.0",
     "sweetalert2": "^8.18.1",
     "swiper": "^4.5.1",
     "webpack-cli": "^3.1.0"
