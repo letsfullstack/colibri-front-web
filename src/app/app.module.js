@@ -22,7 +22,8 @@ import { HomeComponent } from './home/home.component'
 import { SubComponent } from './sub/sub.component'
 
 import { NewsDiretive } from './newsletter/newsletter.diretive'
-import { CatalogDiretive } from './catalog/catalog.diretive'
+import { CatalogBlogDiretive } from './catalog-blog/catalog-blog.diretive'
+import { CatalogProductDiretive } from './catalog-product/catalog-product.diretive'
 import { FooterDiretive } from './footer/footer.diretive'
 import { NavbarDiretive } from './navbar/navbar.diretive'
 
@@ -49,7 +50,8 @@ const DIRETIVES_IMPORTS = [
     NewsDiretive,
     FooterDiretive,
     NavbarDiretive,
-    CatalogDiretive
+    CatalogBlogDiretive,
+    CatalogProductDiretive
 ]
 
 var app = angular.module(AppComponent.selector, MODULE_IMPORTS)

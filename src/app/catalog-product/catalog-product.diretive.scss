@@ -1,6 +1,6 @@
-catalog-diretive{
+catalog-product-diretive{
 
-    .blog{
+    .products{
         display: flex;
         padding-top: 100px;
         padding-bottom: 100px;
@@ -22,7 +22,7 @@ catalog-diretive{
                 margin-bottom: 25px;    
             }
     
-            p{ 
+            p{
                 font-size: 1.6em;
                 line-height: 1.55;
                 color: rgba(0, 0, 0, 0.85);
@@ -51,19 +51,17 @@ catalog-diretive{
     
             margin-bottom: -$margin;
     
-            .post{
+            .product{
                 margin-bottom: $margin;
                 
                 img{
                     margin-bottom: 25px;
                     width: inherit;
                 }
-                
-                h2{
-                    max-width: 225px;
-                    display: flex;
-                    font-size: 1.6em;
-                    line-height: 1.4;
+    
+                h2, h3{
+                    font-size: 1.4em;
+                    line-height: 1.6;
                     color: rgba(0, 0, 0, 0.85);
                     font-weight: 400;
                     margin: 0px;    
@@ -73,7 +71,7 @@ catalog-diretive{
     }
 
     @media (min-width: 900px) {
-        .blog{
+        .products{
             
             .mid{
                 display: none;
@@ -81,10 +79,11 @@ catalog-diretive{
         }
     }
 
+
     @media (max-width: 900px) {
 
-        .blog{
-
+        .products{
+    
             .left{
                 flex: 0 0 100%;
             }
@@ -116,20 +115,6 @@ catalog-diretive{
     
             .list{
                 display: none;
-            }
-        }
-    
-        .blog{
-    
-            .mid{
-                width: inherit;
-    
-                .product{
-    
-                    h2{
-                        max-width: 225px;
-                    }
-                }
             }
         }
     }

@@ -1,0 +1,27 @@
+<section class="products container">
+    <div class="left">
+        <h1 ng-bind-html="vm.title"></h1>
+        <p ng-bind-html="vm.description"></p>
+    </div>
+    <div class="mid">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide product" ng-repeat="test in vm.products">
+                    <img src="https://via.placeholder.com/270" alt="">
+                    <h2>Bancada</h2>
+                    <h3>Astúrias</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <button>todos os produtos ⟶</button>
+    </div>
+    <div class="list row">
+        <div class="col-3 product" ng-repeat="test in vm.products">
+            <img src="https://via.placeholder.com/270" alt="">
+            <h2>Bancada</h2>
+            <h3>Astúrias</h3>
+        </div>
+    </div>
+</section>

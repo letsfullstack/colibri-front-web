@@ -31,33 +31,11 @@
     </div>
 </section>
 
-<section class="products container">
-    <div class="left">
-        <h1>Produtos mais pocurados.</h1>
-        <p>Esses são os produtos mais acessados em<br>nosso site. Que tal conhecê‐los?</p>
-    </div>
-    <div class="mid">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide product" ng-repeat="test in [0,1,2,3,4,5,6,7]">
-                    <img src="https://via.placeholder.com/270" alt="">
-                    <h2>Bancada</h2>
-                    <h3>Astúrias</h3>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="right">
-        <button>todos os produtos ⟶</button>
-    </div>
-    <div class="list row">
-        <div class="col-3 product" ng-repeat="test in [0,1,2,3,4,5,6,7]">
-            <img src="https://via.placeholder.com/270" alt="">
-            <h2>Bancada</h2>
-            <h3>Astúrias</h3>
-        </div>
-    </div>
-</section>
+<catalog-product-diretive 
+    title="Produtos mais pocurados." 
+    description="Esses são os produtos mais acessados em<br>nosso site. Que tal conhecê‐los?"
+    products="vm.products">
+</catalog-product-diretive>
 
 <section class="know">
     <h1>Conheça o catálogo 2019:<br>Águas Brasileiras</h1>
@@ -67,6 +45,9 @@
     </div>
 </section>
 
-<catalog-diretive></catalog-diretive>
+<catalog-blog-diretive 
+    title="Conheça nosso blog." 
+    description="Artigos escritos com muito carinho pra ajudar você a<br>viver melhor e mostrar um pouco do universo Colibri!">
+</catalog-blog-diretive>
 
 <news-diretive></news-diretive>
