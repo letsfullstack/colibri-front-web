@@ -1,0 +1,61 @@
+phrase-diretive {
+    
+    #phrase {
+        // background-image: url(./assets/img/chair.png);
+        background-image: url(./assets/img/chair.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+
+        .overlay {
+            // background-color: rgba(17, 198, 127, 0.9);
+            padding: 120px 0;
+
+            h1,
+            p {
+                margin: 0 auto;
+            }
+
+            h1 {
+                font-size: 4em;
+                line-height: 1.25;
+                letter-spacing: -0.85px;
+                text-align: center;
+                color: #ffffff;
+                margin: 0 auto 50px;
+            }
+
+            p {
+                font-size: 1.6em;
+                line-height: 1.75;
+                letter-spacing: -0.5px;
+                text-align: center;
+                color: #ffffff;
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            font-size: 8px;
+
+            .overlay {
+                padding: 80px 15px;
+
+                h1 {
+                    margin-bottom: 25px;
+                }
+            }
+        }
+
+        // @media (max-width: 575.98px) {
+        //     h1,
+        //     p {
+        //         text-align: left !important;
+
+        //         br {
+        //             display: none;
+        //         }
+        //     }
+        // }
+    }
+}

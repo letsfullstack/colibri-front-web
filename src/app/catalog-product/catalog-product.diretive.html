@@ -6,10 +6,10 @@
     <div class="mid">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide product" ng-repeat="test in vm.products">
-                    <img src="https://via.placeholder.com/270" alt="">
-                    <h2>Bancada</h2>
-                    <h3>Astúrias</h3>
+                <div class="swiper-slide product" ng-repeat="product in vm.products">
+                    <img src="{{product.img}}" alt="" style="max-width: 270px; max-width: 270px;">
+                    <h2>{{product.name}}</h2>
+                    <h3>{{product.location}}</h3>
                 </div>
             </div>
         </div>
@@ -18,10 +18,10 @@
         <button>todos os produtos ⟶</button>
     </div>
     <div class="list row">
-        <div class="col-3 product" ng-repeat="test in vm.products">
-            <img src="https://via.placeholder.com/270" alt="">
-            <h2>Bancada</h2>
-            <h3>Astúrias</h3>
+        <div class="col-3 product" ng-repeat="product in vm.products">
+            <img src="{{product.img}}" alt="" style="max-width: 270px; max-width: 270px;">
+            <h2>{{product.name}}</h2>
+            <h3>{{product.location}}</h3>
         </div>
     </div>
 </section>

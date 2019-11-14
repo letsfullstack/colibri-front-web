@@ -4,19 +4,19 @@ navbar-diretive{
     display: block;
     position: fixed;
     width: 100%;
-    background-color: #22222d;
+    background-color: transparent;
     top: 0;
     font-size: 10px;
     z-index: 1000;
     transition: background 300ms;
 
     &.invert{
-        background-color: transparent;
+        background-color: #22222d;
 
         nav{
 
             img{
-                filter: brightness(0.5) invert(0);
+                filter: brightness(0) invert(1);
             }
         }
     }
@@ -28,7 +28,7 @@ navbar-diretive{
         align-items: center;
 
         img{
-            filter: brightness(0) invert(1);
+            filter: brightness(0.5) invert(0);
         }
 
         ul{
@@ -101,6 +101,6 @@ navbar-diretive{
     }
 }
 
-main{
-    margin-top: $height;
-}
+// main{
+//     margin-top: $height;
+// }

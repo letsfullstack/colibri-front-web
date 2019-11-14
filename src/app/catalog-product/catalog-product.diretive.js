@@ -4,9 +4,9 @@ export const CatalogProductDiretive = {
       restrict: 'E',
       template: require("./catalog-product.diretive.html"),
       scope: {
-        title : "@",
-        description : "@",
-        products: "@"
+        title: "@",
+        description: "@",
+        products: "="
       },
       controller: ["$scope", "$element", CatalogProductController],
       controllerAs: "vm",
@@ -18,6 +18,8 @@ export const CatalogProductDiretive = {
 
 function CatalogProductController($scope, $element) {
   var vm = this
-  
-  console.log(vm.products)
+
+  setTimeout(() => new Swiper('catalog-product-diretive .swiper-container', {
+    slidesPerView: 1.5
+  }));
 }

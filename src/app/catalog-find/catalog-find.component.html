@@ -1,0 +1,209 @@
+<section class="container find">
+    <div class="row">
+
+        <div class="col-12 d-block d-md-none title">
+            
+            <div class="d-flex justify-content-between align-items-center">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">home</a></li>
+                    <li class="breadcrumb-item active">produtos</li>
+                </ol>
+    
+                <button class="filter">
+                    filtro
+                    <i class="fas fa-filter"></i>
+                </button>
+            </div>
+
+            <h1>Catálogo 2019</h1>
+        </div>
+
+        <div class="col-12 col-md-4 filter">
+
+            <ol class="breadcrumb d-none d-md-flex">
+                <li class="breadcrumb-item"><a href="#">home</a></li>
+                <li class="breadcrumb-item active">produtos</li>
+            </ol>
+
+            <h1 class="d-none d-md-flex">Catálogo 2019</h1>
+
+            <div class="release">
+                <label class="square_b">
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                    Lançamentos
+                </label>
+            </div>
+
+            <div class="options">
+                <h3>Ambiente:</h3>
+                <ul>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="option" checked>
+                            <span class="checkmark"></span>
+                            Todos
+                        </label>
+                    </li>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="option">
+                            <span class="checkmark"></span>
+                            Dormitório
+                        </label>
+                    </li>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="option">
+                            <span class="checkmark"></span>
+                            Sala
+                        </label>
+                    </li>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="option">
+                            <span class="checkmark"></span>
+                            Escritório
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="type">
+                <h3>Tipo:</h3>
+                <ul>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="type" checked>
+                            <span class="checkmark"></span>
+                            Todos
+                        </label>
+                    </li>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="type">
+                            <span class="checkmark"></span>
+                            Estante e Home theater
+                        </label>
+                    </li>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="type">
+                            <span class="checkmark"></span>
+                            Rack e Bancada
+                        </label>
+                    </li>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="type">
+                            <span class="checkmark"></span>
+                            Painel para TV
+                        </label>
+                    </li>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="type">
+                            <span class="checkmark"></span>
+                            Balcão e Aparador
+                        </label>
+                    </li>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="type">
+                            <span class="checkmark"></span>
+                            Mesa de centro
+                        </label>
+                    </li>
+                    <li>
+                        <label class="square_b">
+                            <input type="radio" name="type">
+                            <span class="checkmark"></span>
+                            Criado e Cabeceira
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="pallete">
+
+                <h3>Cores:</h3>
+
+                <div style="margin-bottom: 20px;">
+                    <label class="color" ng-repeat="color in vm.colors">
+                        <input type="radio" name="f_color">
+                        <span class="checkmark" ng-style="{ 'background-color' : color.color }"></span>
+                    </label>
+                </div>
+
+                <div>
+                    <label class="color" ng-repeat="color in vm.colors">
+                        <input type="radio" name="s_color">
+                        <span class="checkmark" ng-style="{ 'background-color' : color.color }"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="measures">
+
+                <h3>Medidas:</h3>
+
+                <div class="measure">
+                    <div class="top">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        <span>largura</span>
+                    </div>
+                    <div class="bot">
+                        <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+                        <div class="lenght">
+                            <span>100mm</span>
+                            <span>2000mm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="measure">
+                    <div class="top">
+                        <i class="fas fa-arrows-alt-v"></i>
+                        <span>altura</span>
+                    </div>
+                    <div class="bot">
+                        <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+                        <div class="lenght">
+                            <span>100mm</span>
+                            <span>2000mm</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="measure">
+                    <div class="top">
+                        <i class="fas fa-arrows-alt-v"></i>
+                        <span>profundidade</span>
+                    </div>
+                    <div class="bot">
+                        <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+                        <div class="lenght">
+                            <span>100mm</span>
+                            <span>2000mm</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="filter">FILTRAR</button>
+        </div>
+
+        <div class="col-12 col-md-8">
+            <div class="list">
+                <section ng-repeat="card in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" class="card_b">
+                    <img src="../../assets/img/test.png" alt="">
+                    <h1>Bancada</h1>
+                    <h2>Astúrias</h2>
+                </section>
+            </div>
+
+            <button class="more">carregar mais</button>
+        </div>
+    </div>
+</section>

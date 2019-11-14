@@ -18,7 +18,7 @@ export const CatalogBlogDiretive = {
 function CatalogBlogController($scope, $element) {
   var vm = this
   
-  new Swiper($element.children().children().children()[2],{
-    slidesPerView : 1
-  })
+  setTimeout(() => new Swiper('catalog-blog-diretive .swiper-container', {
+    slidesPerView: 1.5
+  }));
 }

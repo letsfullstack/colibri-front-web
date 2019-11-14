@@ -22,12 +22,15 @@ import Constants from './app.constants'
 import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
 import { SubComponent } from './sub/sub.component'
+import { ContactComponent } from './contact/contact.component'
+import { CatalogFindComponent } from './catalog-find/catalog-find.component'
 
 import { NewsDiretive } from './newsletter/newsletter.diretive'
 import { CatalogBlogDiretive } from './catalog-blog/catalog-blog.diretive'
 import { CatalogProductDiretive } from './catalog-product/catalog-product.diretive'
 import { FooterDiretive } from './footer/footer.diretive'
 import { NavbarDiretive } from './navbar/navbar.diretive'
+import { PhraseDiretive } from './phrase/phrase.diretive'
 
 import MetaService from './services/meta.service'
 
@@ -41,7 +44,9 @@ const MODULE_IMPORTS = [
 
 const COMPONENTS_IMPORTS = [
     HomeComponent,
-    SubComponent
+    SubComponent,
+    ContactComponent,
+    CatalogFindComponent
 ]
 
 const SERVICES_IMPORTS = [
@@ -52,6 +57,7 @@ const DIRETIVES_IMPORTS = [
     NewsDiretive,
     FooterDiretive,
     NavbarDiretive,
+    PhraseDiretive,
     CatalogBlogDiretive,
     CatalogProductDiretive
 ]
@@ -87,13 +93,13 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
 
     $logProvider.debugEnabled(true)
     
-    ngMetaProvider.setDefaultTitle('Fallback Title');
+    ngMetaProvider.setDefaultTitle('Colibri');
 
     ngMetaProvider.useTitleSuffix(true)
     
-    ngMetaProvider.setDefaultTitleSuffix(' | Best Website on the Internet!')
+    // ngMetaProvider.setDefaultTitleSuffix(' | Best Website on the Internet!')
 
-    ngMetaProvider.setDefaultTag('author', 'John Doe')
+    ngMetaProvider.setDefaultTag('author', 'Lets Comunicação')
     
     window.moment.locale('pt-BR');
 
