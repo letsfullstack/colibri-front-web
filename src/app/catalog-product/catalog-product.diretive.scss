@@ -43,6 +43,12 @@ catalog-product-diretive{
                 font-size: 1.4em;
                 font-weight: 500;
                 color: #00ca7a;
+
+                &:hover{
+                    border-color: transparent;
+                    color: white;
+                    background: #25e779;
+                }
             }
         }
     
@@ -53,6 +59,7 @@ catalog-product-diretive{
     
             .product{
                 margin-bottom: $margin;
+                cursor: pointer;
                 
                 img{
                     margin-bottom: 25px;
@@ -96,6 +103,19 @@ catalog-product-diretive{
                     
                     img{
                         margin-bottom: 25px;
+                        object-fit: cover;
+                        height: 335px;
+                        max-width: unset !important;
+                        width: 100%;
+
+                        @media (max-width: 767.98px) {
+                            height: 245px;
+                        }
+
+                        @media (max-width: 575.98px) {
+                            height: 55vw;
+                            width: 55vw;
+                        }
                     }
         
                     h2, h3{
@@ -115,6 +135,22 @@ catalog-product-diretive{
     
             .list{
                 display: none;
+            }
+        }
+    }
+
+    @media (max-width: 575.98px) {
+
+        .products{
+        
+            .left{
+        
+                p{
+
+                    br{
+                        display: none;
+                    }
+                }
             }
         }
     }

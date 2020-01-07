@@ -1,5 +1,3 @@
-import './footer.diretive.scss'
-
 export const FooterDiretive = {
   options: function () {
     return {

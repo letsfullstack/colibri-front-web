@@ -9,7 +9,7 @@
                     <li class="breadcrumb-item active">produtos</li>
                 </ol>
     
-                <button class="filter">
+                <button class="filter" ng-click="vm.filter = !vm.filter">
                     filtro
                     <i class="fas fa-filter"></i>
                 </button>
@@ -18,8 +18,8 @@
             <h1>Catálogo 2019</h1>
         </div>
 
-        <div class="col-12 col-md-4 filter">
-
+        <div class="col-12 col-md-4 filter" ng-if="vm.filter || vm.width > 992">
+            
             <ol class="breadcrumb d-none d-md-flex">
                 <li class="breadcrumb-item"><a href="#">home</a></li>
                 <li class="breadcrumb-item active">produtos</li>
@@ -196,7 +196,7 @@
 
         <div class="col-12 col-md-8">
             <div class="list">
-                <section ng-repeat="card in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" class="card_b">
+                <section ng-repeat="card in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]" class="card_b" ui-sref="/product">
                     <img src="../../assets/img/test.png" alt="">
                     <h1>Bancada</h1>
                     <h2>Astúrias</h2>

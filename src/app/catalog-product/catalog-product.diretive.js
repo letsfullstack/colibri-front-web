@@ -20,6 +20,13 @@ function CatalogProductController($scope, $element) {
   var vm = this
 
   setTimeout(() => new Swiper('catalog-product-diretive .swiper-container', {
-    slidesPerView: 1.5
-  }));
+    slidesPerView: 2,
+    spaceBetween: 20,
+    breakpoints: {
+      576 : {
+        slidesPerView: 1.5,
+        spaceBetween: 0
+      }
+    }
+  }), 300);
 }

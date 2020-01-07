@@ -97,6 +97,13 @@ news-diretive{
         .newsletter{
             
             .overlay{
+
+                p{
+
+                    br{
+                        display: none;
+                    }
+                }
     
                 form{
                     width: 100%;

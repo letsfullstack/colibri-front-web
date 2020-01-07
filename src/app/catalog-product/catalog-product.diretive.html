@@ -6,7 +6,7 @@
     <div class="mid">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide product" ng-repeat="product in vm.products">
+                <div class="swiper-slide product" ui-sref="/product" ng-repeat="product in vm.products">
                     <img src="{{product.img}}" alt="" style="max-width: 270px; max-width: 270px;">
                     <h2>{{product.name}}</h2>
                     <h3>{{product.location}}</h3>
@@ -15,10 +15,10 @@
         </div>
     </div>
     <div class="right">
-        <button>todos os produtos ⟶</button>
+        <button ui-sref="/catalog">todos os produtos ⟶</button>
     </div>
     <div class="list row">
-        <div class="col-3 product" ng-repeat="product in vm.products">
+        <div class="col-3 product" ui-sref="/product" ng-repeat="product in vm.products">
             <img src="{{product.img}}" alt="" style="max-width: 270px; max-width: 270px;">
             <h2>{{product.name}}</h2>
             <h3>{{product.location}}</h3>

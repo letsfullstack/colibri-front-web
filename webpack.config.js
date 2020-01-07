@@ -138,9 +138,9 @@ module.exports = {
     minimizer: [new UglifyJsPlugin({
       sourceMap: true,
       uglifyOptions: {
-        beautify : true,
-        mangle   : true,
-        ie8: false,        
+        beautify: true,
+        mangle: true,
+        ie8: false,
         toplevel: false,
         compress: {
           booleans: true,

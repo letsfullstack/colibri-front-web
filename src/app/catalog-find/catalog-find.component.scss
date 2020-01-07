@@ -295,6 +295,7 @@ section {
         .card_b{
             margin: 50px 15px 0;
             width: calc(50% - 30px);
+            cursor: pointer;
 
             img{
                 width: 100%;  
@@ -321,6 +322,12 @@ section {
         color: #00ca7a;
         padding: 15px 35px;  
         margin-top: 60px;
+
+        &:hover{
+            border-color: transparent;
+            color: white;
+            background: #25e779;
+        }
     }
 
     @media (max-width: 1199.98px){
@@ -395,6 +402,32 @@ section {
 
         .more{
             margin-top: 30px;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+
+        .list{
+            margin-top: 0;
+        }
+
+        .more{
+            margin: 30px auto;
+            display: flex;
+        }
+    }
+
+    @media (max-width: 575.98px) {
+
+        .list{
+
+            .card_b{
+                width: calc(100% - 30px);
+
+                img{
+                    height: 63vw;
+                }
+            }
         }
     }
 }

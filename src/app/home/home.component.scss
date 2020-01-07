@@ -18,8 +18,8 @@ section{
         height: 160px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        padding: 60px 100px;
+        justify-content: center;
+        padding: 60px 0;
     }
 
     .left-top{
@@ -61,6 +61,7 @@ section{
 
         .catalog{
             font-size: 2.0em;
+            margin-right: 17vw;
         }
 
         .arrow{
@@ -82,17 +83,20 @@ section{
             margin-right: $distance;
         }
 
-        .bar{
-            $height: 1px;
+        .swiper-pagination {
+            position: relative;
+            justify-content: center;
+            display: flex;
+            margin: 0 15px;
 
-            width: 60%;
-            height: $height;
-            background-color: #ccc;
+            .swiper-pagination-bullet {
+                width: 6.3vw;
+                border-radius: 0;
+                height: 1px;
+            }
 
-            .progress{
-                width: 25%;
-                height: $height;
-                background-color: #242635;
+            .swiper-pagination-bullet-active {
+                background: #242635;
             }
         }
 
@@ -160,14 +164,15 @@ section{
     }
 
     .group-buttons{
+        display: flex;
 
         button{
-            padding: 20px 40px;
+            padding: 20px 0;
+            text-align: center;
             border-radius: 5px;
             box-shadow: 20px 20px 60px 0 rgba(2, 8, 22, 0.4);
             color: white;
-            border: none;
-            min-width: 160px;  
+            border: none;  
             font-size: 1.4em;  
             font-weight: 500;
             width: 190px;
@@ -201,7 +206,7 @@ section{
         }
 
         .left-bottom{
-            padding: 60px 30px;
+            padding: 60px 15px;
         }
         
         .right-top{
@@ -236,6 +241,7 @@ section{
         font-size: 7px;
 
         .group-buttons{
+            font-size: 9px;
             width: 400px;
             display: flex;
             justify-content: center;
@@ -245,7 +251,40 @@ section{
 
 @media (max-width: 576px) {
 
+    .banner{
+
+        .left-top{
+            font-size: 2.35vw;
+            // max-height: 135vw;
+
+            h1{
+                // margin-top: 59.5vw;
+                padding: 0 10vw;
+                max-width: unset;
+            }
+        }
+    }
+
+    .nature{
+        font-size: 8.5px;
+
+        .right{
+
+            h1, p{
+                margin-right: 15px;
+                margin-left: 15px;
+            }
+        }
+    }
+
     .know{
+
+        h1{
+
+            br{
+                display: none;
+            }
+        }
 
         .group-buttons{
             width: 100%;

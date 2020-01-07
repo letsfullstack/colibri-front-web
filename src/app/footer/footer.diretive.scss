@@ -71,6 +71,8 @@ footer-diretive{
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    text-decoration: unset;
+                    font-size: 15px;
     
                     &:not(:last-of-type){
                         margin-right: 10px;

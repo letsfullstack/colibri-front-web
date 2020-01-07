@@ -24,6 +24,7 @@ import { HomeComponent } from './home/home.component'
 import { SubComponent } from './sub/sub.component'
 import { ContactComponent } from './contact/contact.component'
 import { CatalogFindComponent } from './catalog-find/catalog-find.component'
+import { ProductComponent } from './product/product.component'
 
 import { NewsDiretive } from './newsletter/newsletter.diretive'
 import { CatalogBlogDiretive } from './catalog-blog/catalog-blog.diretive'
@@ -46,7 +47,8 @@ const COMPONENTS_IMPORTS = [
     HomeComponent,
     SubComponent,
     ContactComponent,
-    CatalogFindComponent
+    CatalogFindComponent,
+    ProductComponent
 ]
 
 const SERVICES_IMPORTS = [
@@ -92,19 +94,45 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
     $locationProvider.html5Mode(true)
 
     $logProvider.debugEnabled(true)
-    
+
     ngMetaProvider.setDefaultTitle('Colibri');
 
     ngMetaProvider.useTitleSuffix(true)
-    
+
     // ngMetaProvider.setDefaultTitleSuffix(' | Best Website on the Internet!')
 
     ngMetaProvider.setDefaultTag('author', 'Lets Comunicação')
-    
+
     window.moment.locale('pt-BR');
 
-}).run(['ngMeta', ConstructorModule])
+}).run(['ngMeta', '$transitions', ConstructorModule])
 
-function ConstructorModule(ngMeta) {
+function ConstructorModule(ngMeta, $transitions) {
     ngMeta.init();
+
+    $transitions.onSuccess({}, (s) => {
+        s.promise.then(res => setTimeout(() => {
+            window.scrollTo(0, 0)
+            if (res.name === '/') {
+                $('navbar-diretive').removeClass('invert')
+                $("main").css("margin-top", "0px")
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 200)
+                        $('navbar-diretive').addClass('invert')
+                    else
+                        $('navbar-diretive').removeClass('invert')
+                })
+            }
+            else if (res.name !== '/' && res.name !== '') {
+                $(window).off("scroll")
+                $('navbar-diretive').addClass('invert')
+                $("main").css("margin-top", "90px")
+            }
+            $("body, main").css({ "opacity": "1", "overflow": "auto", "transition" : "opacity 300ms" })
+        }, 500))
+    })
+
+    $transitions.onExit({}, () => {
+        $("main").css({ "opacity": "0", "overflow": "hide", "transition" : "none" })
+    })
 }

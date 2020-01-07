@@ -7,7 +7,7 @@ navbar-diretive{
     background-color: transparent;
     top: 0;
     font-size: 10px;
-    z-index: 1000;
+    z-index: 9999;
     transition: background 300ms;
 
     &.invert{
@@ -17,6 +17,16 @@ navbar-diretive{
 
             img{
                 filter: brightness(0) invert(1);
+            }
+
+            .navigation{
+
+                .dropdown{
+    
+                    .dropdown-toggle{
+                        color: white;
+                    }
+                }
             }
         }
     }
@@ -28,6 +38,7 @@ navbar-diretive{
         align-items: center;
 
         img{
+            cursor: pointer;
             filter: brightness(0.5) invert(0);
         }
 
@@ -62,7 +73,7 @@ navbar-diretive{
                         font-size: 0.8em;
                     }
 
-                    color: white;
+                    color: #242635;
                     text-decoration: none;
                     font-size: 1.6em;
                     display: flex;
@@ -70,7 +81,7 @@ navbar-diretive{
                 }
             }
 
-            @media (max-width: 992px){
+            @media (max-width: 991.98px){
                 display: none;
             }
         }
@@ -95,6 +106,12 @@ navbar-diretive{
 
                 &:not(:last-of-type){
                     margin-right: 15px;
+                }
+
+                @media (max-width: 575.98px){
+                    width: 35px;
+                    height: 35px;
+                    font-size: 1.4em;
                 }
             }
         }

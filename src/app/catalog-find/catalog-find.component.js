@@ -14,6 +14,8 @@ export const CatalogFindComponent = {
 
 function CatalogFindController($scope, ngMeta, MetaService) {
   var vm = this
+
+  vm.width = window.innerWidth
   
   vm.colors = [
     { color : "#724040" },
