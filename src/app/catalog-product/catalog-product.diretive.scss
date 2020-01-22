@@ -1,5 +1,4 @@
 catalog-product-diretive{
-
     .products{
         display: flex;
         padding-top: 100px;
@@ -43,7 +42,9 @@ catalog-product-diretive{
                 font-size: 1.4em;
                 font-weight: 500;
                 color: #00ca7a;
-
+                display: flex;
+                justify-content: space-between;
+                width: 230px;
                 &:hover{
                     border-color: transparent;
                     color: white;
@@ -62,6 +63,7 @@ catalog-product-diretive{
                 cursor: pointer;
                 
                 img{
+                    border-radius: 5px;
                     margin-bottom: 25px;
                     width: inherit;
                 }

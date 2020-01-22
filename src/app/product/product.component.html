@@ -45,10 +45,12 @@
                 <span class="end">04</span>
                 <div class="prev-next">
                     <div class="swiper-button-prev">
-                        <i class="fas fa-arrow-left"></i>
+                        <!-- <i class="fas fa-arrow-left"></i> -->
+                        ←
                     </div>
                     <div class="swiper-button-next">
-                        <i class="fas fa-arrow-right"></i>
+                        <!-- <i class="fas fa-arrow-right"></i> -->
+                        →
                     </div>
                 </div>
             </div>
@@ -111,6 +113,19 @@
     </div>
 </section>
 
-<catalog-product-diretive title="Produtos relacionados."
+<div class="background-catalog"><catalog-product-diretive class="catalog-product" title="Produtos relacionados."
     description="Esses são os produtos similares ao produto atual.<br>Que tal conhecê-los?" products="vm.products">
-</catalog-product-diretive>
+</catalog-product-diretive></div>
+
+<section class="newsletter">
+    <img src="../../assets/img/news.png" alt="">
+    <div class="overlay">
+        <h1>Newsletter</h1>
+        <p>Digite seu endereço de e-mail abaixo e receba novidades e ofertas<br> promocionais da nossa equipe especializada.
+        </p>
+        <form action="">
+            <input type="email" placeholder="Digite seu e-mail">
+            <button type="submit">Inscreva-se!</button>
+        </form>
+    </div>
+</section>

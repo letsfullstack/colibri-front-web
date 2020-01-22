@@ -1,7 +1,9 @@
 section {
     font-size: 10px;
 }
-
+.background-catalog{
+    background: #F5F5F5;
+}
 #product {
     .top {
         display: flex;
@@ -19,22 +21,22 @@ section {
             align-items: center;
             position: relative;
 
-            &:before {
-                content: "🡒";
-                position: absolute;
-                width: 80px;
-                height: 80px;
-                box-shadow: 5px 0px 20px 0 rgba(0, 0, 0, 0.2);
-                background-color: #ffffff;
-                right: -40px;
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 40px;
-                padding-top: 8px;
-                z-index: 1000;
-            }
+            // &:before {
+            //     content: "🡒";
+            //     position: absolute;
+            //     width: 80px;
+            //     height: 80px;
+            //     box-shadow: 5px 0px 20px 0 rgba(0, 0, 0, 0.2);
+            //     background-color: #ffffff;
+            //     right: -40px;
+            //     border-radius: 50%;
+            //     display: flex;
+            //     align-items: center;
+            //     justify-content: center;
+            //     font-size: 40px;
+            //     padding-top: 8px;
+            //     z-index: 1000;
+            // }
 
             .content{
                 width: 475px;
@@ -43,10 +45,10 @@ section {
                     background-color: transparent;
                     padding: 0;
                     margin-bottom: 30px;
-    
+                    
                     .breadcrumb-item {
                         color: #22222d !important;
-    
+                        font-size: 14px;
                         &:not(:first-of-type):before {
                             content: "⟶";
                             font-weight: bold;
@@ -64,6 +66,7 @@ section {
                     color: #22222d;
                     letter-spacing: -0.85px;
                     line-height: 1;
+                    font-weight: 400;
                 }
     
                 .cod {
@@ -197,15 +200,15 @@ section {
                 .prev-next {
                     display: flex;
                     margin-left: 6.3vw;
-
                     .swiper-button-prev,
                     .swiper-button-next {
+                        outline: none;
                         position: relative;
                         right: 0;
                         left: 0;
                         top: 0;
                         background: none;
-                        font-size: 2.2em;
+                        font-size: 3em;
                         display: flex;
                         align-items: center;
                         width: unset;
@@ -407,6 +410,117 @@ section {
 
             .right{
                 font-size: 8px;
+            }
+        }
+    }
+}
+.newsletter{
+    height: 440px;
+    position: relative;
+
+    img{
+        width: 100%;
+        height: inherit;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .overlay{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        // background-color: rgba(0,0,0,0.9);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        h1, p{
+            text-align: center;
+            color: #ffffff;
+        }
+
+        h1{
+            font-size: 4.0em;
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 30px;
+            letter-spacing: -0.85px;
+        }
+
+        p{
+            font-size: 1.6em;
+            line-height: 1.75;
+            letter-spacing: -0.5px;
+            margin-bottom: 40px;
+        }
+
+        form{
+
+            input, button{
+                padding: 20px 25px;
+                width: 270px;
+                border-radius: 5px;
+                box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+                border: none;
+                font-size: 1.4em;
+                height: 60px;
+            }
+
+            input{
+                background-color: #ffffff;
+                margin-right: 15px;
+            }
+
+            button{
+                background-color: #25e779;
+                color: white;
+            }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+
+    .newsletter{
+        
+        .overlay{
+            padding: 0 15px;
+
+            form{
+                display: flex;
+                flex-direction: column;
+                width: 400px;
+
+                button, input{
+                    width: 100%;
+                }
+
+                input{
+                    text-align: center;
+                    margin: 0 0 20px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    
+    .newsletter{
+        
+        .overlay{
+
+            p{
+
+                br{
+                    display: none;
+                }
+            }
+
+            form{
+                width: 100%;
             }
         }
     }

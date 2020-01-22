@@ -2,13 +2,13 @@
     <div class="row">
 
         <div class="col-12 d-block d-md-none title">
-            
+
             <div class="d-flex justify-content-between align-items-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">home</a></li>
                     <li class="breadcrumb-item active">produtos</li>
                 </ol>
-    
+
                 <button class="filter" ng-click="vm.filter = !vm.filter">
                     filtro
                     <i class="fas fa-filter"></i>
@@ -19,7 +19,7 @@
         </div>
 
         <div class="col-12 col-md-4 filter" ng-if="vm.filter || vm.width > 992">
-            
+
             <ol class="breadcrumb d-none d-md-flex">
                 <li class="breadcrumb-item"><a href="#">home</a></li>
                 <li class="breadcrumb-item active">produtos</li>
@@ -153,7 +153,9 @@
                         <span>largura</span>
                     </div>
                     <div class="bot">
-                        <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+                        <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
+                        <rzslider rz-slider-model="slider.minValue" rz-slider-high="slider.maxValue"
+                            rz-slider-options="slider.options"></rzslider>
                         <div class="lenght">
                             <span>100mm</span>
                             <span>2000mm</span>
@@ -167,7 +169,8 @@
                         <span>altura</span>
                     </div>
                     <div class="bot">
-                        <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+                        <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
+
                         <div class="lenght">
                             <span>100mm</span>
                             <span>2000mm</span>
@@ -181,7 +184,8 @@
                         <span>profundidade</span>
                     </div>
                     <div class="bot">
-                        <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+                        <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
+
                         <div class="lenght">
                             <span>100mm</span>
                             <span>2000mm</span>
@@ -205,5 +209,18 @@
 
             <button class="more">carregar mais</button>
         </div>
+    </div>
+</section>
+<section class="newsletter">
+    <img src="../../assets/img/news.png" alt="">
+    <div class="overlay">
+        <h1>Newsletter</h1>
+        <p>Digite seu endereço de e-mail abaixo e receba novidades e ofertas<br> promocionais da nossa equipe
+            especializada.
+        </p>
+        <form action="">
+            <input type="email" placeholder="Digite seu e-mail">
+            <button type="submit">Inscreva-se!</button>
+        </form>
     </div>
 </section>

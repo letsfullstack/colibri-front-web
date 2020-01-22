@@ -1,4 +1,4 @@
-$height: 90px;
+$height: 115px;
 
 navbar-diretive{
     display: block;
@@ -17,6 +17,7 @@ navbar-diretive{
 
             img{
                 filter: brightness(0) invert(1);
+                
             }
 
             .navigation{
@@ -99,9 +100,20 @@ navbar-diretive{
                 border-radius: 50%;
                 font-size: 1.6em;
 
+                cursor: pointer;
                 a{  
                     color: #000000;
                     text-decoration: none;
+                    display: flex;
+                    justify-content: center;
+                    i{
+                        font-weight: 650;
+                    }
+                    img{
+                        border-radius: 40px;
+                        height: 27px;
+                        filter: brightness(1) invert(0);
+                    }
                 }
 
                 &:not(:last-of-type){
