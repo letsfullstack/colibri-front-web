@@ -16,6 +16,8 @@ import Swiper from 'swiper/dist/js/swiper.js';
 import * as $ from 'jquery'
 import Swal from 'sweetalert2'
 import moment from 'moment';
+import slider from 'angularjs-slider';
+
 
 import Constants from './app.constants'
 
@@ -37,6 +39,7 @@ import MetaService from './services/meta.service'
 
 const MODULE_IMPORTS = [
     ngResource,
+    slider,
     'ui.router',
     'ngMeta',
     'ui.mask',
@@ -63,6 +66,8 @@ const DIRETIVES_IMPORTS = [
     CatalogBlogDiretive,
     CatalogProductDiretive
 ]
+
+// angular.module('yourApp', [])
 
 var app = angular.module(AppComponent.selector, MODULE_IMPORTS)
 
