@@ -2,7 +2,7 @@ import './product.component.scss';
 
 export const ProductComponent = {
   options: {
-    url: '/product',
+    url: '/product/:category/:ambient/:slug/:id ',
     selector: 'product',
     template: require("./product.component.html"),
     controller: ProductController.name,
