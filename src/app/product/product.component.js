@@ -1,45 +1,69 @@
 import './product.component.scss';
 
 export const ProductComponent = {
-  options: {
-    url: '/product',
-    selector: 'product',
-    template: require("./product.component.html"),
-    controller: ProductController.name,
-    controllerAs: "vm",
-    authenticate: false
-  },
-  controller: ["$scope", "ngMeta", ProductController]
+	options: {
+		url: '/produto/:ambient/:category/:slug/:id',
+		selector: 'product',
+		template: require("./product.component.html"),
+		controller: ProductController.name,
+		controllerAs: "vm",
+		authenticate: false
+	},
+	controller: ["$scope", "$rootScope", "$state", "ngMeta", "$stateParams", "HttpService", ProductController]
 }
 
-function ProductController($scope, ngMeta) {
-  var vm = this
+function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, HttpService) {
+	var vm = this;
 
-  vm.products = [
-    { name : "Bancada", location : "Astúrias", img : "https://w1.ezcdn.com.br/abouthome/fotos/grande/9922fg1/bancada-gourmet-dobravel-para-cozinha-bliv-castanho-e-branco.jpg" },
-    { name : "Home Suspenso", location : "Salinas", img : "https://a-static.mlcdn.com.br/618x463/painel-home-suspenso-greco-para-tv-ate-65-polegadas-dj-moveis/trilar/6789/6165500bbde2ade854012b7af006b5ae.jpg" },
-    { name : "Roupeiro", location : "Recife", img : "https://moveissimonetti.vteximg.com.br/arquivos/ids/7378918-1000-1000/56665.jpg?v=636582783658400000" },
-    { name : "Bancada", location : "Ilhabela", img : "https://w1.ezcdn.com.br/abouthome/fotos/grande/9922fg1/bancada-gourmet-dobravel-para-cozinha-bliv-castanho-e-branco.jpg" },
-  ]
+	vm.produto = null;
+	vm.produtos_relacionados = null;
+	vm.cor = null;
 
-  vm.colors = [
-    { color : "#724040" },
-    { color : "#d2c4b8" },
-    { color : "#b3a37f" },
-    { color : "#eaeaea" }
-  ]
-  
-  setTimeout(() => new Swiper('#product .swiper-container', {
-    slidesPerView: 1,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-    }
-  }).on('slideChange', function () { $('span.init').text(`0${this.activeIndex + 1}`) }), 300)
+	if($stateParams.id){
+		HttpService.get("/produtos/get-produto/", {id: $stateParams.id}).then(function(resp){
+			vm.produto = resp.data.data.produto;
+			vm.produtos_relacionados = resp.data.data.relacionados;
 
-  
+			if(!vm.checkSlugs()){
+				$state.go("/");
+			}
+			vm.produto.produtocor.forEach(function(elm, idx){
+				if(elm.destaque){
+					vm.cor = idx;
+				}
+				elm.imagemprincipal = {};
+				elm.produtoimagem.forEach(function(value, i){
+					if(value.principal){
+						elm.imagemprincipal = value;
+						delete elm.produtoimagem[i];
+					}
+				});
+				elm.produtoimagem = array.filter(function (el) {
+					return el != null;
+				});
+			});
+		}, function(err){
+			$state.go("/");
+			console.log(err);
+		});
+	}
+
+	vm.checkSlugs = () => {
+		if($stateParams.category != vm.produto.categoriaproduto.slug || $stateParams.ambient != vm.produto.categoriaproduto.ambiente.slug || $stateParams.slug != vm.produto.slug){
+			return false;
+		}
+		return true;
+	}
+
+	setTimeout(() => new Swiper('#product .swiper-container', {
+		slidesPerView: 1,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		pagination: {
+			el: '.swiper-pagination',
+			type: 'bullets',
+		}
+	}).on('slideChange', function () { $('span.init').text(`0${this.activeIndex + 1}`) }), 300)
 }

@@ -1,6 +1,6 @@
 export default {
     name: 'MetaService',
-    service: ['constants', function (constants) {
+    function: ['constants', function (constants) {
         // console.log(constants)
     }]
 }

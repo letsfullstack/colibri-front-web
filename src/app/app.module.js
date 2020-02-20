@@ -17,9 +17,9 @@ import * as $ from 'jquery'
 import Swal from 'sweetalert2'
 import moment from 'moment';
 import slider from 'angularjs-slider';
+import 'bootstrap';
 
-
-import Constants from './app.constants'
+import { HttpWebService } from './services/http.service'
 
 import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
@@ -27,6 +27,8 @@ import { SubComponent } from './sub/sub.component'
 import { ContactComponent } from './contact/contact.component'
 import { CatalogFindComponent } from './catalog-find/catalog-find.component'
 import { ProductComponent } from './product/product.component'
+
+import Constants from './app.constants'
 
 import { NewsDiretive } from './newsletter/newsletter.diretive'
 import { CatalogBlogDiretive } from './catalog-blog/catalog-blog.diretive'
@@ -55,7 +57,8 @@ const COMPONENTS_IMPORTS = [
 ]
 
 const SERVICES_IMPORTS = [
-    MetaService
+    MetaService,
+    HttpWebService
 ]
 
 const DIRETIVES_IMPORTS = [
@@ -80,8 +83,9 @@ app.component(AppComponent.selector, AppComponent)
 
 app.constant("constants", Constants)
 
+
 for (const SERVICE of SERVICES_IMPORTS)
-    app.service(SERVICE.name, SERVICE.service)
+    app.service(SERVICE.name, SERVICE.function)
 
 for (const COMPONENT of COMPONENTS_IMPORTS)
     app.controller(COMPONENT.options.controller, COMPONENT.controller)
@@ -110,9 +114,19 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
 
     window.moment.locale('pt-BR');
 
-}).run(['ngMeta', '$transitions', ConstructorModule])
+}).run(['ngMeta', '$transitions', 'constants', '$rootScope', ConstructorModule])
 
-function ConstructorModule(ngMeta, $transitions) {
+function ConstructorModule(ngMeta, $transitions, constants, $rootScope) {
+    $rootScope.getCurrentEnvironment = () => {
+		if (ENV === "development") {
+			return constants.dev;
+		} else if (ENV === "production") {
+			return constants.production;
+		}
+    }
+
+    $rootScope.SERVER_URL = $rootScope.getCurrentEnvironment().SERVER_URL;
+    
     ngMeta.init();
 
     $transitions.onSuccess({}, (s) => {
