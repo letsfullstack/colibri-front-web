@@ -19,6 +19,10 @@ export const CatalogProductDiretive = {
 function CatalogProductController($scope, $element) {
   var vm = this
 
+  setTimeout(function(){
+    console.log(vm.products)
+  })
+
   setTimeout(() => new Swiper('catalog-product-diretive .swiper-container', {
     slidesPerView: 2,
     spaceBetween: 20,

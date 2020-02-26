@@ -1,18 +1,10 @@
-export const Constant = {
-    local: {
-        SERVER_URL: "http://localhost:3000/",
-        PROD: false
-    },
+export default {
     dev: {
-        SERVER_URL: "http://www.baseweb.com.br/",
-        PROD: true
-    },
-    test: {
-        SERVER_URL: "http://testing.baseweb.com/",
+        SERVER_URL: "http://localhost:3000/api",
         PROD: false
     },
     production: {
-        SERVER_URL: "http://app.baseweb.com/",
+        SERVER_URL: "http://colibri.letscomunica.com.br/api",
         PROD: true
     }
 }

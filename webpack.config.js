@@ -2,7 +2,10 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const AssetsPlugin = require('assets-webpack-plugin')
 
 const rules = [
   {
@@ -38,16 +41,11 @@ const rules = [
   {
     test: /\.scss$/,
     use: [
+      {loader: MiniCssExtractPlugin.loader}, 
+      "css-loader",  
       {
-        loader: 'style-loader'
-      },
-      {
-        loader: 'css-loader',
-        options: { sourceMap: true }
-      },
-      {
-        loader: 'sass-loader',
-        options: { sourceMap: true }
+        loader: "sass-loader",
+        options: {sourceMap: false}
       }
     ]
   },
@@ -64,7 +62,7 @@ const rules = [
 const plugins = [
   new webpack.ProgressPlugin(),
   new webpack.DefinePlugin({
-    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    'ENV': JSON.stringify(process.env.NODE_ENV)
   }),
   new HtmlWebpackPlugin({
     minify: false,
@@ -75,6 +73,21 @@ const plugins = [
   new FaviconsWebpackPlugin({
     logo: 'src/favicon.png',
     inject: true
+  }),
+  new CopyPlugin([
+    { from: 'src/assets/fonts/Gordita_Regular.woff', to: path.resolve(__dirname, 'build')},
+    { from: 'src/assets/fonts/Gordita_Medium.woff', to: path.resolve(__dirname, 'build')},
+    { from: 'src/assets/fonts/Gordita_Light.woff', to: path.resolve(__dirname, 'build')},
+    { from: 'src/assets/fonts/Gordita_Bold.woff', to: path.resolve(__dirname, 'build')},
+    // { from: 'src/robots.txt', to: path.resolve(__dirname, 'build')},
+  ]),
+  new webpack.ProvidePlugin({
+    // jQuery: 'jquery',
+    // $: 'jquery',
+    Popper: ['popper.js', 'default']
+  }),
+  new MiniCssExtractPlugin({  
+    filename: "css/[name].css"  
   })
 ];
 
@@ -93,6 +106,7 @@ if (process.env.NODE_ENV === 'production') {
     })
   );
 }
+
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -123,7 +137,7 @@ module.exports = {
     filename: '[name].bundle-[hash]-[id].js',
     chunkFilename: '[name].chunk-[hash]-[id].js',
     sourceMapFilename: '[name].bundle-[hash]-[id].map',
-    path: path.join(__dirname, 'build')
+    path: path.join(__dirname, 'build')    
   },
   optimization: {
     splitChunks: {
@@ -138,9 +152,9 @@ module.exports = {
     minimizer: [new UglifyJsPlugin({
       sourceMap: true,
       uglifyOptions: {
-        beautify: true,
-        mangle: true,
-        ie8: false,
+        beautify : true,
+        mangle   : true,
+        ie8: false,        
         toplevel: false,
         compress: {
           booleans: true,

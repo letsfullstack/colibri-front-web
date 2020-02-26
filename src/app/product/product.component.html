@@ -5,17 +5,17 @@
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">home</a></li>
                     <li class="breadcrumb-item"><a href="#">produtos</a></li>
-                    <li class="breadcrumb-item"><a href="#">sala</a></li>
-                    <li class="breadcrumb-item active">home-theater</li>
+                    <li class="breadcrumb-item"><a href="#">{{vm.produto.categoriaproduto.ambiente.nome.toLowerCase()}}</a></li>
+                    <li class="breadcrumb-item active">{{vm.produto.categoriaproduto.nome.toLowerCase()}}</li>
                 </ol>
-                <h1>Home Vivace</h1>
-                <span class="cod">cod. 2786</span>
-                <button class="release">LANÇAMENTO</button>
+                <h1>{{vm.produto.nome}}</h1>
+                <span class="cod">cod. {{vm.produto.codigo}}</span>
+                <button class="release" ng-show="vm.produto.lancamento">LANÇAMENTO</button>
                 <div class="colors">
                     <span>Cores disponiveis:</span>
-                    <label class="color" ng-repeat="color in vm.colors">
-                        <input type="radio" name="f_color">
-                        <span class="checkmark" ng-style="{ 'background-color' : color.color }"></span>
+                    <label class="color" ng-repeat="(key, value) in vm.produto.produtocor" title="{{value.descricao}}">
+                        <input type="radio" name="f_color" ng-model="vm.cor" ng-click="vm.changeColor(value)" ng-value="key">
+                        <span class="checkmark" ng-style="{'background-color' : value.cor}" ></span>
                     </label>
                 </div>
                 <span class="have">Tenha esse produto em sua loja!</span>
@@ -26,23 +26,14 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <img class="swiper-slide"
-                        src="https://birchtree.me/wp-content/uploads/2018/06/macbook.98f3039efbb14049a68480fe2ae36844.jpg"
-                        alt="">
-                    <img class="swiper-slide"
-                        src="https://birchtree.me/wp-content/uploads/2018/06/macbook.98f3039efbb14049a68480fe2ae36844.jpg"
-                        alt="">
-                    <img class="swiper-slide"
-                        src="https://birchtree.me/wp-content/uploads/2018/06/macbook.98f3039efbb14049a68480fe2ae36844.jpg"
-                        alt="">
-                    <img class="swiper-slide"
-                        src="https://birchtree.me/wp-content/uploads/2018/06/macbook.98f3039efbb14049a68480fe2ae36844.jpg"
-                        alt="">
+                        ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}"
+                        alt="Foto de {{vm.produto.nome}}" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem">
                 </div>
             </div>
             <div class="bottom">
                 <span class="init">01</span>
                 <div class="swiper-pagination"></div>
-                <span class="end">04</span>
+                <span class="end">{{(vm.produto.produtocor[vm.cor].produtoimagem.length).toString().padStart(2, "0");}}</span>
                 <div class="prev-next">
                     <div class="swiper-button-prev">
                         <!-- <i class="fas fa-arrow-left"></i> -->
@@ -58,7 +49,7 @@
     </div>
     <div class="bottom">
         <img class="left"
-            src="https://www.ikeahackers.net/wp-content/uploads/blogger/-FSm4Ihmn_EM/UEE6PaVzIcI/AAAAAAAApbQ/TSgZlyUsNlc/s1600/Side+View-729035.jpg"
+            src="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.produtocor[vm.cor].imagemprincipal.arquivo}}"
             alt="">
         <div class="right">
             <div class="characteristics">
@@ -67,33 +58,33 @@
                         <i class="fas fa-arrows-alt-h"></i>
                         <span class="tag">largura</span>
                         <span class="other">width/largo</span>
-                        <span class="unit">1600mm</span>
+                        <span class="unit">{{vm.produto.largura}}mm</span>
                     </li>
                     <li class="characteristic">
                         <i class="fas fa-arrows-alt-v"></i>
                         <span class="tag">altura</span>
                         <span class="other">height/alto</span>
-                        <span class="unit">1620mm</span>
+                        <span class="unit">{{vm.produto.altura}}mm</span>
                     </li>
                     <li class="characteristic">
                         <i class="fas fa-arrows-alt-h"></i>
                         <span class="tag">profundidade</span>
                         <span class="other">weight/peso</span>
-                        <span class="unit">326mm</span>
+                        <span class="unit">{{vm.produto.profundidade}}mm</span>
                     </li>
                     <li class="characteristic">
                         <i class="fas fa-cube"></i>
                         <span class="tag">cubagem</span>
                         <span class="other">cubing/cubicaje</span>
-                        <span class="unit">326mm</span>
+                        <span class="unit">{{vm.produto.cubagem}}mm</span>
                     </li>
                     <li class="characteristic">
                         <i class="fas fa-weight-hanging"></i>
                         <span class="tag">peso</span>
                         <span class="other">weight/peso</span>
-                        <span class="unit">57.90kg</span>
+                        <span class="unit">{{vm.produto.peso}}kg</span>
                     </li>
-                    <li class="characteristic">
+                    <li class="characteristic" style="display: none;">
                         <i class="fas fa-tv"></i>
                         <span class="tag">tv</span>
                         <span class="other">Tamanho/size</span>
@@ -101,20 +92,17 @@
                     </li>
                 </ul>
                 <p class="description">
-                    Seu design exclusivo reúne em um só produto amplo espaço interno de bancada, adega para 8 garrafas,
-                    cristaleira com iluminação de led toda em vidro, inclusive prateleiras. No painel, que suporta TVs
-                    de
-                    até 55", há mais duas prateleiras de vidro para você expor seus itens de decoração favoritos.
+                    {{vm.produto.descricao}}
                 </p>
-                <a class="image" href=""><i class="fas fa-cloud-download-alt"></i>Baixar imagens</a>
-                <a class="schema" href=""><i class="fas fa-cloud-download-alt"></i>Baixar esquema de montagem</a>
+                <a class="image" ng-show="vm.produto.arquivo_imagens" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.arquivo_imagens}}"><i class="fas fa-cloud-download-alt"></i>Baixar imagens</a>
+                <a class="schema" ng-show="vm.produto.esquema_montagem" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.esquema_montagem}}"><i class="fas fa-cloud-download-alt"></i>Baixar esquema de montagem</a>
             </div>
         </div>
     </div>
 </section>
 
 <div class="background-catalog"><catalog-product-diretive class="catalog-product" title="Produtos relacionados."
-    description="Esses são os produtos similares ao produto atual.<br>Que tal conhecê-los?" products="vm.products">
+    description="Esses são os produtos similares ao produto atual.<br>Que tal conhecê-los?" products="vm.produtos_relacionados">
 </catalog-product-diretive></div>
 
 <section class="newsletter">

@@ -6,10 +6,10 @@
     <div class="mid">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide product" ui-sref="/product" ng-repeat="product in vm.products">
-                    <img src="{{product.img}}" alt="" style="max-width: 270px; max-width: 270px;">
-                    <h2>{{product.name}}</h2>
-                    <h3>{{product.location}}</h3>
+                <div class="swiper-slide product" ui-sref="product({ambient: product.slug_ambiente, category: product.slug_categoria, slug: product.slug_produto, id: product.id})" ng-repeat="product in vm.products">
+                    <img src="{{$root.SERVER_URL}}/upload/uploads/download/{{product.produto_imagem}}" alt="" style="width: 270px; height: 270px;">
+                    <h2>{{product.nome}}</h2>
+                    <h3>{{product.ambiente.nome}}</h3>
                 </div>
             </div>
         </div>
@@ -18,10 +18,10 @@
         <button ui-sref="/catalog"><span>todos os produtos </span><span>⟶</span></button>
     </div>
     <div class="list row">
-        <div class="col-3 product" ui-sref="/product" ng-repeat="product in vm.products">
-            <img src="{{product.img}}" alt="" style="max-width: 270px; max-width: 270px;">
-            <h2>{{product.name}}</h2>
-            <h3>{{product.location}}</h3>
+        <div class="col-3 product" ui-sref="product({ambient: product.slug_ambiente, category: product.slug_categoria, slug: product.slug_produto, id: product.id})" ng-repeat="product in vm.products">
+            <img src="{{$root.SERVER_URL}}/upload/uploads/download/{{product.produto_imagem}}" alt="" style="width: 270px; height: 270px;">
+            <h2>{{product.nome}}</h2>
+            <h3>{{product.ambiente.nome}}</h3>
         </div>
     </div>
 </section>

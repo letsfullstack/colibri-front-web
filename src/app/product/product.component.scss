@@ -234,8 +234,10 @@ section {
 
         .left {
             width: 50%;
-            object-fit: cover;
             object-position: center;
+            -webkit-transition: all .3s ease-in-out;
+            -moz-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
         }
 
         .right {
