@@ -3,7 +3,7 @@ import './product.component.scss';
 export const ProductComponent = {
 	options: {
 		url: '/produto/:ambient/:category/:slug/:id',
-		selector: 'product',
+		state: 'product',
 		template: require("./product.component.html"),
 		controller: ProductController.name,
 		controllerAs: "vm",
@@ -25,7 +25,7 @@ function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, Htt
 			vm.produtos_relacionados = resp.data.data.relacionados;
 
 			if(!vm.checkSlugs()){
-				$state.go("/");
+				//$state.go("/");
 			}
 			vm.produto.produtocor.forEach(function(elm, idx){
 				if(elm.destaque){
@@ -37,9 +37,6 @@ function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, Htt
 						elm.imagemprincipal = value;
 						delete elm.produtoimagem[i];
 					}
-				});
-				elm.produtoimagem = array.filter(function (el) {
-					return el != null;
 				});
 			});
 		}, function(err){

@@ -98,7 +98,7 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
     $urlRouterProvider.otherwise('/')
 
     for (const COMPONENT of COMPONENTS_IMPORTS)
-        $stateProvider.state(COMPONENT.options.url, COMPONENT.options)
+        if (COMPONENT.options.state) $stateProvider.state(COMPONENT.options.state, COMPONENT.options)
 
     $locationProvider.html5Mode(true)
 

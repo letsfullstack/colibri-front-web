@@ -3,7 +3,7 @@ import './catalog-find.component.scss';
 export const CatalogFindComponent = {
 	options: {
 		url: '/catalog',
-		selector: 'catalogFind',
+		state: 'catalogFind',
 		template: require("./catalog-find.component.html"),
 		controller: CatalogFindController.name,
 		controllerAs: "vm",
@@ -18,34 +18,47 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	vm.width = window.innerWidth;
 
 	vm.filter = {};
-	vm.filter.lancamentos = false;
-
 	vm.filters = {};
+	vm.products = [];
+
+	vm.filter.lancamentos = false;
 	vm.ambienteSelected = null;
-
 	$scope.tabSliders = {};
-
+	
 	HttpService.get("/produtos/get-atributos-busca/", {id: $stateParams.id}).then(function(resp){
 		vm.filters = resp.data;
-
 		vm.setSliders();
-		
+
 		$timeout(function () {
 			$scope.$broadcast('rzSliderForceRender');
+			vm.filtrar();
 		}, 1000);
 	});
 	
-
-	$scope.$watch('vm.ambienteSelected', function(newValue, oldValue) {
-		//console.log(newValue);
-	});
-
 	vm.setIdxAmbiente = function(idx){
 		vm.ambienteSelected = idx;
 	}
 
-	vm.filtrar = function(){
-		console.log(vm.filter);
+	vm.filtrar = function(offset){
+		$(".list").fadeOut();
+		$(".container-loader").show();
+		vm.filter.largura = $scope.tabSliders.slider1;
+		vm.filter.altura = $scope.tabSliders.slider2;
+		vm.filter.profundidade = $scope.tabSliders.slider3;
+
+		// vm.filter.offset = 0;
+		// if(offset){
+
+		// }
+
+		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
+			$("html, body").animate({ scrollTop: 0 }, "slow");
+			vm.products = resp.data;
+			setTimeout(function(){
+				$(".container-loader").hide();
+				$(".list, .more").fadeIn();
+			}, 400);
+		});
 	}
 
 	vm.setSliders = function(){

@@ -4,8 +4,8 @@
         <h1>Newsletter</h1>
         <p>Digite seu endereço de e-mail abaixo e receba novidades e ofertas<br> promocionais da nossa equipe especializada.
         </p>
-        <form action="">
-            <input type="email" placeholder="Digite seu e-mail">
+        <form ng-submit="vm.subscribe()">
+            <input type="email" ng-model="vm.email" placeholder="Digite seu e-mail">
             <button type="submit">Inscreva-se!</button>
         </form>
     </div>

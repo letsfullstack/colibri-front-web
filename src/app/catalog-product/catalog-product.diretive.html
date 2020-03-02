@@ -15,10 +15,10 @@
         </div>
     </div>
     <div class="right">
-        <button ui-sref="/catalog"><span>todos os produtos </span><span>⟶</span></button>
+        <button ui-sref="catalog"><span>todos os produtos </span><span>⟶</span></button>
     </div>
     <div class="list row">
-        <div class="col-3 product" ui-sref="product({ambient: product.slug_ambiente, category: product.slug_categoria, slug: product.slug_produto, id: product.id})" ng-repeat="product in vm.products">
+        <div class="col-3 product mw-100" ui-sref="product({ambient: product.slug_ambiente, category: product.slug_categoria, slug: product.slug_produto, id: product.id})" ng-repeat="product in vm.products">
             <img src="{{$root.SERVER_URL}}/upload/uploads/download/{{product.produto_imagem}}" alt="" style="width: 270px; height: 270px;">
             <h2>{{product.nome}}</h2>
             <h3>{{product.ambiente.nome}}</h3>
