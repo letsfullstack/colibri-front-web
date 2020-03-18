@@ -52,6 +52,12 @@ button {
     src: url("/Gordita_Black.woff") format("woff");
 }
 
+@font-face {
+    font-family: "Font Awesome 5 Pro Light 300";
+    font-weight: 300!important;
+    src: url("/Font-Awesome-5-Pro-Light-300.woff") format("woff");
+}
+
 .container-loader{
     display: flex;
     align-items: center;

@@ -94,8 +94,10 @@
                 <p class="description">
                     {{vm.produto.descricao}}
                 </p>
-                <a class="image" ng-show="vm.produto.arquivo_imagens" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.arquivo_imagens}}"><i class="fas fa-cloud-download-alt"></i>Baixar imagens</a>
-                <a class="schema" ng-show="vm.produto.esquema_montagem" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.esquema_montagem}}"><i class="fas fa-cloud-download-alt"></i>Baixar esquema de montagem</a>
+                <div class="download">
+                    <a class="image" ng-show="vm.produto.arquivo_imagens" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.arquivo_imagens}}"><i class="fal fa-cloud-download"></i>Baixar imagens</a>
+                    <a class="schema" ng-show="vm.produto.esquema_montagem" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.esquema_montagem}}"><i class="fal fa-cloud-download"></i>Baixar esquema de montagem</a>
+                </div>
             </div>
         </div>
     </div>

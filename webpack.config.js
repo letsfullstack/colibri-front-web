@@ -79,6 +79,7 @@ const plugins = [
     { from: 'src/assets/fonts/Gordita_Medium.woff', to: path.resolve(__dirname, 'build')},
     { from: 'src/assets/fonts/Gordita_Light.woff', to: path.resolve(__dirname, 'build')},
     { from: 'src/assets/fonts/Gordita_Bold.woff', to: path.resolve(__dirname, 'build')},
+    { from: 'src/assets/fonts/Font-Awesome-5-Pro-Light-300.woff', to: path.resolve(__dirname, 'build')},
     // { from: 'src/robots.txt', to: path.resolve(__dirname, 'build')},
   ]),
   new webpack.ProvidePlugin({

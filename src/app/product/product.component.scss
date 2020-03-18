@@ -238,6 +238,7 @@ section {
             -webkit-transition: all .3s ease-in-out;
             -moz-transition: all .3s ease-in-out;
             transition: all .3s ease-in-out;
+            object-fit: contain;
         }
 
         .right {
@@ -256,17 +257,18 @@ section {
                         margin-bottom: 15px;
                         display: flex;
                         align-items: center;
-
                         &:last-of-type {
                             margin-bottom: 50px;
                         }
 
                         i {
+                            font-family: "Font Awesome 5 Pro Light 300"!important;
                             font-size: 2.2em;
                             color: #25e779;
                             width: 28px;
                             text-align: center;
                             margin-right: 20px;
+                            font-weight: 300!important;
                         }
 
                         .tag {
@@ -296,7 +298,14 @@ section {
                     line-height: 1.55;
                     color: rgba(0, 0, 0, 0.85);
                 }
-
+                .download{
+                    i{
+                        font-family: "Font Awesome 5 Pro Light 300"!important;
+                        &:before{
+                            content: "\f0ed";
+                        }
+                    }
+                }
                 .image,
                 .schema {
                     font-size: 1.6em;

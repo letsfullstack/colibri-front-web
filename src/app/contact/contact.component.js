@@ -14,7 +14,7 @@ export const ContactComponent = {
 
 function ContactController($scope, ngMeta, MetaService) {
 
-  var map, marker, myLatLng = { lat: -23.4583136, lng: -51.4267799 };
+  var map, marker, myLatLng = { lat: -23.4583392, lng: -51.426856 };
 
   (function initMap() {
     map = new google.maps.Map(document.getElementById('maps'), {
