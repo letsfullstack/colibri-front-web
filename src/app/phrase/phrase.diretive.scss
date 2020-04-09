@@ -2,13 +2,14 @@ phrase-diretive {
     
     #phrase {
         // background-image: url(./assets/img/chair.png);
-        background-image: url(./assets/img/chair.png);
+        background-image: url("assets/img/news.png");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
 
         .overlay {
-            // background-color: rgba(17, 198, 127, 0.9);
+            background-color: rgba(17, 198, 127, 0.9);
+            background-color: #00ca7a;
             padding: 120px 0;
 
             h1,

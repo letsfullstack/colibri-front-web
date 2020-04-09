@@ -6,67 +6,23 @@
     <div class="mid">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide product">
-                    <img src="../../assets/img/a/asd-1.png" alt="">
+                <div class="swiper-slide product" ng-repeat="post in vm.posts" ng-click="vm.open(post.url)">
+                    <img ng-src="{{post.image}}" alt="Imagem do post">
                     <h2>
-                        Título da notícia, postagem
-                        ou evento do blog
-                    </h2>
-                </div>
-                <div class="swiper-slide product">
-                    <img src="../../assets/img/a/asd-2.png" alt="">
-                    <h2>
-                        Título da notícia, postagem
-                        ou evento do blog
-                    </h2>
-                </div>
-                <div class="swiper-slide product">
-                    <img src="../../assets/img/a/asd-3.png" alt="">
-                    <h2>
-                        Título da notícia, postagem
-                        ou evento do blog
-                    </h2>
-                </div>
-                <div class="swiper-slide product">
-                    <img src="../../assets/img/a/asd-4.png" alt="">
-                    <h2>
-                        Título da notícia, postagem
-                        ou evento do blog
+                        {{post.title}}
                     </h2>
                 </div>
             </div>
         </div>
     </div>
     <div class="right">
-        <button><span>todos os posts</span> <span>⟶</span></button>
+        <button ng-click="vm.open($root.getCurrentEnvironment().BLOG_URL)"><span>todos os posts</span> <span>⟶</span></button>
     </div>
     <div class="list row">
-        <div class="col-3 post">
-            <img src="../../assets/img/a/asd-1.png" alt="">
+        <div class="col-3 post" ng-repeat="post in vm.posts" ng-click="vm.open(post.url)">
+            <img ng-src="{{post.image}}" alt="Imagem do post">
             <h2>
-                Título da notícia, postagem
-                ou evento do blog
-            </h2>
-        </div>
-        <div class="col-3 post">
-            <img src="../../assets/img/a/asd-2.png" alt="">
-            <h2>
-                Título da notícia, postagem
-                ou evento do blog
-            </h2>
-        </div>
-        <div class="col-3 post">
-            <img src="../../assets/img/a/asd-3.png" alt="">
-            <h2>
-                Título da notícia, postagem
-                ou evento do blog
-            </h2>
-        </div>
-        <div class="col-3 post">
-            <img src="../../assets/img/a/asd-4.png" alt="">
-            <h2>
-                Título da notícia, postagem
-                ou evento do blog
+                {{post.title}}
             </h2>
         </div>
     </div>

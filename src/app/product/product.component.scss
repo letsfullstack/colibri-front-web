@@ -148,6 +148,13 @@ section {
                     padding: 10px 15px;
                     background: transparent;
                     margin-top: 25px;
+                    transition: all .4s ease;
+                    -webkit-transition: all .4s ease;
+                    &:hover{
+                        border-color: transparent;
+                        color: white;
+                        background: #25e779;
+                    }
                 }
             }
         }
@@ -315,10 +322,14 @@ section {
                     display: flex;
                     align-items: baseline;
                     text-decoration: none;
-
+                    transition: all .4s ease;
+                    -webkit-transition: all .4s ease;
+                    &:hover{
+                        color: rgba(0, 0, 0, 0.85);
+                    }
                     i {
                         font-size: 1.4em;
-                        color: #25e779;
+                        
                         margin-right: 25px;
                     }
                 }
@@ -487,6 +498,11 @@ section {
             button{
                 background-color: #25e779;
                 color: white;
+                transition: all .4s ease;
+                -webkit-transition: all .4s ease;
+                &:hover{
+                    background-color: #109f4e;
+                }
             }
         }
     }

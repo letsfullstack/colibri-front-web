@@ -11,15 +11,16 @@ section{
     }
 
     .left-top, .right-top{
-        height: 650px;
+        height: 70vh;
     }
 
     .left-bottom, .right-bottom{
-        height: 160px;
+        height: 20vh;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 60px 0;
+        cursor: pointer;
     }
 
     .left-top{
@@ -34,7 +35,7 @@ section{
             line-height: 1.15;
             letter-spacing: -1.55px;
             max-width: 315px;
-            margin-top: 285px;
+            margin-top: 230px;
         }
 
         p{
@@ -82,7 +83,10 @@ section{
         .init{
             margin-right: $distance;
         }
-
+        .swiper-button-prev, .swiper-button-next{
+            outline: none!important;
+            display: none;
+        }
         .swiper-pagination {
             position: relative;
             justify-content: center;
@@ -176,15 +180,23 @@ section{
             font-size: 1.4em;  
             font-weight: 500;
             width: 190px;
+            transition: all .4s ease;
+            -webkit-transition: all .4s ease;
         }
 
         .left{
             background-color: #22222d;
             margin-right: 15px;
+            &:hover{
+                background-color: #25e779;
+            }
         }
 
         .right{
             background-color: #25e779;
+            &:hover{
+                background-color: #22222d;
+            }
         }
     }
 }

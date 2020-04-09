@@ -22,7 +22,7 @@ section{
             position: relative;
 
             &:before {
-                content: "⟶";
+                content: "\2192";
                 position: absolute;
                 width: 80px;
                 height: 80px;
@@ -134,6 +134,22 @@ section{
         width: 220px;
         display: flex;
         justify-content: space-between;
+        transition: all .4s ease;
+        -webkit-transition: all .4s ease;
+        &:hover{
+            border-color: transparent;
+            color: white;
+            background: #25e779;
+        }
+    }
+
+    .email{
+
+        h2{
+            font-size: 2.2em;
+            color: #25e779;
+            cursor: pointer;
+        }
     }
 
     .phone{
@@ -141,6 +157,7 @@ section{
         h2{
             font-size: 2.6em;
             color: #25e779;
+            cursor: pointer;
         }
     }
 

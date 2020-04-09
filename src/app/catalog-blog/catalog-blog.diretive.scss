@@ -46,6 +46,8 @@ catalog-blog-diretive{
                 display: flex;
                 justify-content: space-between;
                 width: 230px;
+                transition: all .4s ease;
+                -webkit-transition: all .4s ease;
                 &:hover{
                     border-color: transparent;
                     color: white;
@@ -61,7 +63,7 @@ catalog-blog-diretive{
     
             .post{
                 margin-bottom: $margin;
-                
+                cursor: pointer;
                 img{
                     margin-bottom: 25px;
                     width: inherit;

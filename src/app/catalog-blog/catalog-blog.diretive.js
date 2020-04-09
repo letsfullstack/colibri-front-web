@@ -7,7 +7,7 @@ export const CatalogBlogDiretive = {
         title : "@",
         description : "@"
       },
-      controller: ["$scope", "$element", CatalogBlogController],
+      controller: ["$scope", "$element", "$http", "$rootScope", CatalogBlogController],
       controllerAs: "vm",
       bindToController: true
     }
@@ -15,17 +15,27 @@ export const CatalogBlogDiretive = {
   element: "catalogBlogDiretive"
 }
 
-function CatalogBlogController($scope, $element) {
-  var vm = this
+function CatalogBlogController($scope, $element, $http, $rootScope) {
+  	var vm = this
+
+	vm.posts = [];
+
+	$http.get($rootScope.getCurrentEnvironment().BLOG_URL+"/feed/json").then(function(resp){
+		vm.posts = resp.data.items;
+	});
+
+	vm.open = (url) => {
+		window.open(url);
+	}
   
-  setTimeout(() => new Swiper('catalog-blog-diretive .swiper-container', {
-    slidesPerView: 2,
-    spaceBetween: 20,
-    breakpoints: {
-      576 : {
-        slidesPerView: 1.5,
-        spaceBetween: 0
-      }
-    }
-  }), 300);
+	setTimeout(() => new Swiper('catalog-blog-diretive .swiper-container', {
+		slidesPerView: 2,
+		spaceBetween: 20,
+		breakpoints: {
+			576 : {
+				slidesPerView: 1.5,
+				spaceBetween: 0
+			}
+		}
+	}), 300);
 }

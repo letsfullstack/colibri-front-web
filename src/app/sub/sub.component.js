@@ -2,7 +2,7 @@ import './sub.component.scss';
 
 export const SubComponent = {
   options: {
-    url: '/sub',
+    url: '/sobre',
     state: 'sub',
     template: require("./sub.component.html"),
     controller: SubController.name,

@@ -9,10 +9,10 @@ export const HomeComponent = {
 		controllerAs: "vm",
 		authenticate: false
 	},
-	controller: ["$scope", "ngMeta", "MetaService", "HttpService", HomeController]
+	controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$http", "$rootScope", HomeController]
 }
 
-function HomeController($scope, ngMeta, MetaService, HttpService) {
+function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootScope) {
 	var vm = this;
 
 	vm.most_viewed = [];
@@ -26,7 +26,11 @@ function HomeController($scope, ngMeta, MetaService, HttpService) {
 		pagination: {
 			el: '.banner .swiper-pagination',
 			type: 'bullets',
-		}
+		},
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		  },
 	}).on('slideChange', function () { $('span.init').text(`0${this.activeIndex + 1}`) }), 300)
 
 }
