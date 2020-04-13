@@ -2,7 +2,7 @@ import './catalog-find.component.scss';
 
 export const CatalogFindComponent = {
 	options: {
-		url: '/catalog',
+		url: '/produtos',
 		state: 'catalogFind',
 		template: require("./catalog-find.component.html"),
 		controller: CatalogFindController.name,

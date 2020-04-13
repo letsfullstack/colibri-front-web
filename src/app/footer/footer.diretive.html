@@ -4,31 +4,31 @@
             <nav class="col-3">
                 <ul>
                     <li rel="noopener noreferrer">A Colibri</li>
-                    <li><a href="/sub">Sobre</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="/contact">Fale conosco</a></li>
+                    <li><a ui-sref="sub">Sobre</a></li>
+                    <li><a target="_blank" href="{{$root.getCurrentEnvironment().BLOG_URL}}">Blog</a></li>
+                    <li><a ui-sref="contact">Fale conosco</a></li>
                 </ul>
             </nav>
             <nav class="col-3">
                 <ul>
                     <li rel="noopener noreferrer">Sala</li>
-                    <li><a href="/catalog">Home Suspenso</a></li>
-                    <li><a href="/catalog">Bancadas e Painel</a></li>
-                    <li><a href="/catalog">Homes e Estantes</a></li>
-                    <li><a href="/catalog">Complementos</a></li>
+                    <li><a ui-sref="catalog">Home Suspenso</a></li>
+                    <li><a ui-sref="catalog">Bancadas e Painel</a></li>
+                    <li><a ui-sref="catalog">Homes e Estantes</a></li>
+                    <li><a ui-sref="catalog">Complementos</a></li>
                 </ul>
             </nav>
             <nav class="col-3">
                 <ul>
                     <li rel="noopener noreferrer">Dormitório</li>
-                    <li><a href="/catalog">Roupeiro</a></li>
-                    <li><a href="/catalog">Complemento</a></li>
+                    <li><a ui-sref="catalog">Roupeiro</a></li>
+                    <li><a ui-sref="catalog">Complemento</a></li>
                 </ul>
             </nav>
             <nav class="col-3">
                 <ul>
                     <li rel="noopener noreferrer">Home Office</li>
-                    <li><a href="/catalog">Bancada de Estudo</a></li>
+                    <li><a ui-sref="catalog">Bancada de Estudo</a></li>
                 </ul>
             </nav>
         </div>

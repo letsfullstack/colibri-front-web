@@ -1,4 +1,4 @@
-<section class="blog container">
+<section class="blog container" ng-show="vm.posts">
     <div class="left">
         <h1 ng-bind-html="vm.title"></h1>
         <p ng-bind-html="vm.description"></p>
@@ -19,7 +19,7 @@
         <button ng-click="vm.open($root.getCurrentEnvironment().BLOG_URL)"><span>todos os posts</span> <span>⟶</span></button>
     </div>
     <div class="list row">
-        <div class="col-3 post" ng-repeat="post in vm.posts" ng-click="vm.open(post.url)">
+        <div class="col-3 mw-100 post" ng-repeat="post in vm.posts" ng-click="vm.open(post.url)">
             <img ng-src="{{post.image}}" alt="Imagem do post">
             <h2>
                 {{post.title}}

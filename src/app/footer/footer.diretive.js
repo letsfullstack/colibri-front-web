@@ -4,7 +4,7 @@ export const FooterDiretive = {
       restrict: 'E',
       template: require("./footer.diretive.html"),
       scope: { },
-      controller: FooterController,
+      controller: ["$rootScope", FooterController],
       controllerAs: "vm",
       bindToController: true
     }
@@ -12,7 +12,7 @@ export const FooterDiretive = {
   element: "footerDiretive"
 }
 
-function FooterController() {
+function FooterController($rootScope) {
   var vm = this
 
 
