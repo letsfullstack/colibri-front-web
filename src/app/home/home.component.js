@@ -30,7 +30,7 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
-		  },
+		}
 	}).on('slideChange', function () { $('span.init').text(`0${this.activeIndex + 1}`) }), 300)
 
 }

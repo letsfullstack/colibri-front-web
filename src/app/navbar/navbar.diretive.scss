@@ -1,4 +1,14 @@
 $height: 90px;
+@keyframes dropdown-display{
+    0% {
+        opacity:0;
+        transform:scale(.98) translateY(-.6em);
+    } 
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
 
 navbar-diretive{
     display: block;
@@ -58,6 +68,11 @@ navbar-diretive{
             padding-top: 3px;
 
             .dropdown{
+                &:hover{
+                    .dropdown-menu{
+                        display: block;
+                    }
+                }
 
                 &:not(:last-of-type){
                     margin-right: 50px;
@@ -79,6 +94,29 @@ navbar-diretive{
                     font-size: 1.4em;
                     display: flex;
                     align-items: center;
+                }
+                .dropdown-menu{
+                    border: 0;
+                    box-shadow: 0 3px 12px rgba(27,31,35,.15), 0 0 1px rgba(27,31,35,.2);
+                    animation: dropdown-display .4s cubic-bezier(.73,.005,.22,1);
+                    animation-duration: 0.4s;
+                    animation-timing-function: cubic-bezier(0.73, 0.005, 0.22, 1);
+                    animation-delay: 0s;
+                    animation-iteration-count: 1;
+                    animation-direction: normal;
+                    animation-fill-mode: none;
+                    animation-play-state: running;
+                    animation-name: dropdown-display;
+                    .dropdown-item{
+                        height: 50px;
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        &:active{
+                            background-color: #22222d;
+                            color: #FFFFFF;
+                        }
+                    }
                 }
             }
 

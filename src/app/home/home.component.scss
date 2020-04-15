@@ -4,7 +4,7 @@ section{
 
 .banner{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 
     .left-top, .right-top, .left-bottom, .right-bottom{
         flex: 0 0 50%;
@@ -24,6 +24,9 @@ section{
     }
 
     .left-top{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         h1, p{
             color: #242635;
             font-weight: 400;
@@ -35,7 +38,6 @@ section{
             line-height: 1.15;
             letter-spacing: -1.55px;
             max-width: 315px;
-            margin-top: 230px;
         }
 
         p{
@@ -50,6 +52,11 @@ section{
         object-fit: cover;
         object-position: center;
         width: 50%;
+        .swiper-slide{
+            min-width: 100%!important;
+            width: 100%!important;
+            height: auto;
+        }
     }
 
     .left-bottom{

@@ -2,29 +2,27 @@
     <img src="../../assets/img/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
     <ul class="navigation">
         <li rel="noopener noreferrer" class="dropdown">
-            <a class="dropdown-toggle" href="/sobre" role="button" id="dropdownMenuLink"
-                aria-haspopup="true" aria-expanded="false">
+            <a class="dropdown-toggle" href="/sobre" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Sobre
                 <i class="fas fa-chevron-down"></i>
             </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Alguma ação</a>
-                <a class="dropdown-item" href="#">Outra ação</a>
-                <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                <a class="dropdown-item" target="_blank" href="{{$root.getCurrentEnvironment().BLOG_URL}}">Blog</a>
+                <a class="dropdown-item" ui-sref="contact">Fale conosco</a>
             </div>
         </li>
         <li rel="noopener noreferrer" class="dropdown">
-            <a class="dropdown-toggle" href="/produtos" role="button" id="dropdownMenuLink"
+            <a class="dropdown-toggle" href="/produtos" role="button" id="dropdownMenuLink2"
                 aria-haspopup="true" aria-expanded="false">
                 Produtos
                 <i class="fas fa-chevron-down"></i>
             </a>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#">Alguma ação</a>
-                <a class="dropdown-item" href="#">Outra ação</a>
-                <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                <a class="dropdown-item" href="#">Home suspenso</a>
+                <a class="dropdown-item" href="#">Bancada de Painel</a>
+                <a class="dropdown-item" href="#">Homes</a>
+                <a class="dropdown-item" href="#">Estantes</a>
             </div>
         </li>
     </ul>
@@ -37,11 +35,6 @@
         <li rel="noopener noreferrer">
             <a href="https://apps.colibrimoveis.com.br:5789/f3iConnect/app/login.faces;jsessionid=8B51859A3DBA128F252F35C973F29E8B" target="_blank">
                 <img src="../../assets/img/user.png" alt="">
-            </a>
-        </li>
-        <li rel="noopener noreferrer">
-            <a href="#">
-                <img src="../../assets/img/more.png" alt="">
             </a>
         </li>
     </ul>
