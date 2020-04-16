@@ -62,10 +62,12 @@ news-diretive{
                 button{
                     background-color: #25e779;
                     color: white;
-                    transition: all .4s ease;
-                    -webkit-transition: all .4s ease;
+                    // transition: all .4s ease;
+                    transition: 0.3s;
                     &:hover{
-                        background-color: #109f4e;
+                        background-color: white;
+                        color: #25e779;
+                        border-color: #25e779;
                     }
                 }
             }

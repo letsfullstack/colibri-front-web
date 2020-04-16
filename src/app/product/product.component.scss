@@ -500,8 +500,11 @@ section {
                 color: white;
                 transition: all .4s ease;
                 -webkit-transition: all .4s ease;
+                border: 1px solid #109f4e;
                 &:hover{
-                    background-color: #109f4e;
+                    // background-color: #109f4e;
+                    background: white;
+                    color: #109f4e;
                 }
             }
         }

@@ -2,7 +2,7 @@ footer-diretive{
     font-size: 10px;
 
     .top{
-        padding: 90px 0;
+        padding: 90px 15px;
 
         ul{
             list-style: none;
@@ -41,14 +41,14 @@ footer-diretive{
             align-items: center;
             justify-content: space-between;
             height: 100%;
-
+            padding: 0 10px;
             .left{
                 display: flex;
                 align-items: center;
     
                 img{
                     width: 100px;
-                    margin-right: 200px;
+                    margin-right: 190px;
                 }
         
                 .informations{

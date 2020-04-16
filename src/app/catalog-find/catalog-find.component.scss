@@ -306,7 +306,7 @@ section {
         .filter{
             border-radius: 5px;
             background-color: #25e779;
-            border: none;  
+            // border: none;  
             font-size: 1.4em;  
             height: 40px;
             width: 180px;
@@ -317,8 +317,11 @@ section {
             align-items: center;
             transition: all .4s ease;
             -webkit-transition: all .4s ease;
+            border: 1px solid #25e779;
             &:hover{
-                background-color: #109f4e;
+                // background-color: #109f4e;
+                background: white;
+                color: #25e779;
             }
         }
     }
