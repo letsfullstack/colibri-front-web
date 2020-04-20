@@ -56,6 +56,15 @@ section{
             min-width: 100%!important;
             width: 100%!important;
             height: auto;
+            overflow: hidden;
+            a{
+                height: 100%;
+                width: 100%;
+                img{
+                    min-width: 100%!important;
+                    width: 100%!important;
+                }
+            }
         }
     }
 

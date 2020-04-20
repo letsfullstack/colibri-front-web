@@ -16,9 +16,16 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 	var vm = this;
 
 	vm.most_viewed = [];
-
+	vm.images = [];
+	
+	vm.url = $rootScope.getCurrentEnvironment().SERVER_URL + "/upload/uploads/download/";
+	
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function(resp){
 		vm.most_viewed = resp.data.most_viewed;
+	});
+	
+	HttpService.get("/imagessites", {}, {}).then(function(resp){
+		vm.images= resp.data[0];
 	});
 
 	setTimeout(() => new Swiper('.banner .swiper-container', {

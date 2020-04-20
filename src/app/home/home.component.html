@@ -10,10 +10,26 @@
         </div>
         <div class="right-top swiper-container">
             <div class="swiper-wrapper">
-                <img class="swiper-slide right-top" src="../../assets/img/home01.jpg" alt="">
-                <img class="swiper-slide right-top" src="../../assets/img/home02.jpg" alt="">
-                <img class="swiper-slide right-top" src="../../assets/img/home03.jpg" alt="">
-                <img class="swiper-slide right-top" src="../../assets/img/home04.jpg" alt="">
+                <div class="swiper-slide right-top">
+                    <a href="{{vm.images.img_1_url}}">
+                        <img src="{{vm.url + vm.images.img_1_link}}" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide right-top">
+                    <a href="{{vm.images.img_2_url}}">
+                        <img src="{{vm.url + vm.images.img_2_link}}" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide right-top">
+                    <a href="{{vm.images.img_3_url}}">
+                        <img src="{{vm.url + vm.images.img_3_link}}" alt="">
+                    </a>
+                </div>
+                <div class="swiper-slide right-top">
+                    <a href="{{vm.images.img_4_url}}">
+                        <img src="{{vm.url + vm.images.img_4_link}}" alt="">
+                    </a>
+                </div>
             </div>
             <div class="swiper-button-prev swiper-button-white"></div>
             <div class="swiper-button-next swiper-button-white"></div>
@@ -33,7 +49,7 @@
 </section>
 
 <section class="nature">
-    <img class="beach" src="../../assets/img/colibri02.jpg" alt="">
+    <img class="beach" src="{{vm.url + vm.images.img_5_link}}" alt="">
     <div class="right">
         <h1>A natureza foi <br>a nossa inspiração.</h1>
         <p>

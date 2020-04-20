@@ -9,14 +9,22 @@ export const SubComponent = {
     controllerAs: "vm",
     authenticate: false
   },
-  controller: ["$scope", "ngMeta", "MetaService", SubController]
+  controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$rootScope",SubController]
 }
 
-function SubController($scope, ngMeta, MetaService) {
+function SubController($scope, ngMeta, MetaService, HttpService, $rootScope) {
   var vm = this
 
   $scope.home = "HOME"
 
+  vm.images = [];
+
+  vm.url = $rootScope.getCurrentEnvironment().SERVER_URL + "/upload/uploads/download/";
+
+  HttpService.get("/imagessites", {}, {}).then(function(resp){
+    vm.images= resp.data[0];
+	});
+  
   vm.products = [
     { name: "Bancada", location: "Astúrias", img: "https://w1.ezcdn.com.br/abouthome/fotos/grande/9922fg1/bancada-gourmet-dobravel-para-cozinha-bliv-castanho-e-branco.jpg" },
     { name: "Home Suspenso", location: "Salinas", img: "https://a-static.mlcdn.com.br/618x463/painel-home-suspenso-greco-para-tv-ate-65-polegadas-dj-moveis/trilar/6789/6165500bbde2ade854012b7af006b5ae.jpg" },
