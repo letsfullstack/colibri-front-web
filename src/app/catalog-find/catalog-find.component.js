@@ -2,7 +2,7 @@ import './catalog-find.component.scss';
 
 export const CatalogFindComponent = {
 	options: {
-		url: '/produtos',
+		url: '/produtos/:ambiente/:tipo',
 		state: 'catalogFind',
 		template: require("./catalog-find.component.html"),
 		controller: CatalogFindController.name,
@@ -25,6 +25,14 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	vm.ambienteSelected = null;
 	$scope.tabSliders = {};
 	
+	if ($stateParams.ambiente != "all"){
+		vm.filter.ambiente = parseInt($stateParams.ambiente);
+	}
+
+	if ($stateParams.tipo != "all"){
+		vm.filter.categoria = parseInt($stateParams.tipo);
+	}
+
 	HttpService.get("/produtos/get-atributos-busca/", {id: $stateParams.id}).then(function(resp){
 		vm.filters = resp.data;
 		vm.setSliders();
@@ -45,12 +53,12 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		vm.filter.largura = $scope.tabSliders.slider1;
 		vm.filter.altura = $scope.tabSliders.slider2;
 		vm.filter.profundidade = $scope.tabSliders.slider3;
-
+		// $stateParams.ambiente = vm.filter.ambiente;
+		// $stateParams.tipo = vm.filter.categoria;
 		// vm.filter.offset = 0;
 		// if(offset){
 
 		// }
-
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			vm.products = resp.data;

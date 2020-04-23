@@ -4,7 +4,7 @@ export const FooterDiretive = {
       restrict: 'E',
       template: require("./footer.diretive.html"),
       scope: { },
-      controller: ["$rootScope", FooterController],
+      controller: ["$rootScope", "HttpService", FooterController],
       controllerAs: "vm",
       bindToController: true
     }
@@ -12,8 +12,10 @@ export const FooterDiretive = {
   element: "footerDiretive"
 }
 
-function FooterController($rootScope) {
+function FooterController($rootScope, HttpService) {
   var vm = this
 
-
+  HttpService.get("/produtos/get-atributos-busca/", {}).then(function(resp){
+    vm.filters = resp.data[0];
+	});
 }

@@ -10,12 +10,16 @@
                 </ul>
             </nav>
             <nav class="col-3">
-                <ul>
+                <!-- <ul>
                     <li rel="noopener noreferrer">Sala</li>
                     <li><a ui-sref="catalog">Home Suspenso</a></li>
                     <li><a ui-sref="catalog">Bancadas e Painel</a></li>
                     <li><a ui-sref="catalog">Homes e Estantes</a></li>
                     <li><a ui-sref="catalog">Complementos</a></li>
+                </ul> -->
+                <ul>
+                    <li rel="noopener noreferrer">Ambiente</li>
+                    <li ng-repeat="cat in vm.filters" ><a href="produtos/{{cat.id}}/all">{{cat.nome}}</a>
                 </ul>
             </nav>
             <nav class="col-3">
