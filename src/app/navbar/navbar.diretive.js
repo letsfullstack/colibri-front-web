@@ -4,7 +4,7 @@ export const NavbarDiretive = {
       restrict: 'E',
       template: require("./navbar.diretive.html"),
       scope: {},
-      controller: ["$state", "$scope", "$element", NavbarController],
+      controller: ["$state", "$scope", "$element", "HttpService", NavbarController],
       controllerAs: "vm",
       bindToController: true
     }
@@ -12,9 +12,13 @@ export const NavbarDiretive = {
   element: "navbarDiretive"
 }
 
-function NavbarController($state, $scope, $element) {
+function NavbarController($state, $scope, $element, HttpService) {
   var vm = this
 
+  HttpService.get("/produtos/get-atributos-busca/", {}).then(function(resp){
+    vm.filters = resp.data[0];
+    debugger
+	});
   // $scope.$watch(function () { return $state.$current.name }, function (newVal) {
   //   if (newVal === '/') $(window).scroll(function () {
   //     if ($(this).scrollTop() > 200)
