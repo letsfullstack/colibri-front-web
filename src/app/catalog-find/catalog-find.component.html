@@ -47,7 +47,7 @@
                     </li>
                     <li ng-repeat="(idx, ambiente) in vm.filters[0]">
                         <label class="square_b">
-                            <input type="radio" name="ambiente" ng-model="vm.filter.ambiente" ng-change="vm.setIdxAmbiente(idx)" ng-value="ambiente.id">
+                            <input ng-click="marcar()" id="check_{{ambiente.id}}" type="radio" name="ambiente" ng-model="vm.filter.ambiente" ng-change="vm.setIdxAmbiente(idx)" ng-value="ambiente.id">
                             <span class="checkmark"></span>
                             {{ambiente.nome}}
                         </label>

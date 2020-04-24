@@ -4,7 +4,7 @@ export const FooterDiretive = {
 			restrict: 'E',
 			template: require("./footer.diretive.html"),
 			scope: {},
-			controller: ["$scope", "$rootScope", "$translate", "$window", FooterController],
+			controller: ["$rootScope", "HttpService", "$translate", "$window", "$scope", FooterController],
 			controllerAs: "vm",
 			bindToController: true
 		}
@@ -12,7 +12,7 @@ export const FooterDiretive = {
 	element: "footerDiretive"
 }
 
-function FooterController($scope, $rootScope, $translate, $window) {
+function FooterController($rootScope, HttpService, $translate, $window, $scope) {
 	var vm = this
 
 	$scope.currentLanguage = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
@@ -21,4 +21,8 @@ function FooterController($scope, $rootScope, $translate, $window) {
 		$translate.use(langKey);
 		$window.location.reload();
 	};
+
+	HttpService.get("/produtos/get-atributos-busca/", {}).then(function (resp) {
+		vm.filters = resp.data[0];
+	});
 }

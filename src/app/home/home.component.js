@@ -22,10 +22,7 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 	
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function(resp){
 		vm.most_viewed = resp.data.most_viewed;
-	});
-	
-	HttpService.get("/imagessites", {}, {}).then(function(resp){
-		vm.images= resp.data[0];
+		vm.images = resp.data.images[0];
 	});
 
 	setTimeout(() => new Swiper('.banner .swiper-container', {

@@ -12,17 +12,14 @@
             </div>
         </li>
         <li rel="noopener noreferrer" class="dropdown">
-            <a class="dropdown-toggle" href="/produtos" role="button" id="dropdownMenuLink2"
+            <a class="dropdown-toggle" href="/produtos/all/all" role="button" id="dropdownMenuLink2"
                 aria-haspopup="true" aria-expanded="false">
                 {{'MENU_PRODUCT'|translate}}
                 <i class="fas fa-chevron-down"></i>
             </a>
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                <a class="dropdown-item" href="#">Home suspenso</a>
-                <a class="dropdown-item" href="#">Bancada de Painel</a>
-                <a class="dropdown-item" href="#">Homes</a>
-                <a class="dropdown-item" href="#">Estantes</a>
+                <a ng-repeat="cat in vm.filters" class="dropdown-item" href="produtos/{{cat.id}}/all">{{cat.nome}}</a>
             </div>
         </li>
     </ul>
