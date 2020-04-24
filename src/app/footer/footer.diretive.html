@@ -4,9 +4,9 @@
             <nav class="col-3">
                 <ul>
                     <li rel="noopener noreferrer">A Colibri</li>
-                    <li><a ui-sref="sub">Sobre</a></li>
+                    <li><a ui-sref="sub">{{'MENU_ABOUT'|translate}}</a></li>
                     <li><a target="_blank" href="{{$root.getCurrentEnvironment().BLOG_URL}}">Blog</a></li>
-                    <li><a ui-sref="contact">Fale conosco</a></li>
+                    <li><a ui-sref="contact">{{'MENU_CONTACT'|translate}}</a></li>
                 </ul>
             </nav>
             <nav class="col-3">
@@ -54,10 +54,19 @@
     <div class="bot container">
         <span class="left">Colibri - Indústria e Comércio de Móveis LTDA</span>
         <div class="right">
-            <span>Mapa do site</span>
-            <span>Política de privacidade</span>
+            <span>{{'FOOTER_SITE_MAP'|translate}}</span>
+            <span>{{'FOOTER_POLICY'|translate}}</span>
             <span>/</span>
-            <span><i class="fas fa-globe"></i> PT</span>
+            <div class="language">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-globe"></i> {{currentLanguage}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLanguage">
+                    <a class="dropdown-item" ng-click="changeLanguage('pt')"><img src="https://www.countryflags.io/br/flat/32.png"><div class="title">Português</div></a>
+                    <a class="dropdown-item" ng-click="changeLanguage('en')"><img src="https://www.countryflags.io/us/flat/32.png"><div class="title">English</div></a>
+                    <a class="dropdown-item" ng-click="changeLanguage('es')"><img src="https://www.countryflags.io/es/flat/32.png"><div class="title"></div>Español</div></a>
+                </div>
+              </div>
         </div>
     </div>
 </footer>

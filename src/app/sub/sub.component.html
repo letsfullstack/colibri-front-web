@@ -3,14 +3,11 @@
         <div class="left">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">home</a></li>
-                <li class="breadcrumb-item active">sobre</li>
+                <li class="breadcrumb-item active" style="text-transform: lowercase;">{{'MENU_ABOUT'|translate}}</li>
             </ol>
-            <h1>29 anos</h1>
+            <h1>{{'ABOUT_SECTION_1_TITLE'|translate}}</h1>
             <p>
-                Ao completar 29 anos, a Colibri se orgulha de ter
-                conquistado a confiança de todos aqueles com
-                os quais se relaciona. E, para que bons negócios
-                aconteçam, confiança é fundamental.
+                {{'ABOUT_SECTION_1_TEXT'|translate}}
             </p>
         </div>
         <img class="right" src="{{vm.url + vm.images.img_6_link}}" alt="">
@@ -18,12 +15,9 @@
     <div class="bottom">
         <img class="left" src="{{vm.url + vm.images.img_7_link}}" alt="">
         <div class="right">
-            <h2>Inovação</h2>
+            <h2>{{'ABOUT_SECTION_2_TITLE'|translate}}</h2>
             <p>
-                Para inovar é preciso muito trabalho, pesquisa e um
-                ambiente que propicie criação, invenção e reinvenção. A
-                Colibri tem tudo isso e mais, pois inova constantemente
-                para responder ao compromisso de satisfazer seus clientes.
+                {{'ABOUT_SECTION_2_TEXT'|translate}}
             </p>
         </div>
     </div>
@@ -31,13 +25,13 @@
 
 <section id="featured">
     <div class="container">
-        <h1>Para a Colibri qualidade é sinônimo de confiança.</h1>
+        <h1>{{'ABOUT_SECTION_3_TITLE'|translate}}</h1>
         <div class="bottom">
             <p class="left">
-                Todo processo de elaboração e produção dos móveis Colibri é rigoroso e constantemente avaliado. Desde o desenho feito por mãos criativas, que estudam e transformam as necessidades do público consumidor em belas obras de decoração, produzidas com matéria prima de fontes renováveis em uma fábrica moderna e bem equipada.
+                {{'ABOUT_SECTION_3_TEXT_1'|translate}}
             </p>
             <p class="right">
-                Tudo que desenvolvemos e produzimos carrega o capricho, a dedicação e o know how de quase 30 anos, que destacam a Colibri como referência no mercado moveleiro. Por isso acreditamos que qualidade é sinônimo de confiança.
+                {{'ABOUT_SECTION_3_TEXT_2'|translate}}
             </p>
         </div>
     </div>
@@ -52,8 +46,6 @@
     description="Nosso produto pode ser perfeito pra você! <br>Que tal conhecê‐los?" products="vm.products">
 </catalog-product-diretive> -->
 
-<catalog-blog-diretive title="Conheça nosso blog."
-    description="Artigos escritos com muito carinho pra ajudar você a <br>viver melhor e mostrar um pouco do universo Colibri!">
-</catalog-blog-diretive>
+<catalog-blog-diretive title="{{'BLOG_TITLE'|translate}}" description="{{'BLOG_TEXT'|translate}}"></catalog-blog-diretive>
 
 <news-diretive></news-diretive>

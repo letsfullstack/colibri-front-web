@@ -3,11 +3,11 @@
         <div class="left">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a ui-sref="home">home</a></li>
-                <li class="breadcrumb-item active">fale conosco</li>
+                <li class="breadcrumb-item active" style="text-transform: lowercase;">{{'MENU_CONTACT'|translate}}</li>
             </ol>
-            <h1>Fale Conosco</h1>
+            <h1>{{'MENU_CONTACT'|translate}}</h1>
             <p>
-                Precisa falar conosco? Entre em contato por um de nossos canais de atendimento, estamos prontos para atendê-lo.
+                {{'CONTACT_SECTION_1_TEXT'|translate}}
             </p>
         </div>
         <img class="right" src="../../assets/img/fabrica.jpg" alt="">
@@ -15,38 +15,38 @@
 </section>
 
 <section class="quest">
-    <h1>Como você prefere falar com a gente?</h1>
+    <h1>{{'CONTACT_SECTION_2_TEXT'|translate}}</h1>
 </section>
 
 <section class="contact">
     <section class="email">
         <h1>E-mail</h1>
         <p>
-            Tem alguma dúvida? Podemos te ajudar pelo nosso canal de e-mail!
+            {{'CONTACT_EMAIL_TEXT'|translate}}
         </p>
         <h2 onclick="location.href='mailto:contato@colibrimoveis.com.br'">contato@colibrimoveis.com.br</h2>
         
         <!-- <button onclick="location.href='mailto:contato@colibrimoveis.com.br'"><span>Entre em contato</span> <span>⟶</span></button> -->
     </section>
     <section class="phone">
-        <h1>Telefone</h1>
+        <h1>{{'CONTACT_PHONE_TITLE'|translate}}</h1>
         <p>
-            Você pode ligar no horário comercial:
+            {{'CONTACT_PHONE_TEXT'|translate}}
         </p>
         <h2 onclick="location.href='tel:4332758600'">(43) 3275-8600</h2>
     </section>
     <section class="chat">
         <h1>Chat</h1>
         <p>
-            Precisa de uma ajuda agora? Entre em contato com nosso atendimento.
+            {{'CONTACT_CHAT_TEXT'|translate}}
         </p>
-        <button><span>Entrar no chat</span> <span>⟶</span></button>
+        <button><span>{{'CONTACT_CHAT_BUTTON'|translate}}</span> <span>⟶</span></button>
     </section>
 </section>
 
 <div id="maps" style="height: 490px;"></div>
 
-<phrase-diretive title="Onde estamos?" phrase="
+<phrase-diretive title="{{'CONTACT_SECTION_3_TITLE'|translate}}" phrase="
     Rua Rouxinol, 5530 / Pq. Industrial IV<br>
     CEP 86.706-418<br>
     Arapongas / Paraná / Brasil

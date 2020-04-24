@@ -6,7 +6,7 @@
             <div class="d-flex justify-content-between align-items-center">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">home</a></li>
-                    <li class="breadcrumb-item active">produtos</li>
+                    <li class="breadcrumb-item active" style="text-transform: lowercase;">{{'MENU_PRODUCT'|translate}}</li>
                 </ol>
 
                 <button class="filter" ng-click="vm.filter = !vm.filter">
@@ -15,28 +15,28 @@
                 </button>
             </div>
 
-            <h1>Catálogo</h1>
+            <h1>{{'CATALOG_TITLE'|translate}}</h1>
         </div>
 
         <div class="col-12 col-md-4 filter" ng-if="vm.filter || vm.width > 992">
 
             <ol class="breadcrumb d-none d-md-flex">
                 <li class="breadcrumb-item"><a href="#">home</a></li>
-                <li class="breadcrumb-item active">produtos</li>
+                <li class="breadcrumb-item active" style="text-transform: lowercase;">{{'MENU_PRODUCT'|translate}}</li>
             </ol>
 
-            <h1 class="d-none d-md-flex">Catálogo</h1>
+            <h1 class="d-none d-md-flex">{{'CATALOG_TITLE'|translate}}</h1>
 
             <div class="release">
                 <label class="square_b">
                     <input type="checkbox" ng-model="vm.filter.lancamentos" ng-value="true">
                     <span class="checkmark"></span>
-                    Lançamentos
+                    {{'CATALOG_RELEASE'|translate}}
                 </label>
             </div>
 
             <div class="options">
-                <h3>Ambiente:</h3>
+                <h3>{{'CATALOG_AMBIENT'|translate}}:</h3>
                 <ul>
                     <li>
                         <label class="square_b">
@@ -77,7 +77,7 @@
 
             <div class="pallete">
 
-                <h3>Cores:</h3>
+                <h3>{{'CATALOG_COLORS'|translate}}:</h3>
 
                 <div style="margin-bottom: 20px;">
                     <label class="color" ng-repeat="color in vm.filters[1]">
@@ -89,12 +89,12 @@
 
             <div class="measures">
 
-                <h3>Medidas:</h3>
+                <h3>{{'CATALOG_MEASURES'|translate}}:</h3>
 
                 <div class="measure">
                     <div class="top">
                         <i class="fas fa-arrows-alt-h"></i>
-                        <span>largura</span>
+                        <span>{{'CATALOG_WIDTH'|translate}}</span>
                     </div>
                     <div class="bot">
                         <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
@@ -110,7 +110,7 @@
                 <div class="measure">
                     <div class="top">
                         <i class="fas fa-arrows-alt-v"></i>
-                        <span>altura</span>
+                        <span>{{'CATALOG_HEIGHT'|translate}}</span>
                     </div>
                     <div class="bot">
                         <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
@@ -126,7 +126,7 @@
                 <div class="measure">
                     <div class="top">
                         <i class="fas fa-arrows-alt-v"></i>
-                        <span>profundidade</span>
+                        <span>{{'CATALOG_DEPTH'|translate}}</span>
                     </div>
                     <div class="bot">
                         <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
@@ -141,7 +141,7 @@
 
             </div>
 
-            <button ng-click="vm.filtrar()" class="filter">FILTRAR</button>
+            <button ng-click="vm.filtrar()" class="filter">{{'CATALOG_BUTTON_FILTER'|translate}}</button>
         </div>
 
         <div class="col-12 col-md-8">
@@ -153,7 +153,7 @@
                     <h2>{{product.nome_ambiente}}</h2>
                 </section>
             </div>
-            <button class="more" ng-click="vm.filtrar()" style="display: none;">carregar mais</button>        
+            <button class="more" ng-click="vm.filtrar()" style="display: none;">{{'CATALOG_BUTTON_MORE'|translate}}</button>        
         </div>
     </div>
 </section>

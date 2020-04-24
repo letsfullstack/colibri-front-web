@@ -4,22 +4,22 @@
             <div class="d-flex flex-column align-items-start content">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">home</a></li>
-                    <li class="breadcrumb-item"><a href="#">produtos</a></li>
+                    <li class="breadcrumb-item" style="text-transform: lowercase;"><a href="#">{{'MENU_PRODUCT'|translate}}</a></li>
                     <li class="breadcrumb-item"><a href="#">{{vm.produto.categoriaproduto.ambiente.nome.toLowerCase()}}</a></li>
                     <li class="breadcrumb-item active">{{vm.produto.categoriaproduto.nome.toLowerCase()}}</li>
                 </ol>
                 <h1>{{vm.produto.nome}}</h1>
                 <span class="cod">cod. {{vm.produto.codigo}}</span>
-                <button class="release" ng-show="vm.produto.lancamento">LANÇAMENTO</button>
+                <button class="release" ng-show="vm.produto.lancamento">{{'PRODUCT_RELEASE'|translate}}</button>
                 <div class="colors">
-                    <span>Cores disponiveis:</span>
+                    <span>{{'PRODUCT_COLORS'|translate}}:</span>
                     <label class="color" ng-repeat="(key, value) in vm.produto.produtocor" title="{{value.descricao}}">
                         <input type="radio" name="f_color" ng-model="vm.cor" ng-click="vm.changeColor(value)" ng-value="key">
                         <span class="checkmark" ng-style="{'background-color' : value.cor}" ></span>
                     </label>
                 </div>
-                <span class="have">Tenha esse produto em sua loja!</span>
-                <button class="request">Solicite um orçamento</button>
+                <span class="have">{{'PRODUCT_HAVE_PRODUCT'|translate}}</span>
+                <button class="request">{{'PRODUCT_GET_BUDGET'|translate}}</button>
             </div>
         </div>
         <div class="right">
@@ -95,16 +95,16 @@
                     {{vm.produto.descricao}}
                 </p>
                 <div class="download">
-                    <a class="image" ng-show="vm.produto.arquivo_imagens" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.arquivo_imagens}}"><i class="fal fa-cloud-download"></i>Baixar imagens</a>
-                    <a class="schema" ng-show="vm.produto.esquema_montagem" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.esquema_montagem}}"><i class="fal fa-cloud-download"></i>Baixar esquema de montagem</a>
+                    <a class="image" ng-show="vm.produto.arquivo_imagens" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.arquivo_imagens}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_IMAGES'|translate}}</a>
+                    <a class="schema" ng-show="vm.produto.esquema_montagem" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.esquema_montagem}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_SCHEMA'|translate}}</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<div class="background-catalog"><catalog-product-diretive class="catalog-product" title="Produtos relacionados."
-    description="Esses são os produtos similares ao produto atual.<br>Que tal conhecê-los?" products="vm.produtos_relacionados">
-</catalog-product-diretive></div>
+<div class="background-catalog">
+    <catalog-product-diretive class="catalog-product" title="{{'HOME_PRODUCTS_TITLE'|translate}}" description="{{'HOME_PRODUCTS_TEXT'|translate}}" products="vm.produtos_relacionados"></catalog-product-diretive>
+</div>
 
 <news-diretive></news-diretive>

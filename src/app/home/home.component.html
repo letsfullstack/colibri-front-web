@@ -1,12 +1,8 @@
 <section class="banner">
     <div style="display: flex;">
         <div class="left-top">
-            <h1>Águas Brasileiras</h1>
-            <p>
-                coleção
-                <br>
-                /20
-            </p>
+            <h1>{{'HOME_TITLE'|translate}}</h1>
+            <p data-ng-bind-html="'HOME_SUBTITLE'|translate"></p>
         </div>
         <div class="right-top swiper-container">
             <div class="swiper-wrapper">
@@ -37,7 +33,7 @@
     </div>
     <div style="display: flex;">
         <div class="left-bottom" ui-sref="catalogFind">
-            <span class="catalog">Conheça o catálogo</span>
+            <span class="catalog">{{'HOME_CATALOG_BUTTON'|translate}}</span>
             <span class="arrow">⟶</span>
         </div>
         <div class="right-bottom">
@@ -51,27 +47,24 @@
 <section class="nature">
     <img class="beach" src="{{vm.url + vm.images.img_5_link}}" alt="">
     <div class="right">
-        <h1>A natureza foi <br>a nossa inspiração.</h1>
+        <h1 data-ng-bind-html="'HOME_SECTION_1_TITLE'|translate"></h1>
         <p>
-            E às águas brasileiras rendemos nossa homenagem. Cada produto leva o nome de uma delas e a beleza de todas.
+            {{'HOME_SECTION_1_TEXT'|translate}}
         </p>
     </div>
 </section>
 
-<catalog-product-diretive title="Produtos mais pocurados."
-    description="Esses são os produtos mais acessados em <br>nosso site. Que tal conhecê‐los?" products="vm.most_viewed">
+<catalog-product-diretive title="{{'HOME_PRODUCTS_TITLE'|translate}}" description="{{'HOME_PRODUCTS_TEXT'|translate}}" products="vm.most_viewed">
 </catalog-product-diretive>
 
 <section class="know">
-    <h1>Conheça o catálogo 2020: <br>Águas Brasileiras</h1>
+    <h1 data-ng-bind-html="'HOME_CATALOG_TITLE'|translate"></h1>
     <div class="group-buttons">
-        <button class="left" ui-sref="catalogFind">Ver coleção</button>
-        <button class="right" onclick="window.open('http://prod.colibri.letscomunica.com.br/api/upload/uploads/download/catalogo_2020.pdf')">Baixar catálogo</button>
+        <button class="left" ui-sref="catalogFind">{{'HOME_CATALOG_BUTTON_1'|translate}}</button>
+        <button class="right" onclick="window.open('http://prod.colibri.letscomunica.com.br/api/upload/uploads/download/catalogo_2020.pdf')">{{'HOME_CATALOG_BUTTON_2'|translate}}</button>
     </div>
 </section>
 
-<catalog-blog-diretive title="Conheça nosso blog."
-    description="Artigos escritos com muito carinho pra ajudar você a <br>viver melhor e mostrar um pouco do universo Colibri!">
-</catalog-blog-diretive>
+<catalog-blog-diretive title="{{'BLOG_TITLE'|translate}}" description="{{'BLOG_TEXT'|translate}}"></catalog-blog-diretive>
 
 <news-diretive></news-diretive>

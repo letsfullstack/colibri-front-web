@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="right">
-        <button ui-sref="catalogFind"><span>todos os produtos </span><span>⟶</span></button>
+        <button ui-sref="catalogFind"><span>{{'HOME_PRODUCTS_BUTTON'|translate}}</span><span>⟶</span></button>
     </div>
     <div class="list row">
         <div class="col-3 product mw-100" ui-sref="product({ambient: product.slug_ambiente, category: product.slug_categoria, slug: product.slug_produto, id: product.id})" ng-repeat="product in vm.products">

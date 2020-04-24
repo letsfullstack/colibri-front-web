@@ -5,19 +5,30 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import '../styles.scss'
 
 import 'bootstrap/dist/js/bootstrap.min.js'
+import 'bootstrap/dist/js/bootstrap.bundle';
 
 import 'ng-meta'
 import 'angular-ui-router'
 import 'angular-ui-mask';
 import 'angular-sanitize'
+import 'angular-cookies';
 import angular from 'angular'
 import ngResource from 'angular-resource'
 import Swiper from 'swiper/dist/js/swiper.js';
+
 import * as $ from 'jquery'
 import Swal from 'sweetalert2'
 import moment from 'moment';
 import slider from 'angularjs-slider';
 import 'bootstrap';
+import 'angular-translate';
+import 'angular-translate-storage-cookie';
+import 'angular-translate-storage-local';
+
+
+import TranslateFilePT from "../translate/pt.json"
+import TranslateFileES from "../translate/es.json"
+import TranslateFileEN from "../translate/en.json"
 
 import { HttpWebService } from './services/http.service'
 
@@ -43,9 +54,11 @@ const MODULE_IMPORTS = [
     ngResource,
     slider,
     'ui.router',
+    'ngCookies',
     'ngMeta',
     'ui.mask',
-    'ngSanitize'
+    'ngSanitize',
+    'pascalprecht.translate'
 ]
 
 const COMPONENTS_IMPORTS = [
@@ -93,7 +106,7 @@ for (const COMPONENT of COMPONENTS_IMPORTS)
 for (const DIRETIVE of DIRETIVES_IMPORTS)
     app.directive(DIRETIVE.element, DIRETIVE.options)
 
-app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider, ngMetaProvider) => {
+app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider, ngMetaProvider, $translateProvider) => {
 
     $urlRouterProvider.otherwise('/')
 
@@ -113,6 +126,13 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
     ngMetaProvider.setDefaultTag('author', 'Lets Comunicação')
 
     window.moment.locale('pt-BR');
+    
+    $translateProvider.translations('en', TranslateFileEN);
+    $translateProvider.translations('es', TranslateFileES);
+    $translateProvider.translations('pt', TranslateFilePT);
+
+    $translateProvider.preferredLanguage('pt');
+    $translateProvider.useLocalStorage();
 
 }).run(['ngMeta', '$transitions', 'constants', '$rootScope', ConstructorModule])
 
