@@ -17,7 +17,6 @@ function NavbarController($state, $scope, $element, HttpService) {
 
   HttpService.get("/produtos/get-atributos-busca/", {}).then(function(resp){
     vm.filters = resp.data[0];
-    debugger
 	});
   // $scope.$watch(function () { return $state.$current.name }, function (newVal) {
   //   if (newVal === '/') $(window).scroll(function () {
