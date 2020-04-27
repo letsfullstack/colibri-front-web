@@ -21,8 +21,7 @@ function CatalogBlogController($scope, $element, $http, $rootScope) {
 	vm.posts = null;
 
 	$http.get($rootScope.getCurrentEnvironment().BLOG_URL+"/feed/json").then(function(resp){
-		vm.posts = resp.data.items.splice(0, 2);
-		console.log(vm.posts);
+		vm.posts = resp.data.items.splice(0, 4);
 	});
 
 	vm.open = (url) => {

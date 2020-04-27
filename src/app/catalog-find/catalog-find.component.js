@@ -50,9 +50,9 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	vm.filtrar = function(offset){
 		$(".list").fadeOut();
 		$(".container-loader").show();
-		vm.filter.largura = $scope.tabSliders.slider1;
-		vm.filter.altura = $scope.tabSliders.slider2;
-		vm.filter.profundidade = $scope.tabSliders.slider3;
+		// vm.filter.largura = $scope.tabSliders.slider1;
+		// vm.filter.altura = $scope.tabSliders.slider2;
+		// vm.filter.profundidade = $scope.tabSliders.slider3;
 		// $stateParams.ambiente = vm.filter.ambiente;
 		// $stateParams.tipo = vm.filter.categoria;
 		// vm.filter.offset = 0;
@@ -71,7 +71,7 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 
 	vm.setSliders = function(){
 		let medidas = vm.filters[2][0];
-		
+
 		$scope.tabSliders = {
 			slider1: {
 				minValue: parseInt(medidas.largura_min),

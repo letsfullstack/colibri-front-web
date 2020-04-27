@@ -32,7 +32,7 @@
         </div>
     </div>
     <div style="display: flex;">
-        <div class="left-bottom" ui-sref="catalogFind">
+        <div class="left-bottom" ui-sref="catalogFind({ambiente: 'all', tipo: 'all'})">
             <span class="catalog">{{'HOME_CATALOG_BUTTON'|translate}}</span>
             <span class="arrow">⟶</span>
         </div>
@@ -60,7 +60,7 @@
 <section class="know">
     <h1 data-ng-bind-html="'HOME_CATALOG_TITLE'|translate"></h1>
     <div class="group-buttons">
-        <button class="left" ui-sref="catalogFind">{{'HOME_CATALOG_BUTTON_1'|translate}}</button>
+        <button class="left" ui-sref="catalogFind({'ambiente': 'all', 'tipo': 'all'})">{{'HOME_CATALOG_BUTTON_1'|translate}}</button>
         <button class="right" onclick="window.open('http://prod.colibri.letscomunica.com.br/api/upload/uploads/download/catalogo_2020.pdf')">{{'HOME_CATALOG_BUTTON_2'|translate}}</button>
     </div>
 </section>
