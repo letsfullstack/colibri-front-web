@@ -2,12 +2,12 @@
     <img src="../../assets/img/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
     <ul class="navigation">
         <li rel="noopener noreferrer" class="dropdown">
-            <a class="dropdown-toggle" href="/sobre" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="dropdown-toggle" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{'MENU_ABOUT'|translate}}
                 <i class="fas fa-chevron-down"></i>
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                <a class="dropdown-item" target="_blank" href="{{$root.getCurrentEnvironment().BLOG_URL}}">Blog</a>
+                <a class="dropdown-item" href="/sobre">{{'MENU_US'|translate}}</a>
                 <a class="dropdown-item" ui-sref="contact">{{'MENU_CONTACT'|translate}}</a>
             </div>
         </li>
@@ -22,10 +22,18 @@
                 <a ng-repeat="cat in vm.filters" class="dropdown-item" href="produtos/{{cat.id}}/all">{{cat.nome}}</a>
             </div>
         </li>
+        <li rel="noopener noreferrer" class="dropdown">
+            <a class="nondrop-blog" target="_blank" href="{{$root.getCurrentEnvironment().BLOG_URL}}" role="button" id="dropdownMenuLink3"
+                aria-haspopup="true" aria-expanded="false">
+                Blog
+                <i class="fas fa-chevron-down"></i>
+            </a>
+
+        </li>
     </ul>
     <ul class="menu">
         <li rel="noopener noreferrer">
-            <a href="/produtos">
+            <a href="/produtos/all/all">
                 <img src="../../assets/img/search.png" alt="">
             </a>
         </li>

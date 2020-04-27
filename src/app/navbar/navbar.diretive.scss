@@ -34,8 +34,9 @@ navbar-diretive{
 
                 .dropdown{
     
-                    .dropdown-toggle{
+                    .dropdown-toggle, .nondrop-blog{
                         color: white;
+                        // cursor: pointer;
                     }
                 }
             }
@@ -78,7 +79,7 @@ navbar-diretive{
                     margin-right: 50px;
                 }
 
-                .dropdown-toggle{
+                .dropdown-toggle, .nondrop-blog{
 
                     &:after{
                         content: none;

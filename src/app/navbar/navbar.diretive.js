@@ -15,8 +15,8 @@ export const NavbarDiretive = {
 function NavbarController($state, $scope, $element, HttpService) {
   var vm = this
 
-  HttpService.get("/produtos/get-atributos-busca/", {}).then(function(resp){
-    vm.filters = resp.data[0];
+  HttpService.get("/ambientes/get-nav-info/", {}).then(function (resp) {
+		vm.filters = resp.data;
 	});
   // $scope.$watch(function () { return $state.$current.name }, function (newVal) {
   //   if (newVal === '/') $(window).scroll(function () {

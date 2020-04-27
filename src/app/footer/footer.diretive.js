@@ -22,7 +22,7 @@ function FooterController($rootScope, HttpService, $translate, $window, $scope) 
 		$window.location.reload();
 	};
 
-	HttpService.get("/produtos/get-atributos-busca/", {}).then(function (resp) {
-		vm.filters = resp.data[0];
+	HttpService.get("/ambientes/get-nav-info/", {}).then(function (resp) {
+		vm.filters = resp.data;
 	});
 }
