@@ -23,6 +23,7 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 
 	vm.filter.lancamentos = false;
 	vm.ambienteSelected = null;
+	vm.filter.offset = 1;
 	$scope.tabSliders = {};
 	
 	if ($stateParams.ambiente != "all"){
@@ -32,6 +33,12 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	if ($stateParams.tipo != "all"){
 		vm.filter.categoria = parseInt($stateParams.tipo);
 	}
+
+	$scope.$watch("vm.filter.ambiente", function(newValue, oldValue){
+		if(newValue <= -1){
+			vm.filter.categoria = null;
+		}
+	});
 
 	HttpService.get("/produtos/get-atributos-busca/", {id: $stateParams.id}).then(function(resp){
 		vm.filters = resp.data;
@@ -47,21 +54,30 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		vm.ambienteSelected = idx;
 	}
 
-	vm.filtrar = function(offset){
+	vm.filtrar = function(){
 		$(".list").fadeOut();
 		$(".container-loader").show();
-		// vm.filter.largura = $scope.tabSliders.slider1;
-		// vm.filter.altura = $scope.tabSliders.slider2;
-		// vm.filter.profundidade = $scope.tabSliders.slider3;
-		// $stateParams.ambiente = vm.filter.ambiente;
-		// $stateParams.tipo = vm.filter.categoria;
-		// vm.filter.offset = 0;
-		// if(offset){
+		vm.filter.largura = $scope.tabSliders.slider1;
+		vm.filter.altura = $scope.tabSliders.slider2;
+		vm.filter.profundidade = $scope.tabSliders.slider3;
+		vm.filter.offset = 1;
 
-		// }
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			vm.products = resp.data;
+			setTimeout(function(){
+				$(".container-loader").hide();
+				$(".list, .more").fadeIn();
+			}, 400);
+		});
+	}
+
+	vm.loadMore = () => {
+		vm.filter.offset += 1;
+		$(".container-loader").fadeIn();
+		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
+			vm.products = vm.products.concat(resp.data);
+
 			setTimeout(function(){
 				$(".container-loader").hide();
 				$(".list, .more").fadeIn();

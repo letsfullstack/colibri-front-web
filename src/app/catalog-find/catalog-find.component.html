@@ -145,15 +145,15 @@
         </div>
 
         <div class="col-12 col-md-8">
-            <div class="container-loader"><div class="loader"></div></div>
             <div class="list" style="display: none;">
                 <section ng-repeat="product in vm.products" class="card_b" ui-sref="product({ambient: product.slug_ambiente, category: product.slug_categoria, slug: product.slug_produto, id: product.id})">
-                    <img src="{{$root.SERVER_URL}}/upload/uploads/download/{{product.produto_imagem}}" alt="">
+                    <img src="https://www.oficinadanet.com.br/imagens/post/25197/330xNximages.jpg.pagespeed.ic.23e50a812b.jpg" alt="">
                     <h1>{{product.nome}}</h1>
                     <h2>{{product.nome_ambiente}}</h2>
                 </section>
             </div>
-            <button class="more" ng-click="vm.filtrar()" style="display: none;">{{'CATALOG_BUTTON_MORE'|translate}}</button>        
+            <div class="container-loader"><div class="loader"></div></div>
+            <button class="more" ng-click="vm.loadMore()" style="display: none;">{{'CATALOG_BUTTON_MORE'|translate}}</button>        
         </div>
     </div>
 </section>
