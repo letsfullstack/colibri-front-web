@@ -4,7 +4,7 @@ export const NewsDiretive = {
 			restrict: 'E',
 			template: require("./newsletter.diretive.html"),
 			scope: {},
-			controller: ["$scope", "HttpService", NewsController],
+			controller: ["$scope", "HttpService", "swangular", NewsController],
 			controllerAs: "vm",
 			bindToController: true
 		}
@@ -12,12 +12,12 @@ export const NewsDiretive = {
 	element: "newsDiretive"
 }
 
-function NewsController($scope, HttpService) {
+function NewsController($scope, HttpService, swangular) {
 	var vm = this;
 
 	vm.subscribe = function () {
 		if(!vm.email){
-			Swal.fire({
+			swangular.swal({
 				title: 'Atenção',
 				text: 'Informe um e-mail para continuar.',
 				icon: 'success',
