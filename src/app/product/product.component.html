@@ -86,11 +86,11 @@
                         <span class="other">weight/peso</span>
                         <span class="unit">{{vm.produto.peso}}kg</span>
                     </li>
-                    <li class="characteristic" style="display: none;">
+                    <li class="characteristic" ng-show="vm.produto.tv">
                         <i class="fas fa-tv"></i>
                         <span class="tag">tv</span>
-                        <span class="other">Tamanho/size</span>
-                        <span class="unit">60”</span>
+                        <span class="other">tamanho/size</span>
+                        <span class="unit">{{vm.produto.tv}}</span>
                     </li>
                 </ul>
                 <p class="description">
