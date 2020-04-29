@@ -25,15 +25,13 @@
         <div class="right">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <img class="swiper-slide"
-                        ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}"
-                        alt="Foto de {{vm.produto.nome}}" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem">
+                    <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: false} as qtd_fotos" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}">
                 </div>
             </div>
             <div class="bottom">
                 <span class="init">01</span>
                 <div class="swiper-pagination"></div>
-                <span class="end">{{(vm.produto.produtocor[vm.cor].produtoimagem.length).toString().padStart(2, "0");}}</span>
+                <span class="end">0{{qtd_fotos.length}}</span>
                 <div class="prev-next">
                     <div class="swiper-button-prev">
                         <!-- <i class="fas fa-arrow-left"></i> -->
@@ -48,9 +46,7 @@
         </div>
     </div>
     <div class="bottom">
-        <img class="left"
-            src="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.produtocor[vm.cor].imagemprincipal.arquivo}}"
-            alt="">
+        <img class="left" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: true}" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="">
         <div class="right">
             <div class="characteristics">
                 <ul>
