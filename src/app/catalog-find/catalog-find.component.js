@@ -23,7 +23,7 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 
 	vm.filter.lancamentos = false;
 	vm.ambienteSelected = null;
-	vm.filter.offset = 1;
+	vm.filter.offset = 0;
 	$scope.tabSliders = {};
 	
 	if ($stateParams.ambiente != "all"){
@@ -60,7 +60,7 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		vm.filter.largura = $scope.tabSliders.slider1;
 		vm.filter.altura = $scope.tabSliders.slider2;
 		vm.filter.profundidade = $scope.tabSliders.slider3;
-		vm.filter.offset = 1;
+		vm.filter.offset = 0;
 
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
@@ -73,7 +73,7 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	}
 
 	vm.loadMore = () => {
-		vm.filter.offset += 1;
+		vm.filter.offset += 10;
 		$(".container-loader").fadeIn();
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			vm.products = vm.products.concat(resp.data);
