@@ -52,5 +52,15 @@
     "CONTACT_CHAT_BUTTON":"Open chat",
     "CONTACT_SECTION_3_TITLE":"Where are we?",
     "FOOTER_SITE_MAP":"Sitemap",
-    "FOOTER_POLICY":"Privacy policy"
+    "FOOTER_POLICY":"Privacy policy",
+    "FOOTER_WORK_WITH_US":"Work with us",
+    "CONTACT_MODAL_BUTTON": "Subscribe!",
+    "CONTACT_MODAL_TITLE": "Request a Quote",
+    "CONTACT_MODAL_SUBTITLE": "Enter your information below and schedule a budget now!",
+    "CONTACT_MODAL_PLACE_NAME": "Name",
+    "CONTACT_MODAL_PLACE_TEL": "Telephone",
+    "CONTACT_MODAL_PLACE_MENSAGE": "Message",
+    "LEAD_MODAL_TITLE": "Access our catalog",
+    "LEAD_MODAL_SUBTITLE": "Fill in the fields below to download!",
+    "LEAD_MODAL_BUTTON": "Download PDF"
 }

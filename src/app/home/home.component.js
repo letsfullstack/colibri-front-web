@@ -9,20 +9,26 @@ export const HomeComponent = {
 		controllerAs: "vm",
 		authenticate: false
 	},
-	controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$http", "$rootScope", HomeController]
+	controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$http", "$rootScope", "$sce", HomeController]
 }
 
-function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootScope) {
+function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootScope, $sce) {
 	var vm = this;
 
 	vm.most_viewed = [];
 	vm.images = [];
-	
+
+	$scope.leadValid = {}
+
 	vm.url = $rootScope.getCurrentEnvironment().SERVER_URL + "/upload/uploads/download/";
-	
-	HttpService.get("/resources/get-home-data/", {}, {}).then(function(resp){
+
+	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.most_viewed = resp.data.most_viewed;
 		vm.images = resp.data.images[0];
+		if (vm.images){
+			vm.images.link_youtube = vm.images.link_youtube.replace("watch?v=", "embed/")
+			vm.images.link_youtube = $sce.trustAsResourceUrl(vm.images.link_youtube);
+		}
 	});
 
 	setTimeout(() => new Swiper('.banner .swiper-container', {

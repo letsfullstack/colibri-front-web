@@ -25,6 +25,7 @@ import 'angular-translate';
 import 'angular-translate-storage-cookie';
 import 'angular-translate-storage-local';
 
+import 'swangular';
 
 import TranslateFilePT from "../translate/pt.json"
 import TranslateFileES from "../translate/es.json"
@@ -38,6 +39,8 @@ import { SubComponent } from './sub/sub.component'
 import { ContactComponent } from './contact/contact.component'
 import { CatalogFindComponent } from './catalog-find/catalog-find.component'
 import { ProductComponent } from './product/product.component'
+import { ModalContatoComponent } from './modals/contato/contato.component'
+import { ModalLeadComponent } from './modals/lead/lead.component'
 
 import Constants from './app.constants'
 
@@ -58,7 +61,8 @@ const MODULE_IMPORTS = [
     'ngMeta',
     'ui.mask',
     'ngSanitize',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'swangular'
 ]
 
 const COMPONENTS_IMPORTS = [
@@ -66,7 +70,9 @@ const COMPONENTS_IMPORTS = [
     SubComponent,
     ContactComponent,
     CatalogFindComponent,
-    ProductComponent
+    ProductComponent,
+    ModalContatoComponent,
+    ModalLeadComponent
 ]
 
 const SERVICES_IMPORTS = [
@@ -89,6 +95,7 @@ var app = angular.module(AppComponent.selector, MODULE_IMPORTS)
 
 window.$ = $
 window.Swal = Swal
+window.swal = Swal
 window.Swiper = Swiper
 window.moment = moment
 
@@ -100,8 +107,14 @@ app.constant("constants", Constants)
 for (const SERVICE of SERVICES_IMPORTS)
     app.service(SERVICE.name, SERVICE.function)
 
-for (const COMPONENT of COMPONENTS_IMPORTS)
-    app.controller(COMPONENT.options.controller, COMPONENT.controller)
+// for (const COMPONENT of COMPONENTS_IMPORTS)
+//     app.controller(COMPONENT.options.controller, COMPONENT.controller)
+
+for (const COMPONENT of COMPONENTS_IMPORTS) {
+    if (COMPONENT.controller) {
+        app.controller(COMPONENT.options.controller, COMPONENT.controller)
+    }
+}
 
 for (const DIRETIVE of DIRETIVES_IMPORTS)
     app.directive(DIRETIVE.element, DIRETIVE.options)
@@ -112,7 +125,7 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
 
     for (const COMPONENT of COMPONENTS_IMPORTS)
         if (COMPONENT.options.state) $stateProvider.state(COMPONENT.options.state, COMPONENT.options)
-
+        
     $locationProvider.html5Mode(true)
 
     $logProvider.debugEnabled(true)
@@ -126,7 +139,7 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
     ngMetaProvider.setDefaultTag('author', 'Lets Comunicação')
 
     window.moment.locale('pt-BR');
-    
+
     $translateProvider.translations('en', TranslateFileEN);
     $translateProvider.translations('es', TranslateFileES);
     $translateProvider.translations('pt', TranslateFilePT);
@@ -134,19 +147,19 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
     $translateProvider.preferredLanguage('pt');
     $translateProvider.useLocalStorage();
 
-}).run(['ngMeta', '$transitions', 'constants', '$rootScope', ConstructorModule])
+}).run(['ngMeta', '$transitions', 'constants', '$rootScope', 'swangular', ConstructorModule])
 
-function ConstructorModule(ngMeta, $transitions, constants, $rootScope) {
+function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangular) {
     $rootScope.getCurrentEnvironment = () => {
-		if (ENV === "development") {
-			return constants.dev;
-		} else if (ENV === "production") {
-			return constants.production;
-		}
+        if (ENV === "development") {
+            return constants.dev;
+        } else if (ENV === "production") {
+            return constants.production;
+        }
     }
 
     $rootScope.SERVER_URL = $rootScope.getCurrentEnvironment().SERVER_URL;
-    
+
     ngMeta.init();
 
     $transitions.onSuccess({}, (s) => {
@@ -167,11 +180,32 @@ function ConstructorModule(ngMeta, $transitions, constants, $rootScope) {
                 $('navbar-diretive').addClass('invert')
                 $("main").css("margin-top", "90px")
             }
-            $("body, main").css({ "opacity": "1", "overflow": "auto", "transition" : "opacity 300ms" })
+            $("body, main").css({ "opacity": "1", "overflow": "auto", "transition": "opacity 300ms" })
         }, 500))
     })
 
     $transitions.onExit({}, () => {
-        $("main").css({ "opacity": "0", "overflow": "hide", "transition" : "none" })
+        $("main").css({ "opacity": "0", "overflow": "hide", "transition": "none" })
     })
+
+    $rootScope.modalContato = () => {
+        swangular.open({
+            html: require("./modals/contato/contato.component.html"),
+            controller: 'ModalContatoController',
+            showConfirmButton: false,
+            showCloseButton: true,
+            customClass: "swal-modal-contato",
+            animation: true
+        });
+    }
+    $rootScope.modalLead = () => {
+        swangular.open({
+            html: require("./modals/lead/lead.component.html"),
+            controller: 'ModalLeadController',
+            showConfirmButton: false,
+            showCloseButton: true,
+            customClass: "swal-modal-lead",
+            animation: true
+        });
+    }
 }
