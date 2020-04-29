@@ -1,0 +1,48 @@
+.swal-modal-lead{
+    padding: 20px 20px;
+    border-radius: 5px;
+    .content{
+        .logo{
+            margin-bottom: 30px;
+            font-size: 36px;
+            color: #22222d;
+        }
+        .text{
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #22222d;
+            line-height: 31px;
+        }
+        .group-inputs{
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            input{
+                font-size: 14px;
+                border: none;
+                flex: 1;
+                border-radius: 5px;
+                box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+                background-color: #FFFFFF;
+                padding: 20px;
+                width: 100%;
+                outline: rgb(190, 190, 190);
+            }
+        }
+        .buttons{
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+            button{
+                font-size: 15px;
+                width: 38%;
+                height: 60px;
+                border-radius: 5px;
+                box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
+                background-color: #25e779;
+                border: none;
+                color: white;
+            }
+        }
+    }
+}

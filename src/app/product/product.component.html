@@ -19,7 +19,7 @@
                     </label>
                 </div>
                 <span class="have">{{'PRODUCT_HAVE_PRODUCT'|translate}}</span>
-                <button class="request">{{'PRODUCT_GET_BUDGET'|translate}}</button>
+                <button ng-click="$root.modalContato()" class="request">{{'PRODUCT_GET_BUDGET'|translate}}</button>
             </div>
         </div>
         <div class="right">
@@ -27,21 +27,23 @@
                 <div class="swiper-wrapper">
                     <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: false} as qtd_fotos" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}">
                 </div>
+                <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div>
             </div>
             <div class="bottom">
                 <span class="init">01</span>
                 <div class="swiper-pagination"></div>
                 <span class="end">0{{qtd_fotos.length}}</span>
-                <div class="prev-next">
+                <!-- <div class="prev-next">
                     <div class="swiper-button-prev">
-                        <!-- <i class="fas fa-arrow-left"></i> -->
+                        <i class="fas fa-arrow-left"></i>
                         ←
                     </div>
                     <div class="swiper-button-next">
-                        <!-- <i class="fas fa-arrow-right"></i> -->
+                        <i class="fas fa-arrow-right"></i>
                         →
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -91,8 +93,8 @@
                     {{vm.produto.descricao}}
                 </p>
                 <div class="download">
-                    <a class="image" ng-show="vm.produto.arquivo_imagens" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.arquivo_imagens}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_IMAGES'|translate}}</a>
-                    <a class="schema" ng-show="vm.produto.esquema_montagem" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.esquema_montagem}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_SCHEMA'|translate}}</a>
+                    <a ng-if="vm.produto.arquivo_imagens" class="image" ng-show="vm.produto.arquivo_imagens" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.arquivo_imagens}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_IMAGES'|translate}}</a>
+                    <a ng-if="vm.produto.esquema_montagem" class="schema" ng-show="vm.produto.esquema_montagem" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.esquema_montagem}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_SCHEMA'|translate}}</a>
                 </div>
             </div>
         </div>

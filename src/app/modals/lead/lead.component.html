@@ -1,0 +1,17 @@
+<div class="swal-modal-contato">
+    <form class="content">
+        <div class="logo">
+            {{'LEAD_MODAL_TITLE'|translate}}
+        </div>
+        <div class="text">
+            {{'LEAD_MODAL_SUBTITLE'|translate}}
+        </div>
+        <div class="group-inputs">
+            <input type="text" ng-model="lead.nome" placeholder="{{'CONTACT_MODAL_PLACE_NAME'|translate}}" required="true">
+            <input type="email" ng-model="lead.email" placeholder="Email" required="true">
+        </div>
+        <div class="buttons">
+            <button ng-click="openPDF()">{{'LEAD_MODAL_BUTTON'|translate}}</button>
+        </div>
+    </form>
+</div>

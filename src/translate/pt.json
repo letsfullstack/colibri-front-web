@@ -52,5 +52,15 @@
     "CONTACT_CHAT_BUTTON":"Entrar no chat",
     "CONTACT_SECTION_3_TITLE":"Onde estamos?",
     "FOOTER_SITE_MAP":"Mapa do site",
-    "FOOTER_POLICY":"Política de privacidade"
+    "FOOTER_POLICY":"Política de privacidade",
+    "FOOTER_WORK_WITH_US":"Trabalhe conosco",
+    "CONTACT_MODAL_BUTTON": "Inscreva-se!",
+    "CONTACT_MODAL_TITLE": "Solicite um Orçamento",
+    "CONTACT_MODAL_SUBTITLE": "Digite suas informações abaixo e agende já um orçamento!",
+    "CONTACT_MODAL_PLACE_NAME": "Nome",
+    "CONTACT_MODAL_PLACE_TEL": "Telefone",
+    "CONTACT_MODAL_PLACE_MENSAGE": "Mensagem",
+    "LEAD_MODAL_TITLE": "Acesse nosso catálogo",
+    "LEAD_MODAL_SUBTITLE": "Preencha os campos abaixo para fazer o download!",
+    "LEAD_MODAL_BUTTON": "Baixar PDF"
 }
