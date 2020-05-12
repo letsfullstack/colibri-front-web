@@ -54,12 +54,13 @@
     </div>
 </section>
 
-<section class="video">
+<section ng-if="vm.images.ativo_youtube" class="video">
     <div class="container">
-        <iframe
-            ng-src="{{vm.images.link_youtube}}">
-        </iframe>
+        <h1>{{vm.images.titulo_youtube}}</h1>
     </div>
+    <iframe
+        ng-src="{{vm.images.link_youtube}}">
+    </iframe>
 </section>
 
 <catalog-product-diretive title="{{'HOME_PRODUCTS_TITLE'|translate}}" description="{{'HOME_PRODUCTS_TEXT'|translate}}"

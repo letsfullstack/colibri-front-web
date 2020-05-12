@@ -140,7 +140,7 @@ section {
     
         .pallete {
             margin-bottom: 60px;
-    
+            padding-right: 30px;
             h3 {
                 font-size: 1.8em;
                 font-weight: 500;
@@ -155,7 +155,6 @@ section {
                 user-select: none;
                 width: max-content;
                 margin: 0;
-    
                 &:not(:last-of-type) {
                     margin-right: 10px;
                 }

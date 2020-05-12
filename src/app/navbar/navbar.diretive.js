@@ -4,7 +4,7 @@ export const NavbarDiretive = {
       restrict: 'E',
       template: require("./navbar.diretive.html"),
       scope: {},
-      controller: ["$state", "$scope", "$element", "HttpService", NavbarController],
+      controller: ["$state", "$scope", "$element", "HttpService", "$translate", "$window", NavbarController],
       controllerAs: "vm",
       bindToController: true
     }
@@ -12,8 +12,15 @@ export const NavbarDiretive = {
   element: "navbarDiretive"
 }
 
-function NavbarController($state, $scope, $element, HttpService) {
+function NavbarController($state, $scope, $element, HttpService, $translate, $window) {
   var vm = this
+
+  $scope.currentLanguage = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
+
+	$scope.changeLanguage = function (langKey) {
+		$translate.use(langKey);
+		$window.location.reload();
+	};
 
   HttpService.get("/ambientes/get-nav-info/", {}).then(function (resp) {
 		vm.filters = resp.data;

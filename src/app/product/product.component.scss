@@ -252,7 +252,86 @@ section {
             display: flex;
             align-items: center;
             justify-content: center;
+            .mobile-info{
+                display: flex;
+                flex-direction: column;
 
+            }
+            .mobi{
+                visibility: hidden;
+            }
+            .colors {
+                display: flex;
+                align-items: baseline;
+                margin-top: 20px;
+
+                span {
+                    font-size: 1.6em;
+                    color: rgba(0, 0, 0, 0.85);
+                }
+
+                .color {
+                    position: relative;
+                    cursor: pointer;
+                    font-size: 1.7em;
+                    user-select: none;
+                    width: max-content;
+                    margin: 0;
+
+                    &:first-of-type {
+                        margin-left: 15px;
+                    }
+
+                    &:not(:first-of-type) {
+                        margin-left: 10px;
+                    }
+        
+                    input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+        
+                        &:checked ~ .checkmark {
+                            border: solid 3px #22222d;
+                        }
+                    }
+        
+                    .checkmark {
+                        display: flex;
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            .have {
+                font-size: 1.6em;
+                color: rgba(0, 0, 0, 0.85);
+                margin-top: 50px;
+            }
+
+            .request {
+                border-radius: 5px;
+                border: solid 2px #25e779;
+                font-size: 1.3em;
+                font-weight: 500;
+                width: 60%;
+                color: #00ca7a;
+                padding: 10px 15px;
+                background: transparent;
+                margin-top: 25px;
+                margin-bottom: 25px;
+                transition: all .4s ease;
+                -webkit-transition: all .4s ease;
+                &:hover{
+                    border-color: transparent;
+                    color: white;
+                    background: #25e779;
+                }
+            }
             .characteristics {
                 width: 475px;
 
@@ -355,7 +434,7 @@ section {
             }
 
             .left{
-                margin: 80px 0;
+                margin: 50px 0;
                 position: static;
                 
                 &:before{
@@ -369,6 +448,9 @@ section {
                     width: 100%;
                     max-width: 475px;
                     padding: 0 15px;
+                }
+                .no-mobi{
+                    display: none !important;
                 }
             }
 
@@ -389,8 +471,10 @@ section {
             }
 
             .right{
-                margin: 80px 0;
-
+                margin: 40px 0;
+                .mobi{
+                    visibility: visible;;
+                }
                 .characteristics{
                     width: 100%;
                     max-width: 475px;

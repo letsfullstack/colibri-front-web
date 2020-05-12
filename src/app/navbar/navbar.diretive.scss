@@ -10,13 +10,16 @@ $height: 90px;
     }
 }
 
+.in-home{
+    position: fixed;
+}
+
 navbar-diretive{
     display: block;
-    position: fixed;
     width: 100%;
     background-color: transparent;
     top: 0;
-    font-size: 10px;
+    font-size: 9px;
     z-index: 9999;
     transition: background 300ms;
 
@@ -140,6 +143,26 @@ navbar-diretive{
                 font-size: 1.6em;
 
                 cursor: pointer;
+
+                .dropdown-menu{
+                    border: 0;
+                    padding: 5px 10px;
+                    box-shadow: 0 3px 12px rgba(27,31,35,.15), 0 0 1px rgba(27,31,35,.2);
+                    .dropdown-item{
+                        height: 50px;
+                        display: flex;
+                        align-items: center;
+                        font-size: 14px;
+                        cursor: pointer;
+                        &:active{
+                            background-color: #22222d;
+                            color: #FFFFFF;
+                        }
+                        img{
+                            margin-right: 6px;
+                        }
+                    }
+                }
                 a{  
                     color: #000000;
                     text-decoration: none;
@@ -147,6 +170,7 @@ navbar-diretive{
                     justify-content: center;
                     i{
                         font-weight: 650;
+                        color: rgb(100, 100, 100);
                     }
                     img{
                         border-radius: 40px;

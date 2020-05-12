@@ -65,6 +65,7 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			vm.products = resp.data;
+			debugger
 			setTimeout(function(){
 				$(".container-loader").hide();
 				$(".list, .more").fadeIn();
@@ -77,7 +78,6 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		$(".container-loader").fadeIn();
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			vm.products = vm.products.concat(resp.data);
-
 			setTimeout(function(){
 				$(".container-loader").hide();
 				$(".list, .more").fadeIn();

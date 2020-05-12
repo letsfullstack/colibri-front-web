@@ -1,5 +1,6 @@
 <section id="product">
     <div class="top">
+        
         <div class="left">
             <div class="d-flex flex-column align-items-start content">
                 <ol class="breadcrumb">
@@ -11,17 +12,18 @@
                 <h1>{{vm.produto.nome}}</h1>
                 <span class="cod">cod. {{vm.produto.codigo}}</span>
                 <button class="release" ng-show="vm.produto.lancamento">{{'PRODUCT_RELEASE'|translate}}</button>
-                <div class="colors">
+                <div class="colors no-mobi">
                     <span>{{'PRODUCT_COLORS'|translate}}:</span>
                     <label class="color" ng-repeat="(key, value) in vm.produto.produtocor" title="{{value.descricao}}">
                         <input type="radio" name="f_color" ng-model="vm.cor" ng-click="vm.changeColor(value)" ng-value="key">
                         <span class="checkmark" ng-style="{'background-color' : value.cor}" ></span>
                     </label>
                 </div>
-                <span class="have">{{'PRODUCT_HAVE_PRODUCT'|translate}}</span>
-                <button ng-click="$root.modalContato()" class="request">{{'PRODUCT_GET_BUDGET'|translate}}</button>
+                <span class="have no-mobi">{{'PRODUCT_HAVE_PRODUCT'|translate}}</span>
+                <button ng-click="$root.modalContato()" class="no-mobi request">{{'PRODUCT_GET_BUDGET'|translate}}</button>
             </div>
         </div>
+
         <div class="right">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
@@ -48,13 +50,26 @@
                 </div> -->
             </div>
         </div>
+
     </div>
+
     <div class="bottom">
         <img class="left"
             src="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.produtocor[vm.cor].imagemprincipal.arquivo}}"
             alt="">
         <div class="right">
             <div class="characteristics">
+                <div class="mobile-info">
+                    <div class="colors mobi">
+                        <span>{{'PRODUCT_COLORS'|translate}}:</span>
+                        <label class="color" ng-repeat="(key, value) in vm.produto.produtocor" title="{{value.descricao}}">
+                            <input type="radio" name="f_color" ng-model="vm.cor" ng-click="vm.changeColor(value)" ng-value="key">
+                            <span class="checkmark" ng-style="{'background-color' : value.cor}" ></span>
+                        </label>
+                    </div>
+                    <span class="have mobi">{{'PRODUCT_HAVE_PRODUCT'|translate}}</span>
+                    <button ng-click="$root.modalContato()" class="mobi request">{{'PRODUCT_GET_BUDGET'|translate}}</button>
+                </div>
                 <ul>
                     <li class="characteristic">
                         <i class="fas fa-arrows-alt-h"></i>
