@@ -47,21 +47,21 @@
                 <img src="../../assets/img/user.png" alt="">
             </a>
         </li>
-        <li>
-            <a class="btn" 
-                role="button" 
-                id="dropdownMenuLanguage" 
-                data-toggle="dropdown" 
-                aria-haspopup="true" 
-                aria-expanded="false">
-                <i class="fas fa-globe"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLanguage">
-                <a class="dropdown-item" ng-click="changeLanguage('pt')"><img src="https://www.countryflags.io/br/flat/32.png"><div class="title">Português</div></a>
-                <a class="dropdown-item" ng-click="changeLanguage('en')"><img src="https://www.countryflags.io/us/flat/32.png"><div class="title">English</div></a>
-                <a class="dropdown-item" ng-click="changeLanguage('es')"><img src="https://www.countryflags.io/es/flat/32.png"><div class="title"></div>Español</div></a>
-            </div>
-        </li>
+        <a class="btn dropdown-toggle" 
+            role="button" 
+            id="dropdownMenuLanguage" 
+            data-toggle="dropdown" 
+            aria-haspopup="true" 
+            aria-expanded="false">
+            <i class="fas fa-globe"></i> {{currentLanguage}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLanguage">
+            <a class="dropdown-item" ng-click="changeLanguage('pt')"><img src="https://www.countryflags.io/br/flat/32.png"><div class="title">Português</div></a>
+            <a class="dropdown-item" ng-click="changeLanguage('en')"><img src="https://www.countryflags.io/us/flat/32.png"><div class="title">English</div></a>
+            <a class="dropdown-item" ng-click="changeLanguage('es')"><img src="https://www.countryflags.io/es/flat/32.png"><div class="title"></div>Español</div></a>
+        </div>
+        <!-- <li>
+        </li> -->
         <li class="menu-toggle" rel="noopener noreferrer">
             <a ng-click="open()">
                 <i class="fas fa-bars"></i>

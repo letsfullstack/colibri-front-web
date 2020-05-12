@@ -23,6 +23,13 @@ navbar-diretive {
     z-index: 100;
     transition: background 300ms;
 
+    #dropdownMenuLanguage{
+        color: white !important;
+        margin-left: -15px;
+    }
+
+
+
     &.invert {
         background-color: #22222d;
 
@@ -89,13 +96,14 @@ navbar-diretive {
                     &:after {
                         content: none;
                     }
+                    
 
                     i {
                         margin-left: 10px;
                         font-size: 0.8em;
                     }
 
-                    color: #242635;
+                    color: white;
                     text-decoration: none;
                     font-size: 1.4em;
                     display: flex;

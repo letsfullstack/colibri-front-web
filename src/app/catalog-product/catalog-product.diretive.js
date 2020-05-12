@@ -24,8 +24,8 @@ function CatalogProductController($scope, $element) {
     spaceBetween: 20,
     breakpoints: {
       576 : {
-        slidesPerView: 1.5,
-        spaceBetween: 0
+        slidesPerView: 1.4,
+        spaceBetween: 20
       }
     }
   }), 300);
