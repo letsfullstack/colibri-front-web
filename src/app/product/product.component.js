@@ -25,19 +25,12 @@ function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, Htt
 			vm.produtos_relacionados = resp.data.data.relacionados;
 
 			if(!vm.checkSlugs()){
-				//$state.go("/");
+				$state.go("home");
 			}
 			vm.produto.produtocor.forEach(function(elm, idx){
 				if(elm.destaque){
 					vm.cor = idx;
 				}
-				elm.imagemprincipal = {};
-				elm.produtoimagem.forEach(function(value, i){
-					if(value.principal){
-						elm.imagemprincipal = value;
-						delete elm.produtoimagem[i];
-					}
-				});
 			});
 		}, function(err){
 			$state.go("/");

@@ -20,7 +20,7 @@ navbar-diretive{
     background-color: transparent;
     top: 0;
     font-size: 9px;
-    z-index: 9999;
+    z-index: 100;
     transition: background 300ms;
 
     &.invert{
