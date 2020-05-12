@@ -9,7 +9,7 @@
                     <li class="breadcrumb-item active" style="text-transform: lowercase;">{{'MENU_PRODUCT'|translate}}</li>
                 </ol>
 
-                <button class="filter" ng-click="vm.filter = !vm.filter">
+                <button class="filter" ng-click="vm.filter_open = !vm.filter_open">
                     filtro
                     <i class="fas fa-filter"></i>
                 </button>
@@ -18,7 +18,7 @@
             <h1>{{'CATALOG_TITLE'|translate}}</h1>
         </div>
 
-        <div class="col-12 col-md-4 filter" ng-if="vm.filter || vm.width > 992">
+        <div class="col-12 col-md-4 filter" ng-if="vm.filter_open || vm.width > 992">
 
             <ol class="breadcrumb d-none d-md-flex">
                 <li class="breadcrumb-item"><a href="#">home</a></li>

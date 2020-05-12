@@ -20,7 +20,14 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
 	$scope.changeLanguage = function (langKey) {
 		$translate.use(langKey);
 		$window.location.reload();
-	};
+  };
+  
+  $scope.open = function(){
+    $('#menu').addClass('menu-open')
+  }
+  $scope.close = function(){
+    $('#menu').removeClass('menu-open')
+  }
 
   HttpService.get("/ambientes/get-nav-info/", {}).then(function (resp) {
 		vm.filters = resp.data;

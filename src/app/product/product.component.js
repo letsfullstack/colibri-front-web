@@ -9,10 +9,10 @@ export const ProductComponent = {
 		controllerAs: "vm",
 		authenticate: false
 	},
-	controller: ["$scope", "$rootScope", "$state", "ngMeta", "$stateParams", "HttpService", ProductController]
+	controller: ["$scope", "$rootScope", "$state", "ngMeta", "$stateParams", "HttpService", "$sce", ProductController]
 }
 
-function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, HttpService) {
+function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, HttpService, $sce) {
 	var vm = this;
 
 	vm.produto = null;
@@ -23,14 +23,25 @@ function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, Htt
 		HttpService.get("/produtos/get-produto/", {id: $stateParams.id}).then(function(resp){
 			vm.produto = resp.data.data.produto;
 			vm.produtos_relacionados = resp.data.data.relacionados;
-
+			if (vm.produto && vm.produto.link_youtube){
+				
+				vm.produto.link_youtube = vm.produto.link_youtube.replace("watch?v=", "embed/")
+				vm.produto.link_youtube = $sce.trustAsResourceUrl(vm.produto.link_youtube);
+			}
 			if(!vm.checkSlugs()){
-				$state.go("home");
+				//$state.go("/");
 			}
 			vm.produto.produtocor.forEach(function(elm, idx){
 				if(elm.destaque){
 					vm.cor = idx;
 				}
+				// elm.imagemprincipal = {};
+				// elm.produtoimagem.forEach(function(value, i){
+				// 	if(value.principal){
+				// 		elm.imagemprincipal = value;
+				// 		delete elm.produtoimagem[i];
+				// 	}
+				// });
 			});
 		}, function(err){
 			$state.go("/");

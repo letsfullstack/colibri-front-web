@@ -116,6 +116,15 @@
     </div>
 </section>
 
+<section ng-if="vm.produto.ativo_youtube" class="video">
+    <div class="container">
+        <h1>{{vm.produto.titulo_youtube}}</h1>
+    </div>
+    <iframe
+        ng-src="{{vm.produto.link_youtube}}">
+    </iframe>
+</section>
+
 <div class="background-catalog">
     <catalog-product-diretive class="catalog-product" title="{{'HOME_PRODUCTS_TITLE'|translate}}" description="{{'HOME_PRODUCTS_TEXT'|translate}}" products="vm.produtos_relacionados"></catalog-product-diretive>
 </div>

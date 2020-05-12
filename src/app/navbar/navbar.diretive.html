@@ -1,34 +1,40 @@
 <nav class="container">
     <img src="../../assets/img/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
-    <ul class="navigation">
-        <li rel="noopener noreferrer" class="dropdown">
-            <a class="dropdown-toggle" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
-                {{'MENU_ABOUT'|translate}}
-                <i class="fas fa-chevron-down"></i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
-                <a class="dropdown-item" href="/sobre">{{'MENU_US'|translate}}</a>
-                <a class="dropdown-item" ui-sref="contact">{{'MENU_CONTACT'|translate}}</a>
-            </div>
-        </li>
-        <li rel="noopener noreferrer" class="dropdown">
-            <a class="dropdown-toggle" href="/produtos/all/all" role="button" id="dropdownMenuLink2"
-                aria-haspopup="true" aria-expanded="false">
-                {{'MENU_PRODUCT'|translate}}
-                <i class="fas fa-chevron-down"></i>
-            </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                <a ng-repeat="cat in vm.filters" class="dropdown-item" href="produtos/{{cat.id}}/all">{{cat.nome}}</a>
-            </div>
-        </li>
-        <li rel="noopener noreferrer" class="dropdown">
-            <a class="nondrop-blog" target="_blank" href="{{$root.getCurrentEnvironment().BLOG_URL}}" role="button" id="dropdownMenuLink3"
-                aria-haspopup="true" aria-expanded="false">
-                Blog
-            </a>
-
-        </li>
+    <ul id="menu" class="navigation">
+        <div class="top">
+            <button ng-click="close()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="lista">
+            <li rel="noopener noreferrer" class="dropdown">
+                <a class="dropdown-toggle" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
+                    {{'MENU_ABOUT'|translate}}
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink1">
+                    <a ng-click="close()" class="dropdown-item" href="/sobre">{{'MENU_US'|translate}}</a>
+                    <a ng-click="close()" class="dropdown-item" ui-sref="contact">{{'MENU_CONTACT'|translate}}</a>
+                </div>
+            </li>
+            <li rel="noopener noreferrer" class="dropdown">
+                <a ng-click="close()" class="dropdown-toggle" href="/produtos/all/all" role="button" id="dropdownMenuLink2"
+                    aria-haspopup="true" aria-expanded="false">
+                    {{'MENU_PRODUCT'|translate}}
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+    
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
+                    <a ng-repeat="cat in vm.filters" class="dropdown-item" href="produtos/{{cat.id}}/all">{{cat.nome}}</a>
+                </div>
+            </li>
+            <li rel="noopener noreferrer" class="dropdown">
+                <a ng-click="close()" class="nondrop-blog" target="_blank" href="{{$root.getCurrentEnvironment().BLOG_URL}}" role="button" id="dropdownMenuLink3"
+                    aria-haspopup="true" aria-expanded="false">
+                    Blog
+                </a>
+    
+            </li>
+        </div>
+        <div></div>
     </ul>
     <ul class="menu">
         <li rel="noopener noreferrer">
@@ -55,6 +61,11 @@
                 <a class="dropdown-item" ng-click="changeLanguage('en')"><img src="https://www.countryflags.io/us/flat/32.png"><div class="title">English</div></a>
                 <a class="dropdown-item" ng-click="changeLanguage('es')"><img src="https://www.countryflags.io/es/flat/32.png"><div class="title"></div>Español</div></a>
             </div>
+        </li>
+        <li class="menu-toggle" rel="noopener noreferrer">
+            <a ng-click="open()">
+                <i class="fas fa-bars"></i>
+            </a>
         </li>
     </ul>
 </nav>
