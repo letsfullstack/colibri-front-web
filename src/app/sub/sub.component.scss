@@ -16,9 +16,13 @@ section {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            // align-items: center;
             position: relative;
 
+            padding: 0 0 0 20vw;
+            @media (max-width: 1600px) {
+                padding: 0 0 0 10vw;
+            }
             // &:before {
             //     content: "→";
             //     position: absolute;
@@ -107,6 +111,10 @@ section {
             align-items: center;
             position: relative;
 
+            // padding: 0 20vw 0 0;
+            // @media (max-width: 1600px) {
+            //     padding: 0 10vw 0 0;
+            // }
             // &:before {
             //     content: "→";
             //     position: absolute;

@@ -29,23 +29,23 @@
                 <div class="swiper-wrapper">
                     <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: false} as qtd_fotos" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}">
                 </div>
-                <div class="swiper-button-prev swiper-button-white"></div>
-                <div class="swiper-button-next swiper-button-white"></div>
+                <!-- <div class="swiper-button-prev swiper-button-white"></div>
+                <div class="swiper-button-next swiper-button-white"></div> -->
             </div>
             <div class="bottom">
                 <span class="init">01</span>
                 <div class="swiper-pagination"></div>
                 <span class="end">0{{qtd_fotos.length}}</span>
-                <!-- <div class="prev-next">
+                <div class="prev-next">
                     <div class="swiper-button-prev">
-                        <i class="fas fa-arrow-left"></i>
+                        <!-- <i class="fas fa-arrow-left"></i> -->
                         ←
                     </div>
                     <div class="swiper-button-next">
-                        <i class="fas fa-arrow-right"></i>
+                        <!-- <i class="fas fa-arrow-right"></i> -->
                         →
                     </div>
-                </div> -->
+                </div>
             </div>
         </div>
 

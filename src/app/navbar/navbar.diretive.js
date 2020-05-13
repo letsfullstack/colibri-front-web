@@ -21,7 +21,7 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
 		$translate.use(langKey);
 		$window.location.reload();
   };
-  
+
   $scope.open = function(){
     $('#menu').addClass('menu-open')
   }

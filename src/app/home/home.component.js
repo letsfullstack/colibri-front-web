@@ -25,11 +25,27 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.most_viewed = resp.data.most_viewed;
 		vm.images = resp.data.images[0];
-		if (vm.images){
+		if (vm.images) {
 			vm.images.link_youtube = vm.images.link_youtube.replace("watch?v=", "embed/")
 			vm.images.link_youtube = $sce.trustAsResourceUrl(vm.images.link_youtube);
 		}
 	});
+
+	window.addEventListener('scroll', function() {
+		if ($(this).scrollTop() > 100) {
+			$("navbar-diretive").addClass("invertido")
+		}
+		else {
+			$("navbar-diretive").removeClass("invertido")
+		}
+	})
+	
+	// $(window).scroll(function (event) {
+	// 	var scroll = $(window).scrollTop();
+	// 	// Do something
+	// 	console.log("alo");
+		
+	// });
 
 	setTimeout(() => new Swiper('.banner .swiper-container', {
 		slidesPerView: 1,

@@ -27,8 +27,8 @@
                     </a>
                 </div>
             </div>
-            <div class="swiper-button-prev swiper-button-white"></div>
-            <div class="swiper-button-next swiper-button-white"></div>
+            <!-- <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div> -->
         </div>
     </div>
     <div style="display: flex;">
@@ -40,6 +40,16 @@
             <span class="init">01</span>
             <div class="swiper-pagination"></div>
             <span class="end">04</span>
+            <div class="prev-next">
+                <div class="swiper-button-prev">
+                    <!-- <i class="fas fa-arrow-left"></i> -->
+                    ←
+                </div>
+                <div class="swiper-button-next">
+                    <!-- <i class="fas fa-arrow-right"></i> -->
+                    →
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -54,7 +64,7 @@
     </div>
 </section>
 
-<section ng-if="vm.images.ativo_youtube" class="video">
+<section ng-if="vm.images.ativo_youtube" class="video container">
     <div class="container">
         <h1>{{vm.images.titulo_youtube}}</h1>
     </div>
