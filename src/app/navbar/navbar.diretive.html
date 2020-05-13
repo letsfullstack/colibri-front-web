@@ -6,7 +6,8 @@
         </div>
         <div class="lista">
             <li rel="noopener noreferrer" class="dropdown">
-                <a class="dropdown-toggle" role="button" id="dropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
+                <a class="dropdown-toggle" role="button" id="dropdownMenuLink1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false" style="cursor: pointer;">
                     {{'MENU_ABOUT'|translate}}
                     <i class="fas fa-chevron-down"></i>
                 </a>
@@ -16,22 +17,24 @@
                 </div>
             </li>
             <li rel="noopener noreferrer" class="dropdown">
-                <a ng-click="close()" class="dropdown-toggle" href="/produtos/all/all" role="button" id="dropdownMenuLink2"
-                    aria-haspopup="true" aria-expanded="false">
+                <a ng-click="close()" class="dropdown-toggle" href="/produtos/all/all" role="button"
+                    id="dropdownMenuLink2" aria-haspopup="true" aria-expanded="false">
                     {{'MENU_PRODUCT'|translate}}
                     <i class="fas fa-chevron-down"></i>
                 </a>
-    
+
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                    <a ng-repeat="cat in vm.filters" class="dropdown-item" href="produtos/{{cat.id}}/all">{{cat.nome}}</a>
+                    <a ng-repeat="cat in vm.filters" class="dropdown-item"
+                        href="produtos/{{cat.id}}/all">{{cat.nome}}</a>
                 </div>
             </li>
             <li rel="noopener noreferrer" class="dropdown">
-                <a ng-click="close()" class="nondrop-blog" target="_blank" href="{{$root.getCurrentEnvironment().BLOG_URL}}" role="button" id="dropdownMenuLink3"
+                <a ng-click="close()" class="nondrop-blog" target="_blank"
+                    href="{{$root.getCurrentEnvironment().BLOG_URL}}" role="button" id="dropdownMenuLink3"
                     aria-haspopup="true" aria-expanded="false">
                     Blog
                 </a>
-    
+
             </li>
         </div>
         <div></div>
@@ -43,22 +46,30 @@
             </a>
         </li>
         <li rel="noopener noreferrer">
-            <a href="https://apps.colibrimoveis.com.br:5789/f3iConnect/app/login.faces;jsessionid=8B51859A3DBA128F252F35C973F29E8B" target="_blank">
+            <a href="https://apps.colibrimoveis.com.br:5789/f3iConnect/app/login.faces;jsessionid=8B51859A3DBA128F252F35C973F29E8B"
+                target="_blank">
                 <img src="../../assets/img/user.png" alt="">
             </a>
         </li>
-        <a class="btn dropdown-toggle" 
-            role="button" 
-            id="dropdownMenuLanguage" 
-            data-toggle="dropdown" 
-            aria-haspopup="true" 
-            aria-expanded="false">
-            <i class="fas fa-globe"></i> {{currentLanguage}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLanguage">
-            <a class="dropdown-item" ng-click="changeLanguage('pt')"><img src="https://www.countryflags.io/br/flat/32.png"><div class="title">Português</div></a>
-            <a class="dropdown-item" ng-click="changeLanguage('en')"><img src="https://www.countryflags.io/us/flat/32.png"><div class="title">English</div></a>
-            <a class="dropdown-item" ng-click="changeLanguage('es')"><img src="https://www.countryflags.io/es/flat/32.png"><div class="title"></div>Español</div></a>
+        <div class="idioma">
+            <a class="btn dropdown-toggle" role="button" id="dropdownMenuLanguage" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-globe"></i> {{currentLanguage}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLanguage">
+                <a class="dropdown-item item-idioma" ng-click="changeLanguage('pt')">
+                    <img class="item-bandeira" src="https://www.countryflags.io/br/flat/32.png">
+                    <span class="title">Português</span>
+                </a>
+                <a class="dropdown-item item-idioma" ng-click="changeLanguage('en')">
+                    <img class="item-bandeira" src="https://www.countryflags.io/us/flat/32.png">
+                    <span class="title">English</span>
+                </a>
+                <a class="dropdown-item item-idioma" ng-click="changeLanguage('es')">
+                    <img class="item-bandeira" src="https://www.countryflags.io/es/flat/32.png">
+                    <span class="title">Español</span>
+                </a>
+            </div>
         </div>
         <!-- <li>
         </li> -->

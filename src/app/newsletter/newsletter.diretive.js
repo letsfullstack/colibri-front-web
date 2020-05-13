@@ -29,7 +29,7 @@ function NewsController($scope, HttpService, swangular) {
 		}
 		HttpService.post("/newsletters/subscribe/", {email: vm.email}, {}).then(function(resp){
 			if(resp.data.status){
-				Swal.fire({
+				swangular.swal({
 					title: 'Pronto!',
 					text: 'Seu e-mail foi cadastrado em nossa base. A partir de agora você receberá novidades e ofertas periodicamente em seu e-mail.',
 					icon: 'success',

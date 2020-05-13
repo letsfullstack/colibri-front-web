@@ -27,7 +27,16 @@ navbar-diretive {
         color: white !important;
         margin-left: -15px;
     }
-
+    .item-bandeira{
+        filter: brightness(1) invert(0) !important;
+    }
+    .item-idioma{
+        display: flex;
+        align-items: center;
+        span{
+            margin-left: 8px;
+        }
+    }
 
 
     &.invert {
@@ -205,8 +214,11 @@ navbar-diretive {
                     .dropdown-item {
                         height: 50px;
                         display: flex;
+                        flex-direction: row;
                         align-items: center;
                         font-size: 14px;
+                        filter: brightness(1) invert(0);
+
                         cursor: pointer;
                         &:active {
                             background-color: #22222d;
