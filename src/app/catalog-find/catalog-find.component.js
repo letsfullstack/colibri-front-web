@@ -94,10 +94,14 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 				options: {
 					floor: parseInt(medidas.largura_min),
 					ceil: parseInt(medidas.largura_max),
-					draggableRange: true,
+					step: 10,
+					draggableRange: false,
+					pushRange: false,
 					translate: function (value, sliderId, label) {
 						return value + 'mm';
-					}
+					},
+					minRange: parseInt(medidas.largura_min),
+					maxRange: parseInt(medidas.largura_max)
 				}
 			},
 			slider2: {
@@ -106,10 +110,14 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 				options: {
 					floor: parseInt(medidas.altura_min),
 					ceil: parseInt(medidas.altura_max),
-					draggableRange: true,
+					step: 10,
+					draggableRange: false,
+					pushRange: false,
 					translate: function (value, sliderId, label) {
 						return value + 'mm';
-					}
+					},
+					minRange: parseInt(medidas.altura_min),
+					maxRange: parseInt(medidas.altura_max)
 				}
 			},
 			slider3: {
@@ -118,10 +126,14 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 				options: {
 					floor: parseInt(medidas.profundidade_min),
 					ceil: parseInt(medidas.profundidade_max),
-					draggableRange: true,
+					step: 10,
+					draggableRange: false,
+					pushRange: false,
 					translate: function (value, sliderId, label) {
 						return value + 'mm';
-					}
+					},
+					minRange: parseInt(medidas.profundidade_min),
+					maxRange: parseInt(medidas.profundidade_max)
 				}
 			}
 		}
