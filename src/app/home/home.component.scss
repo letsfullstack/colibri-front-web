@@ -5,7 +5,7 @@ section{
 .video{
     margin-top: 100px;
     margin-bottom: 190px;
-    padding: 0 10vw;
+    // padding: 0 10vw;
     .container{
         display: flex;
         justify-content: center;
@@ -50,7 +50,10 @@ section{
         h1, p{
             color: #242635;
             font-weight: 400;
-            padding: 0 0 0 10vw;
+            padding: 0 0 0 20vw;
+            @media (max-width: 1600px) {
+                padding: 0 0 0 10vw;
+            }
         }
 
         h1{
@@ -58,8 +61,13 @@ section{
             line-height: 1.15;
             letter-spacing: -1.55px;
             max-width: 315px;
+            @media (max-width: 760px) {
+                font-size: 5.5em;
+            }
         }
-
+        @media (max-width: 760px) {
+            font-size: 5.5em;
+        }
         p{
             font-size: 2.6em;
             line-height: 1.35;
@@ -92,7 +100,10 @@ section{
         background-color: #25e779;
         display: flex;
         justify-content: space-between;
-        padding: 0 10vw;
+        padding: 0 3vw 0 20vw;
+        @media (max-width: 1600px) {
+            padding: 0 3vw 0 10vw;
+        }
         .catalog, .arrow{
             color: #ffffff;
             font-weight: 500;
@@ -120,6 +131,28 @@ section{
 
         .init{
             margin-right: $distance;
+        }
+        .prev-next {
+            display: flex;
+            margin-left: 6.3vw;
+            .swiper-button-prev,
+            .swiper-button-next {
+                outline: none;
+                position: relative;
+                right: 0;
+                left: 0;
+                top: 0;
+                background: none;
+                font-size: 3em;
+                display: flex;
+                align-items: center;
+                width: unset;
+                margin: 0;
+            }
+
+            .swiper-button-prev {
+                margin-right: 30px;
+            }
         }
         .swiper-button-prev, .swiper-button-next{
             outline: none!important;
@@ -274,7 +307,7 @@ section{
         }
     }
     .left-top{
-        margin-top: 40px;
+        margin: 150px 0;
     }
     .banner{
         .left-top, .right-top, .left-bottom{
