@@ -9,10 +9,10 @@ export const HomeComponent = {
 		controllerAs: "vm",
 		authenticate: false
 	},
-	controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$http", "$rootScope", "$sce", HomeController]
+	controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$http", "$rootScope", "$sce", "$state", HomeController]
 }
 
-function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootScope, $sce) {
+function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootScope, $sce, $state) {
 	var vm = this;
 
 	vm.most_viewed = [];
@@ -36,20 +36,22 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 		vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor;
 	});
 
-	window.addEventListener('scroll', function() {
-		if ($(this).scrollTop() > 100) {
-			$("navbar-diretive").addClass("invertido")
-		}
-		else {
-			$("navbar-diretive").removeClass("invertido")
+	window.addEventListener('scroll', function () {
+		if ($state.current.state == "home") {
+			if ($(this).scrollTop() > 100) {
+				$("navbar-diretive").addClass("invertido")
+			}
+			else {
+				$("navbar-diretive").removeClass("invertido")
+			}
 		}
 	})
-	
+
 	// $(window).scroll(function (event) {
 	// 	var scroll = $(window).scrollTop();
 	// 	// Do something
 	// 	console.log("alo");
-		
+
 	// });
 
 	setTimeout(() => new Swiper('.banner .swiper-container', {
