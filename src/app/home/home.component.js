@@ -20,6 +20,8 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 
 	$scope.leadValid = {}
 
+	vm.params = {};
+
 	vm.url = $rootScope.getCurrentEnvironment().SERVER_URL + "/upload/uploads/download/";
 
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
@@ -29,6 +31,9 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 			vm.images.link_youtube = vm.images.link_youtube.replace("watch?v=", "embed/")
 			vm.images.link_youtube = $sce.trustAsResourceUrl(vm.images.link_youtube);
 		}
+
+		vm.params.title = resp.data.params.find(x => x.par_chave === 'title').par_valor;
+		vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor;
 	});
 
 	setTimeout(() => new Swiper('.banner .swiper-container', {

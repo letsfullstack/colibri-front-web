@@ -1,8 +1,8 @@
 <section class="banner">
     <div class="banner-in" style="display: flex;">
         <div class="left-top">
-            <h1>{{'HOME_TITLE'|translate}}</h1>
-            <p data-ng-bind-html="'HOME_SUBTITLE'|translate"></p>
+            <h1>{{vm.params.title}}</h1>
+            <p>{{vm.params.subtitle}}</p>
         </div>
         <div class="right-top swiper-container">
             <div class="swiper-wrapper">
