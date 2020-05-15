@@ -1,4 +1,18 @@
-<section class="container find">
+<section ng-if="!vm.resultProd" class="container find no-find">
+
+    <img id="produto-nao-encontrado" src="../../assets/img/lupa.png" alt="descrição da imagem" align="middle">
+
+    <div class="container-find2">
+        <h2 id="produto-nao-encontrado-titulo" class="title">Produto não encontrado</h2>
+    </div>
+
+    <catalog-product-diretive title="{{'HOME_PRODUCTS_TITLE'|translate}}"
+        description="{{'HOME_PRODUCTS_TEXT'|translate}}" products="vm.most_viewed">
+    </catalog-product-diretive>
+
+</section>
+
+<section ng-if="vm.resultProd" class="container find">
     <div class="row">
 
         <div class="col-12 d-block d-md-none title">

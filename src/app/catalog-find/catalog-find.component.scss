@@ -1,9 +1,23 @@
 section {
     font-size: 10px;
+    img#produto-nao-encontrado {
+        max-width: 100px;
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+    }
+    h2#produto-nao-encontrado-titulo {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: 400;
+    }
     
 }
-
+.no-find{
+    margin-bottom: 0px !important;
+}
 .find {
+    margin-top: 60px;
     padding-top: 95px;
     margin-bottom: 140px;
     .title{
