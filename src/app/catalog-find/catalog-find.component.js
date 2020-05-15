@@ -22,7 +22,6 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	vm.products = [];
 
 	vm.filter.lancamentos = false;
-	vm.ambienteSelected = null;
 	vm.filter.offset = 0;
 	$scope.tabSliders = {};
 	
@@ -34,12 +33,6 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		vm.filter.categoria = parseInt($stateParams.tipo);
 	}
 
-	$scope.$watch("vm.filter.ambiente", function(newValue, oldValue){
-		if(newValue <= -1){
-			vm.filter.categoria = null;
-		}
-	});
-
 	HttpService.get("/produtos/get-atributos-busca/", {id: $stateParams.id}).then(function(resp){
 		vm.filters = resp.data;
 		vm.setSliders();
@@ -50,8 +43,38 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		}, 1000);
 	});
 	
-	vm.setIdxAmbiente = function(idx){
-		vm.ambienteSelected = idx;
+	vm.clickAmbiente = (uncheckAll) => {
+		$('.type').slideUp();
+		setTimeout(() => {
+			vm.filtersTipo = [];
+			if(vm.filter.ambiente.length > 0){
+				$('.type').slideDown();
+				vm.filters[0].forEach(element => {
+					if(vm.filter.ambiente.includes(element.id)){
+						vm.filtersTipo = vm.filtersTipo.concat(element.categoriaproduto);
+						$scope.$digest()
+					}
+				});
+			}
+		}, 100);
+		
+		if(uncheckAll){
+			$('[name=optionsAmbiente]').prop('checked', false);
+			$('.type').slideUp();
+		}
+	}
+
+	vm.selectAllAmbiente = () => {
+		if($("[name='optionsAmbiente']").is(":checked")){
+			vm.filter.ambiente = vm.filters[0].map(function(idx) {
+				return idx.id;
+			});
+			vm.clickAmbiente(false);
+		} else {
+			vm.filter.ambiente = [];
+			vm.filter.categoria = [];
+			$('.type').slideUp();
+		}
 	}
 
 	vm.filtrar = function(){

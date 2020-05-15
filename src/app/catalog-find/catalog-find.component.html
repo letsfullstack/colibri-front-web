@@ -40,14 +40,14 @@
                 <ul>
                     <li>
                         <label class="square_b">
-                            <input type="radio" name="option" ng-model="vm.filter.ambiente" ng-value="-1" ng-change="vm.setIdxAmbiente(-1)">
+                            <input type="checkbox" name="optionsAmbiente" ng-click="vm.selectAllAmbiente()">
                             <span class="checkmark"></span>
                             Todos
                         </label>
                     </li>
                     <li ng-repeat="(idx, ambiente) in vm.filters[0]">
                         <label class="square_b">
-                            <input ng-click="marcar()" id="check_{{ambiente.id}}" type="radio" name="ambiente" ng-model="vm.filter.ambiente" ng-change="vm.setIdxAmbiente(idx)" ng-value="ambiente.id">
+                            <input id="check_{{ambiente.id}}" type="checkbox" name="ambiente" checklist-model="vm.filter.ambiente" checklist-value="ambiente.id" ng-change="vm.clickAmbiente(true)">
                             <span class="checkmark"></span>
                             {{ambiente.nome}}
                         </label>
@@ -55,19 +55,12 @@
                 </ul>
             </div>
 
-            <div class="type" ng-show="vm.ambienteSelected >= 0 && vm.ambienteSelected != null">
+            <div class="type" style="display: none;">
                 <h3>Tipo:</h3>
                 <ul>
-                    <li>
+                    <li ng-repeat="categoria in vm.filtersTipo">
                         <label class="square_b">
-                            <input type="radio" name="type" checked>
-                            <span class="checkmark"></span>
-                            Todos
-                        </label>
-                    </li>
-                    <li ng-repeat="categoria in vm.filters[0][vm.ambienteSelected].categoriaproduto">
-                        <label class="square_b">
-                            <input type="radio" name="type" ng-model="vm.filter.categoria" ng-value="categoria.id">
+                            <input type="checkbox" name="type" checklist-model="vm.filter.categoria" checklist-value="categoria.id">
                             <span class="checkmark"></span>
                             {{categoria.nome}}
                         </label>
