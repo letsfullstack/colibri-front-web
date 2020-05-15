@@ -14,6 +14,12 @@ export const CatalogFindComponent = {
 
 function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpService, $stateParams) {
 	var vm = this
+	vm.most_viewed = []
+
+	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
+		vm.most_viewed = resp.data.most_viewed;
+		
+	});
 
 	vm.width = window.innerWidth;
 
