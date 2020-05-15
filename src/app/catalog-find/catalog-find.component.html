@@ -1,4 +1,4 @@
-<section class="container find" style="display: none;">
+<section ng-if="!vm.resultProd" class="container find no-find">
 
     <img id="produto-nao-encontrado" src="../../assets/img/lupa.png" alt="descrição da imagem" align="middle">
 
@@ -12,7 +12,7 @@
 
 </section>
 
-<section class="container find">
+<section ng-if="vm.resultProd" class="container find">
     <div class="row">
 
         <div class="col-12 d-block d-md-none title">

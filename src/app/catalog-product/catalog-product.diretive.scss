@@ -58,8 +58,8 @@ catalog-product-diretive{
         .list{
             $margin: 45px;
     
-            margin-bottom: -$margin;
-    
+            margin: 0px -$margin 0;
+            
             .product{
                 margin-bottom: $margin;
                 cursor: pointer;

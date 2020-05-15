@@ -15,6 +15,14 @@ export const NavbarDiretive = {
 function NavbarController($state, $scope, $element, HttpService, $translate, $window) {
   var vm = this
 
+  vm.isMobile = false;
+  vm.menuOpen = false;
+
+  if (window.innerWidth < 991){
+    vm.isMobile = true;
+  }
+  
+  
   $scope.currentLanguage = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
 
 	$scope.changeLanguage = function (langKey) {
@@ -22,11 +30,23 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
 		$window.location.reload();
   };
 
+  $scope.buscar = function(){
+    debugger
+    if (vm.search){
+      window.location.href = "produtos/all/all/" + vm.search;
+
+    }else{
+      window.location.href = "produtos/all/all/all";
+    }
+  }
+
   $scope.open = function(){
-    $('#menu').addClass('menu-open')
+    $('#menu').toggleClass('menu-open')
+    vm.menuOpen = !vm.menuOpen;
   }
   $scope.close = function(){
     $('#menu').removeClass('menu-open')
+    vm.menuOpen = false;
   }
 
   HttpService.get("/ambientes/get-nav-info/", {}).then(function (resp) {

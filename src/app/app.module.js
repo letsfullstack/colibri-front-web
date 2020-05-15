@@ -182,9 +182,11 @@ function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangula
 
             if (res.name == 'home') {
                 $('navbar-diretive').addClass('in-home');
-                $("main").css("margin-top", "90px")
+                $('navbar-diretive').removeClass('out-home');
+                // $("main").css("margin-top", "90px")
             }else{
                 $('navbar-diretive').removeClass('in-home');
+                $('navbar-diretive').addClass('out-home');
                 $("main").css("margin-top", "0px")
             }
             $("body, main").css({ "opacity": "1", "overflow": "auto", "transition": "opacity 300ms" })

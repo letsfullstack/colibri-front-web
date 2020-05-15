@@ -2,7 +2,7 @@ import './catalog-find.component.scss';
 
 export const CatalogFindComponent = {
 	options: {
-		url: '/produtos/:ambiente/:tipo',
+		url: '/produtos/:ambiente/:tipo/:busca',
 		state: 'catalogFind',
 		template: require("./catalog-find.component.html"),
 		controller: CatalogFindController.name,
@@ -15,6 +15,8 @@ export const CatalogFindComponent = {
 function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpService, $stateParams) {
 	var vm = this
 	vm.most_viewed = []
+
+	vm.resultProd = true;
 
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.most_viewed = resp.data.most_viewed;
@@ -32,6 +34,10 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	vm.filter.offset = 0;
 	$scope.tabSliders = {};
 	
+	if ($stateParams.busca != "all"){
+		vm.filter.busca = $stateParams.busca;
+	}
+
 	if ($stateParams.ambiente != "all"){
 		vm.filter.ambiente = parseInt($stateParams.ambiente);
 	}
@@ -71,6 +77,10 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			vm.products = resp.data;
+			if (vm.products.length < 1){
+				vm.resultProd = false;
+				debugger
+			}
 			setTimeout(function(){
 				$(".container-loader").hide();
 				$(".list, .more").fadeIn();
@@ -83,6 +93,10 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		$(".container-loader").fadeIn();
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			vm.products = vm.products.concat(resp.data);
+			if (vm.products.length < 1){
+				debugger
+				vm.resultProd = false;
+			}
 			setTimeout(function(){
 				$(".container-loader").hide();
 				$(".list, .more").fadeIn();
