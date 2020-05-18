@@ -15,6 +15,7 @@ import 'angular-cookies';
 import angular from 'angular'
 import ngResource from 'angular-resource'
 import Swiper from 'swiper/dist/js/swiper.js';
+import 'checklist-model';
 
 import * as $ from 'jquery'
 import Swal from 'sweetalert2'
@@ -62,7 +63,8 @@ const MODULE_IMPORTS = [
     'ui.mask',
     'ngSanitize',
     'pascalprecht.translate',
-    'swangular'
+    'swangular',
+    'checklist-model'
 ]
 
 const COMPONENTS_IMPORTS = [

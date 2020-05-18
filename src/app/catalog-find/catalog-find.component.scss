@@ -181,13 +181,7 @@ section {
                     width: 0;
     
                     &:checked ~ .checkmark {
-                        &:after {
-                            content: "";
-                            width: 100%;
-                            height: 100%;
-                            border-radius: 50%;
-                            border: solid 3px #22222d;
-                        }
+                        border: solid 3px #22222d;
                     }
                 }
     
