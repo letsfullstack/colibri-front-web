@@ -79,7 +79,6 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 			vm.products = resp.data;
 			if (vm.products.length < 1){
 				vm.resultProd = false;
-				debugger
 			}
 			setTimeout(function(){
 				$(".container-loader").hide();
@@ -94,7 +93,6 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			vm.products = vm.products.concat(resp.data);
 			if (vm.products.length < 1){
-				debugger
 				vm.resultProd = false;
 			}
 			setTimeout(function(){

@@ -29,6 +29,9 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 		vm.images = resp.data.images[0];
 		if (vm.images) {
 			vm.images.link_youtube = vm.images.link_youtube.replace("watch?v=", "embed/")
+			
+			vm.images.link_youtube = vm.images.link_youtube.replace(".be/", "be.com/embed/")
+
 			vm.images.link_youtube = $sce.trustAsResourceUrl(vm.images.link_youtube);
 		}
 

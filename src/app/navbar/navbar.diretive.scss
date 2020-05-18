@@ -171,7 +171,7 @@ navbar-diretive {
 
                 li {
                     margin-right: 15px;
-                    padding: 8px;
+                    padding: 5px;
                     box-shadow: 10px 20px 40px 0 rgba(0, 0, 0, 0.1);
                     background-color: #ffffff;
                     display: flex;
@@ -180,6 +180,12 @@ navbar-diretive {
                     border-radius: 27px ;
                     font-size: 1.6em;
                     cursor: pointer;
+
+                    button{
+                        border: none;
+                        background: none;
+                    }
+
                     a{
                         display: flex;
                         input {
@@ -302,10 +308,15 @@ navbar-diretive {
                             div{
                                 display: flex;
                             }
-                            
-                            img{
+                            button{
                                 width: 30px;
                                 height: 30px;
+                                border-radius: 0px 26px 26px 0px;
+                                border: none;
+                            }
+                            img{
+                                width: 25px;
+                                height: 25px;
                                 border-radius: 0px 26px 26px 0px;
                             }
                             input{
@@ -315,6 +326,11 @@ navbar-diretive {
                                 padding: 5px 10px;
                                 outline: none;
                                 border: none;
+                            }
+                            form{
+                                a{
+                                    display: flex;
+                                }
                             }
     
                         }
@@ -564,6 +580,7 @@ navbar-diretive {
     #dropdownMenuLanguage {
         color: #22222d;
         margin-left: -15px;
+        font-size: 14px;
     }
 }
 

@@ -17,6 +17,7 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
 
   vm.isMobile = false;
   vm.menuOpen = false;
+  vm.search;
 
   if (window.innerWidth < 991){
     vm.isMobile = true;
@@ -31,13 +32,14 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
   };
 
   $scope.buscar = function(){
-    debugger
-    if (vm.search){
-      window.location.href = "produtos/all/all/" + vm.search;
-
-    }else{
-      window.location.href = "produtos/all/all/all";
-    }
+    setTimeout(function(){
+      if (vm.search){
+        window.location.href = "produtos/all/all/" + vm.search;
+  
+      }else{
+        window.location.href = "produtos/all/all/all";
+      }
+    }, 300)
   }
 
   $scope.open = function(){
