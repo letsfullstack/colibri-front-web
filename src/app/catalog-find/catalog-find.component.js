@@ -26,6 +26,9 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	vm.width = window.innerWidth;
 
 	vm.filter = {};
+
+	vm.filter.ambiente = [];
+
 	vm.filters = {};
 	vm.products = [];
 
@@ -38,7 +41,8 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	}
 
 	if ($stateParams.ambiente != "all"){
-		vm.filter.ambiente = parseInt($stateParams.ambiente);
+		// vm.filter.ambiente = parseInt($stateParams.ambiente);
+		vm.filter.ambiente.push(parseInt($stateParams.ambiente))
 	}
 
 	if ($stateParams.tipo != "all"){
