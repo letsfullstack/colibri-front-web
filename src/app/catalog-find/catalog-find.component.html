@@ -88,8 +88,8 @@
 
                 <div style="margin-bottom: 20px;">
                     <label class="color" ng-repeat="color in vm.filters[1]">
-                        <input type="radio" name="f_color" ng-model="vm.filter.cor" ng-value="color.cor">
-                        <span class="checkmark" ng-style="{ 'background-color' : color.cor }" title="{{color.descricao}}"></span>
+                        <input type="radio" name="f_color" ng-model="vm.filter.cor" ng-value="color.id">
+                        <span class="checkmark" ng-style="{ 'background-color' : color.codigo }" title="{{color.descricao}}"></span>
                     </label>
                 </div>
             </div>
