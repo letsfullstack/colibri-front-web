@@ -8,16 +8,27 @@ export const ModalLeadComponent = {
 }
 
 function ModalLeadController($scope, $rootScope, swangular, $http, HttpService) {
-	
+	var vm = this;
+	var catalogo;
+
 	$scope.close = () => {
 		swangular.close()
 	}
+
+	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
+		vm.most_viewed = resp.data.most_viewed;
+		vm.images = resp.data.images[0];
+		if (vm.images) {
+			catalogo = vm.images.catalogo;
+		}
+	});
+
 	$scope.openPDF = function () {
 		if ($scope.lead) {
 			if ($scope.lead.nome && $scope.lead.nome != "") {
 				if ($scope.lead.email && $scope.lead.email != "") {
 					HttpService.get("/leads/post-new-lead/", $scope.lead, $scope.lead).then(function (resp) {
-						window.open('http://prod.colibri.letscomunica.com.br/api/upload/uploads/download/catalogo_2020.pdf')
+						window.open('http://prod.colibri.letscomunica.com.br/api/upload/uploads/download/' + catalogo)
 						$scope.lead = {}
 						swangular.close()
 					});

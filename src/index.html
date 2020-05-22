@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="root" ng-strict-di>
-  
+
 <head>
   <meta charset="UTF-8">
   <base href="/">
 
   <title ng-bind="ngMeta.title"></title>
-  
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="author" content="{{ngMeta.author}}" />
@@ -35,11 +35,22 @@
 
   <link rel="canonical" href="http://colibri.letscomunica.com.br/" />
   <script>
-		window.swal = '!';
-	</script>
+    window.swal = '!';
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167434239-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-167434239-1');
+  </script>
 </head>
+
 <body style="opacity: 0; overflow: hidden;">
   <root></root>
-    <link rel='stylesheet' href='https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.css'> 
+  <link rel='stylesheet' href='https://rawgit.com/rzajac/angularjs-slider/master/dist/rzslider.css'>
 </body>
+
 </html>
