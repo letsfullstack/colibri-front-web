@@ -18,6 +18,7 @@ function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, Htt
 	vm.produto = null;
 	vm.produtos_relacionados = null;
 	vm.cor = null;
+	vm.cores = [];
 
 	if($stateParams.id){
 		HttpService.get("/produtos/get-produto/", {id: $stateParams.id}).then(function(resp){
@@ -35,6 +36,9 @@ function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, Htt
 				if(elm.destaque){
 					vm.cor = idx;
 				}
+				
+				vm.cores.push(elm.cor)
+				
 				// elm.imagemprincipal = {};
 				// elm.produtoimagem.forEach(function(value, i){
 				// 	if(value.principal){

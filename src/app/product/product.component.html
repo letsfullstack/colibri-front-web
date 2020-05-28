@@ -14,9 +14,9 @@
                 <button class="release" ng-show="vm.produto.lancamento">{{'PRODUCT_RELEASE'|translate}}</button>
                 <div class="colors no-mobi">
                     <span>{{'PRODUCT_COLORS'|translate}}:</span>
-                    <label class="color" ng-repeat="(key, value) in vm.produto.produtocor" title="{{value.descricao}}">
+                    <label class="color" ng-repeat="(key, value) in vm.cores" title="{{value.nome}}">
                         <input type="radio" name="f_color" ng-model="vm.cor" ng-click="vm.changeColor(value)" ng-value="key">
-                        <span class="checkmark" ng-style="{'background-color' : value.cor}" ></span>
+                        <span class="checkmark" ng-style="{'background-color' : value.codigo}" ></span>
                     </label>
                 </div>
                 <span class="have no-mobi">{{'PRODUCT_HAVE_PRODUCT'|translate}}</span>
