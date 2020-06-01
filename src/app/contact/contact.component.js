@@ -14,6 +14,11 @@ export const ContactComponent = {
 
 function ContactController($scope, ngMeta, MetaService) {
 
+
+  $scope.showChat = () => {
+    zE('webWidget', 'open');
+  }
+
   // var map, marker, myLatLng = { lat: -23.4583392, lng: -51.426856 };
 
   // (function initMap() {

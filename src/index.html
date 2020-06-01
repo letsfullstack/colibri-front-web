@@ -46,6 +46,16 @@
 
     gtag('config', 'UA-167434239-1');
   </script>
+  <!-- Start of saccolibri Zendesk Widget script -->
+  <script id="ze-snippet"
+    src="https://static.zdassets.com/ekr/snippet.js?key=a643a193-07f0-4bcb-a25c-1ee76e0f55dc"> </script>
+  <!-- End of saccolibri Zendesk Widget script -->
+
+  <script type="text/javascript">
+    zE('webWidget:on', 'userEvent', function(event) {
+      console.log(event.category, event.action, event.properties);
+    });
+  </script>
 </head>
 
 <body style="opacity: 0; overflow: hidden;">
