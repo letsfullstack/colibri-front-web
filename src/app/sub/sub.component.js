@@ -9,7 +9,7 @@ export const SubComponent = {
     controllerAs: "vm",
     authenticate: false
   },
-  controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$rootScope",SubController]
+  controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$rootScope", SubController]
 }
 
 function SubController($scope, ngMeta, MetaService, HttpService, $rootScope) {
@@ -17,14 +17,21 @@ function SubController($scope, ngMeta, MetaService, HttpService, $rootScope) {
 
   $scope.home = "HOME"
 
+  vm.params = {};
   vm.images = [];
 
   vm.url = $rootScope.getCurrentEnvironment().SERVER_URL + "/upload/uploads/download/";
 
-  HttpService.get("/imagessites", {}, {}).then(function(resp){
-    vm.images= resp.data[0];
-	});
-  
+  HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
+    vm.most_viewed = resp.data.most_viewed;
+    vm.images = resp.data.images[0];
+
+    vm.params.title_1 = resp.data.params.find(x => x.par_chave === 'about_sub_1').par_valor;
+    vm.params.subtitle_1 = resp.data.params.find(x => x.par_chave === 'about_cont_1').par_valor;
+    vm.params.title_2 = resp.data.params.find(x => x.par_chave === 'about_sub_2').par_valor;
+    vm.params.subtitle_2 = resp.data.params.find(x => x.par_chave === 'about_cont_2').par_valor;
+  });
+
   vm.products = [
     { name: "Bancada", location: "Astúrias", img: "https://w1.ezcdn.com.br/abouthome/fotos/grande/9922fg1/bancada-gourmet-dobravel-para-cozinha-bliv-castanho-e-branco.jpg" },
     { name: "Home Suspenso", location: "Salinas", img: "https://a-static.mlcdn.com.br/618x463/painel-home-suspenso-greco-para-tv-ate-65-polegadas-dj-moveis/trilar/6789/6165500bbde2ade854012b7af006b5ae.jpg" },
