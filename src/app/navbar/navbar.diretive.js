@@ -52,7 +52,18 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
   }
 
   HttpService.get("/ambientes/get-nav-info/", {}).then(function (resp) {
-		vm.filters = resp.data;
+    vm.filters = resp.data;
+    vm.filters.forEach(element => {
+      // debugger
+      if ($scope.currentLanguage == "pt"){
+        element.nome = element.nome_pt
+      } else if ($scope.currentLanguage == "en"){
+        element.nome = element.nome_us
+      } else if ($scope.currentLanguage == "es"){
+        element.nome = element.nome_es
+      }
+
+    });
 	});
   // $scope.$watch(function () { return $state.$current.name }, function (newVal) {
   //   if (newVal === '/') $(window).scroll(function () {

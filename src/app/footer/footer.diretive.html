@@ -10,20 +10,13 @@
                     <li><a ui-sref="contact">{{'FOOTER_WORK_WITH_US'|translate}}</a></li>
                 </ul>
             </nav>
-            <nav class="col-3">
-                <!-- <ul>
-                    <li rel="noopener noreferrer">Sala</li>
-                    <li><a ui-sref="catalog">Home Suspenso</a></li>
-                    <li><a ui-sref="catalog">Bancadas e Painel</a></li>
-                    <li><a ui-sref="catalog">Homes e Estantes</a></li>
-                    <li><a ui-sref="catalog">Complementos</a></li>
-                </ul> -->
+            <nav class="col-3" ng-repeat="ambi in vm.filters | limitTo: 3">   
                 <ul>
-                    <li rel="noopener noreferrer">Sala</li>
-                    <li ng-repeat="cat in vm.filters[0].categoriaproduto" ><a href="produtos/{{vm.filters[0].id}}/{{cat.id}}/all">{{cat.nome}}</a>
+                    <li rel="noopener noreferrer">{{ambi.nome}}</li>
+                    <li ng-repeat="cat in ambi.categoriaproduto" ><a href="produtos/{{ambi.id}}/{{cat.id}}/all">{{cat.nome}}</a>
                 </ul>
             </nav>
-            <nav class="col-3">
+            <!-- <nav class="col-3">
                 <ul>
                     <li rel="noopener noreferrer">Dormitório</li>
                     <li ng-repeat="cat in vm.filters[1].categoriaproduto" ><a href="produtos/{{vm.filters[1].id}}/{{cat.id}}/all">{{cat.nome}}</a>
@@ -34,7 +27,7 @@
                     <li rel="noopener noreferrer">Home Office</li>
                     <li ng-repeat="cat in vm.filters[2].categoriaproduto" ><a href="produtos/{{vm.filters[2].id}}/{{cat.id}}/all">{{cat.nome}}</a>
                 </ul>
-            </nav>
+            </nav> -->
         </div>
     </div>
     <div class="mid">
