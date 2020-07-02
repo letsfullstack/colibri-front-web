@@ -38,7 +38,16 @@ import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
 import { SubComponent } from './sub/sub.component'
 import { ContactComponent } from './contact/contact.component'
-import { CatalogFindComponent } from './catalog-find/catalog-find.component'
+
+import { 
+    CatalogFindComponent, 
+    CatalogFindAmbienteComponent, 
+    CatalogFindBuscaComponent, 
+    CatalogFindTipoComponent 
+} from './catalog-find/catalog-find.component'
+
+
+
 import { ProductComponent } from './product/product.component'
 import { ModalContatoComponent } from './modals/contato/contato.component'
 import { ModalLeadComponent } from './modals/lead/lead.component'
@@ -74,7 +83,10 @@ const COMPONENTS_IMPORTS = [
     CatalogFindComponent,
     ProductComponent,
     ModalContatoComponent,
-    ModalLeadComponent
+    ModalLeadComponent,
+    CatalogFindAmbienteComponent,
+    CatalogFindBuscaComponent,
+    CatalogFindTipoComponent
 ]
 
 const SERVICES_IMPORTS = [

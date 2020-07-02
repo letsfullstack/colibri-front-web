@@ -15,7 +15,7 @@
                 </div>
             </li>
             <li rel="noopener noreferrer" class="dropdown">
-                <a ng-click="close()" class="dropdown-toggle" href="/produtos/all/all/all" role="button"
+                <a ng-click="close()" class="dropdown-toggle" href="/produtos" role="button"
                     id="dropdownMenuLink2" aria-haspopup="true" aria-expanded="false">
                     {{'MENU_PRODUCT'|translate}}
                     <i class="fas fa-chevron-down"></i>
@@ -23,7 +23,7 @@
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
                     <a ng-repeat="cat in vm.filters" class="dropdown-item"
-                        href="produtos/{{cat.id}}/all/all">{{cat.nome}}</a>
+                        href="produtos/{{cat.slug}}">{{cat.nome}}</a>
                 </div>
             </li>
             <li rel="noopener noreferrer" class="dropdown">
@@ -115,7 +115,7 @@
                     <div id="collapseProduto" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <a ng-click="close()" ng-repeat="cat in vm.filters" class="dropdown-item"
-                                href="produtos/{{cat.id}}/all/all">{{cat.nome}}</a>
+                                href="produtos/{{cat.slug}}">{{cat.nome}}</a>
                         </div>
                     </div>
                 </div>

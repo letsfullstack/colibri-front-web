@@ -13,7 +13,7 @@
             <nav class="col-3" ng-repeat="ambi in vm.filters | limitTo: 3">   
                 <ul>
                     <li rel="noopener noreferrer">{{ambi.nome}}</li>
-                    <li ng-repeat="cat in ambi.categoriaproduto" ><a href="produtos/{{ambi.id}}/{{cat.id}}/all">{{cat.nome}}</a>
+                    <li ng-repeat="cat in ambi.categoriaproduto" ><a href="produtos/{{ambi.slug}}/{{cat.slug}}">{{cat.nome}}</a>
                 </ul>
             </nav>
             <!-- <nav class="col-3">

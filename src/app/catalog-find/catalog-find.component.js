@@ -2,7 +2,7 @@ import './catalog-find.component.scss';
 
 export const CatalogFindComponent = {
 	options: {
-		url: '/produtos/:ambiente/:tipo/:busca',
+		url: '/produtos',
 		state: 'catalogFind',
 		template: require("./catalog-find.component.html"),
 		controller: CatalogFindController.name,
@@ -18,6 +18,8 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 
 	vm.resultProd = true;
 
+	$scope.currentLanguage = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
+
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.most_viewed = resp.data.most_viewed;
 		
@@ -28,6 +30,7 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	vm.filter = {};
 
 	vm.filter.ambiente = [];
+	vm.filter.categoria = [];
 
 	vm.filters = {};
 	vm.products = [];
@@ -36,23 +39,40 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 	vm.filter.offset = 0;
 	$scope.tabSliders = {};
 	
-	if ($stateParams.busca != "all"){
+	if ($stateParams.busca && $stateParams.busca != "all"){
 		vm.filter.busca = $stateParams.busca;
 	}
 
-	if ($stateParams.ambiente != "all"){
+	if ($stateParams.ambiente && $stateParams.ambiente != "all"){
 		// vm.filter.ambiente = parseInt($stateParams.ambiente);
-		vm.filter.ambiente.push(parseInt($stateParams.ambiente))
+		vm.filter.ambiente.push($stateParams.ambiente)
 	}
 
-	if ($stateParams.tipo != "all"){
-		vm.filter.categoria = parseInt($stateParams.tipo);
+	if ($stateParams.tipo && $stateParams.tipo != "all"){
+		vm.filter.categoria.push($stateParams.tipo);
 	}
 
 	HttpService.get("/produtos/get-atributos-busca/", {id: $stateParams.id}).then(function(resp){
 		vm.filters = resp.data;
 		vm.setSliders();
-
+		vm.filters[0].forEach((elm) => {
+			if ($scope.currentLanguage == "pt") {
+				elm.nome = elm.nome_pt
+			} else if ($scope.currentLanguage == "en") {
+				elm.nome = elm.nome_us
+			} else if ($scope.currentLanguage == "es") {
+				elm.nome = elm.nome_es
+			}
+			elm.categoriaproduto.forEach(el => {
+				if ($scope.currentLanguage == "pt") {
+					el.nome = el.nome_pt
+				} else if ($scope.currentLanguage == "en") {
+					el.nome = el.nome_us
+				} else if ($scope.currentLanguage == "es") {
+					el.nome = el.nome_es
+				}
+			});
+		})
 		$timeout(function () {
 			$scope.$broadcast('rzSliderForceRender');
 			vm.filtrar();
@@ -66,7 +86,7 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 			if(vm.filter.ambiente.length > 0){
 				$('.type').slideDown();
 				vm.filters[0].forEach(element => {
-					if(vm.filter.ambiente.includes(element.id)){
+					if(vm.filter.ambiente.includes(element.slug)){
 						vm.filtersTipo = vm.filtersTipo.concat(element.categoriaproduto);
 						$scope.$digest()
 					}
@@ -100,7 +120,6 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		vm.filter.altura = $scope.tabSliders.slider2;
 		vm.filter.profundidade = $scope.tabSliders.slider3;
 		vm.filter.offset = 0;
-
 		HttpService.post("/produtos/buscar/", vm.filter, {}).then(function(resp){
 			$("html, body").animate({ scrollTop: 0 }, "slow");
 			vm.products = resp.data;
@@ -182,5 +201,38 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 				}
 			}
 		}
+	}
+}
+
+export const CatalogFindAmbienteComponent = {
+	options: {
+		url: '/produtos/:ambiente',
+		state: 'catalog-find-ambiente',
+		template: require("./catalog-find.component.html"),
+		controller: "CatalogFindController",
+		controllerAs: "vm",
+		authenticate: false
+	}
+}
+
+export const CatalogFindTipoComponent = {
+	options: {
+		url: '/produtos/:ambiente/:tipo',
+		state: 'catalog-find-tipo',
+		template: require("./catalog-find.component.html"),
+		controller: "CatalogFindController",
+		controllerAs: "vm",
+		authenticate: false
+	}
+}
+
+export const CatalogFindBuscaComponent = {
+	options: {
+		url: '/produtos/:ambiente/:tipo/:busca',
+		state: 'catalog-find-busca',
+		template: require("./catalog-find.component.html"),
+		controller: "CatalogFindController",
+		controllerAs: "vm",
+		authenticate: false
 	}
 }

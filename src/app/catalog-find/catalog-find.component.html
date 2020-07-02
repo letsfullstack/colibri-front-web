@@ -61,7 +61,7 @@
                     </li>
                     <li ng-repeat="(idx, ambiente) in vm.filters[0]">
                         <label class="square_b">
-                            <input id="check_{{ambiente.id}}" type="checkbox" name="ambiente" checklist-model="vm.filter.ambiente" checklist-value="ambiente.id" ng-change="vm.clickAmbiente(true)">
+                            <input id="check_{{ambiente.slug}}" type="checkbox" name="ambiente" checklist-model="vm.filter.ambiente" checklist-value="ambiente.slug" ng-change="vm.clickAmbiente(true)">
                             <span class="checkmark"></span>
                             {{ambiente.nome}}
                         </label>
@@ -74,7 +74,7 @@
                 <ul>
                     <li ng-repeat="categoria in vm.filtersTipo">
                         <label class="square_b">
-                            <input type="checkbox" name="type" checklist-model="vm.filter.categoria" checklist-value="categoria.id">
+                            <input type="checkbox" name="type" checklist-model="vm.filter.categoria" checklist-value="categoria.slug">
                             <span class="checkmark"></span>
                             {{categoria.nome}}
                         </label>

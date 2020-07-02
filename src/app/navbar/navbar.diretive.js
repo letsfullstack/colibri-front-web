@@ -37,7 +37,7 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
         window.location.href = "produtos/all/all/" + vm.search;
   
       }else{
-        window.location.href = "produtos/all/all/all";
+        window.location.href = "produtos";
       }
     }, 300)
   }
