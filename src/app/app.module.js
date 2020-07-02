@@ -39,14 +39,10 @@ import { HomeComponent } from './home/home.component'
 import { SubComponent } from './sub/sub.component'
 import { ContactComponent } from './contact/contact.component'
 
-import { 
-    CatalogFindComponent, 
-    CatalogFindAmbienteComponent, 
-    CatalogFindBuscaComponent, 
-    CatalogFindTipoComponent 
-} from './catalog-find/catalog-find.component'
-
-
+import { CatalogFindComponent } from './catalog-find/catalog-find.component'
+import { CatalogFindAmbienteComponent } from './catalog-find/catalog-find.component'
+import { CatalogFindTipoComponent } from './catalog-find/catalog-find.component'
+import { CatalogFindBuscaComponent } from './catalog-find/catalog-find.component'
 
 import { ProductComponent } from './product/product.component'
 import { ModalContatoComponent } from './modals/contato/contato.component'
