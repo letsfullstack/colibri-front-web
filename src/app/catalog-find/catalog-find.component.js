@@ -203,36 +203,3 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 		}
 	}
 }
-
-export const CatalogFindAmbienteComponent = {
-	options: {
-		url: '/produtos/:ambiente',
-		state: 'catalog-find-ambiente',
-		template: require("./catalog-find.component.html"),
-		controller: "CatalogFindController",
-		controllerAs: "vm",
-		authenticate: false
-	}
-}
-
-export const CatalogFindTipoComponent = {
-	options: {
-		url: '/produtos/:ambiente/:tipo',
-		state: 'catalog-find-tipo',
-		template: require("./catalog-find.component.html"),
-		controller: "CatalogFindController",
-		controllerAs: "vm",
-		authenticate: false
-	}
-}
-
-export const CatalogFindBuscaComponent = {
-	options: {
-		url: '/produtos/:ambiente/:tipo/:busca',
-		state: 'catalog-find-busca',
-		template: require("./catalog-find.component.html"),
-		controller: "CatalogFindController",
-		controllerAs: "vm",
-		authenticate: false
-	}
-}

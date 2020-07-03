@@ -8,7 +8,7 @@
     "HOME_CATALOG_BUTTON":"Conheça nossos Produtos",
     "HOME_SECTION_1_TITLE":"A natureza foi<br/>nossa inspiração",
     "HOME_SECTION_1_TEXT":"E às águas brasileiras rendemos nossa homenagem. Cada produto leva o nome de uma delas e a beleza de todas.",
-    "HOME_PRODUCTS_TITLE":"Produtos mais pocurados.",
+    "HOME_PRODUCTS_TITLE":"Produtos mais procurados.",
     "HOME_PRODUCTS_TEXT":"Esses são os produtos mais acessados em<br/>nosso site. Que tal conhecê‐los?",
     "HOME_PRODUCTS_BUTTON":"todos os produtos",
     "HOME_CATALOG_TITLE":"Conheça o catálogo 2020<br/>Águas Brasileiras",
@@ -62,5 +62,6 @@
     "CONTACT_MODAL_PLACE_MENSAGE": "Mensagem",
     "LEAD_MODAL_TITLE": "Acesse nosso catálogo",
     "LEAD_MODAL_SUBTITLE": "Preencha os campos abaixo para fazer o download!",
-    "LEAD_MODAL_BUTTON": "Baixar PDF"
+    "LEAD_MODAL_BUTTON": "Baixar PDF",
+    "PRODUCT_ALL": "Todos"
 }

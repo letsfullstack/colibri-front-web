@@ -40,9 +40,9 @@ import { SubComponent } from './sub/sub.component'
 import { ContactComponent } from './contact/contact.component'
 
 import { CatalogFindComponent } from './catalog-find/catalog-find.component'
-import { CatalogFindAmbienteComponent } from './catalog-find/catalog-find.component'
-import { CatalogFindTipoComponent } from './catalog-find/catalog-find.component'
-import { CatalogFindBuscaComponent } from './catalog-find/catalog-find.component'
+import { CatalogFindAmbienteComponent } from './catalog-find/catalog-find-ambiente.component'
+import { CatalogFindTipoComponent } from './catalog-find/catalog-find-tipo.component'
+import { CatalogFindBuscaComponent } from './catalog-find/catalog-find-busca.component'
 
 import { ProductComponent } from './product/product.component'
 import { ModalContatoComponent } from './modals/contato/contato.component'
