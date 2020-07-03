@@ -5,7 +5,7 @@ export const CatalogFindComponent = {
 		url: '/produtos',
 		state: 'catalogFind',
 		template: require("./catalog-find.component.html"),
-		controller: CatalogFindController.name,
+		controller: "CatalogFindController",
 		controllerAs: "vm",
 		authenticate: false
 	},
