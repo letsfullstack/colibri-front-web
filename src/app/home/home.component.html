@@ -1,90 +1,88 @@
 <section class="banner">
-    <div class="banner-in" style="display: flex;">
-        <div class="left-top">
-            <h1>{{vm.params.title}}</h1>
-            <p>{{vm.params.subtitle}}</p>
-        </div>
-        <div class="right-top swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide right-top">
-                    <a href="{{vm.images.img_1_url}}">
-                        <img src="{{vm.url + vm.images.img_1_link}}" alt="">
-                    </a>
-                </div>
-                <div class="swiper-slide right-top">
-                    <a href="{{vm.images.img_2_url}}">
-                        <img src="{{vm.url + vm.images.img_2_link}}" alt="">
-                    </a>
-                </div>
-                <div class="swiper-slide right-top">
-                    <a href="{{vm.images.img_3_url}}">
-                        <img src="{{vm.url + vm.images.img_3_link}}" alt="">
-                    </a>
-                </div>
-                <div class="swiper-slide right-top">
-                    <a href="{{vm.images.img_4_url}}">
-                        <img src="{{vm.url + vm.images.img_4_link}}" alt="">
-                    </a>
-                </div>
-            </div>
-            <!-- <div class="swiper-button-prev swiper-button-white"></div>
+	<div class="banner-in" style="display: flex;">
+		<div class="left-top">
+			<h1>{{vm.params.title}}</h1>
+			<p>{{vm.params.subtitle}}</p>
+		</div>
+		<div class="right-top swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide right-top">
+					<a href="{{vm.images.img_1_url}}">
+						<img src="{{vm.url + vm.images.img_1_link}}" alt="">
+					</a>
+				</div>
+				<div class="swiper-slide right-top">
+					<a href="{{vm.images.img_2_url}}">
+						<img src="{{vm.url + vm.images.img_2_link}}" alt="">
+					</a>
+				</div>
+				<div class="swiper-slide right-top">
+					<a href="{{vm.images.img_3_url}}">
+						<img src="{{vm.url + vm.images.img_3_link}}" alt="">
+					</a>
+				</div>
+				<div class="swiper-slide right-top">
+					<a href="{{vm.images.img_4_url}}">
+						<img src="{{vm.url + vm.images.img_4_link}}" alt="">
+					</a>
+				</div>
+			</div>
+			<!-- <div class="swiper-button-prev swiper-button-white"></div>
             <div class="swiper-button-next swiper-button-white"></div> -->
-        </div>
-    </div>
-    <div style="display: flex;">
-        <div class="left-bottom" ui-sref="catalogFind({ambiente: 'all', tipo: 'all', busca: 'all'})">
-            <span class="catalog">{{'HOME_CATALOG_BUTTON'|translate}}</span>
-            <span class="arrow">⟶</span>
-        </div>
-        <div class="right-bottom">
-            <span class="init">01</span>
-            <div class="swiper-pagination"></div>
-            <span class="end">04</span>
-            <div class="prev-next">
-                <div class="swiper-button-prev">
-                    <!-- <i class="fas fa-arrow-left"></i> -->
-                    ←
-                </div>
-                <div class="swiper-button-next">
-                    <!-- <i class="fas fa-arrow-right"></i> -->
-                    →
-                </div>
-            </div>
-        </div>
-    </div>
+		</div>
+	</div>
+	<div style="display: flex;">
+		<div class="left-bottom" ui-sref="catalogFind({ambiente: 'all', tipo: 'all', busca: 'all'})">
+			<span class="catalog">{{'HOME_CATALOG_BUTTON'|translate}}</span>
+			<span class="arrow">⟶</span>
+		</div>
+		<div class="right-bottom">
+			<span class="init">01</span>
+			<div class="swiper-pagination"></div>
+			<span class="end">04</span>
+			<div class="prev-next">
+				<div class="swiper-button-prev">
+					<!-- <i class="fas fa-arrow-left"></i> -->
+					←
+				</div>
+				<div class="swiper-button-next">
+					<!-- <i class="fas fa-arrow-right"></i> -->
+					→
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
 <section class="nature">
-    <img class="beach" src="{{vm.url + vm.images.img_5_link}}" alt="">
-    <div class="right">
-        <h1 data-ng-bind-html="'HOME_SECTION_1_TITLE'|translate"></h1>
-        <p>
-            {{'HOME_SECTION_1_TEXT'|translate}}
-        </p>
-    </div>
+	<img class="beach" src="{{vm.url + vm.images.img_5_link}}" alt="">
+	<div class="right">
+		<h1 data-ng-bind-html="'HOME_SECTION_1_TITLE'|translate"></h1>
+		<p>
+			{{'HOME_SECTION_1_TEXT'|translate}}
+		</p>
+	</div>
 </section>
 
 <section ng-if="vm.images.ativo_youtube" class="video container">
-    <div class="container">
-        <h1>{{vm.images.titulo_youtube}}</h1>
-    </div>
-    <iframe
-        ng-src="{{vm.images.link_youtube}}">
-    </iframe>
+	<div class="container">
+		<h1>{{vm.images.titulo_youtube}}</h1>
+	</div>
+	<iframe ng-src="{{vm.images.link_youtube}}">
+	</iframe>
 </section>
 
 <catalog-product-diretive title="{{'HOME_PRODUCTS_TITLE'|translate}}" description="{{'HOME_PRODUCTS_TEXT'|translate}}"
-    products="vm.most_viewed">
+	products="vm.most_viewed">
 </catalog-product-diretive>
 
 <section class="know">
-    <h1 data-ng-bind-html="'HOME_CATALOG_TITLE'|translate"></h1>
-    <div class="group-buttons">
-        <button class="left"
-            ui-sref="catalogFind({'ambiente': 'all', 'tipo': 'all', 'busca': 'all'})">{{'HOME_CATALOG_BUTTON_1'|translate}}</button>
-        <button class="right"
-            ng-click="$root.modalLead()">{{'HOME_CATALOG_BUTTON_2'|translate}}</button>
-    </div>
+	<h1 data-ng-bind-html="'HOME_CATALOG_TITLE'|translate"></h1>
+	<div class="group-buttons">
+		<button class="left"
+			ui-sref="catalogFind({'ambiente': 'all', 'tipo': 'all', 'busca': 'all'})">{{'HOME_CATALOG_BUTTON_1'|translate}}</button>
+		<button class="right" ng-click="openCatalogo()">{{'HOME_CATALOG_BUTTON_2'|translate}}</button>
+	</div>
 </section>
 
 <catalog-blog-diretive title="{{'BLOG_TITLE'|translate}}" description="{{'BLOG_TEXT'|translate}}">

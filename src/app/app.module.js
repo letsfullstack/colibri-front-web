@@ -60,43 +60,43 @@ import { PhraseDiretive } from './phrase/phrase.diretive'
 import MetaService from './services/meta.service'
 
 const MODULE_IMPORTS = [
-    ngResource,
-    slider,
-    'ui.router',
-    'ngCookies',
-    'ngMeta',
-    'ui.mask',
-    'ngSanitize',
-    'pascalprecht.translate',
-    'swangular',
-    'checklist-model'
+	ngResource,
+	slider,
+	'ui.router',
+	'ngCookies',
+	'ngMeta',
+	'ui.mask',
+	'ngSanitize',
+	'pascalprecht.translate',
+	'swangular',
+	'checklist-model'
 ]
 
 const COMPONENTS_IMPORTS = [
-    HomeComponent,
-    SubComponent,
-    ContactComponent,
-    CatalogFindComponent,
-    ProductComponent,
-    ModalContatoComponent,
-    ModalLeadComponent,
-    CatalogFindAmbienteComponent,
-    CatalogFindBuscaComponent,
-    CatalogFindTipoComponent
+	HomeComponent,
+	SubComponent,
+	ContactComponent,
+	CatalogFindComponent,
+	ProductComponent,
+	ModalContatoComponent,
+	ModalLeadComponent,
+	CatalogFindAmbienteComponent,
+	CatalogFindBuscaComponent,
+	CatalogFindTipoComponent
 ]
 
 const SERVICES_IMPORTS = [
-    MetaService,
-    HttpWebService
+	MetaService,
+	HttpWebService
 ]
 
 const DIRETIVES_IMPORTS = [
-    NewsDiretive,
-    FooterDiretive,
-    NavbarDiretive,
-    PhraseDiretive,
-    CatalogBlogDiretive,
-    CatalogProductDiretive
+	NewsDiretive,
+	FooterDiretive,
+	NavbarDiretive,
+	PhraseDiretive,
+	CatalogBlogDiretive,
+	CatalogProductDiretive
 ]
 
 // angular.module('yourApp', [])
@@ -115,116 +115,118 @@ app.constant("constants", Constants)
 
 
 for (const SERVICE of SERVICES_IMPORTS)
-    app.service(SERVICE.name, SERVICE.function)
+	app.service(SERVICE.name, SERVICE.function)
 
 // for (const COMPONENT of COMPONENTS_IMPORTS)
 //     app.controller(COMPONENT.options.controller, COMPONENT.controller)
 
 for (const COMPONENT of COMPONENTS_IMPORTS) {
-    if (COMPONENT.controller) {
-        app.controller(COMPONENT.options.controller, COMPONENT.controller)
-    }
+	if (COMPONENT.controller) {
+		app.controller(COMPONENT.options.controller, COMPONENT.controller)
+	}
 }
 
 for (const DIRETIVE of DIRETIVES_IMPORTS)
-    app.directive(DIRETIVE.element, DIRETIVE.options)
+	app.directive(DIRETIVE.element, DIRETIVE.options)
 
 app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider, ngMetaProvider, $translateProvider) => {
 
-    $urlRouterProvider.otherwise('/')
+	$urlRouterProvider.otherwise('/')
 
-    for (const COMPONENT of COMPONENTS_IMPORTS)
-        if (COMPONENT.options.state) $stateProvider.state(COMPONENT.options.state, COMPONENT.options)
-        
-    $locationProvider.html5Mode(true)
+	for (const COMPONENT of COMPONENTS_IMPORTS)
+		if (COMPONENT.options.state) $stateProvider.state(COMPONENT.options.state, COMPONENT.options)
 
-    $logProvider.debugEnabled(true)
+	$locationProvider.html5Mode(true)
 
-    ngMetaProvider.setDefaultTitle('Colibri');
+	$logProvider.debugEnabled(true)
 
-    ngMetaProvider.useTitleSuffix(true)
+	ngMetaProvider.setDefaultTitle('Colibri');
 
-    // ngMetaProvider.setDefaultTitleSuffix(' | Best Website on the Internet!')
+	ngMetaProvider.useTitleSuffix(true)
 
-    ngMetaProvider.setDefaultTag('author', 'Lets Comunicação')
+	// ngMetaProvider.setDefaultTitleSuffix(' | Best Website on the Internet!')
 
-    window.moment.locale('pt-BR');
+	ngMetaProvider.setDefaultTag('author', 'Lets Comunicação')
 
-    $translateProvider.translations('en', TranslateFileEN);
-    $translateProvider.translations('es', TranslateFileES);
-    $translateProvider.translations('pt', TranslateFilePT);
+	window.moment.locale('pt-BR');
 
-    $translateProvider.preferredLanguage('pt');
-    $translateProvider.useLocalStorage();
+	$translateProvider.translations('en', TranslateFileEN);
+	$translateProvider.translations('es', TranslateFileES);
+	$translateProvider.translations('pt', TranslateFilePT);
+
+	$translateProvider.preferredLanguage('pt');
+	$translateProvider.useLocalStorage();
 
 }).run(['ngMeta', '$transitions', 'constants', '$rootScope', 'swangular', ConstructorModule])
 
 function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangular) {
-    $rootScope.getCurrentEnvironment = () => {
-        if (ENV === "development") {
-            return constants.dev;
-        } else if (ENV === "production") {
-            return constants.production;
-        }
-    }
+	$rootScope.getCurrentEnvironment = () => {
+		if (ENV === "development") {
+			return constants.dev;
+		} else if (ENV === "production") {
+			return constants.production;
+		}
+	}
 
-    $rootScope.SERVER_URL = $rootScope.getCurrentEnvironment().SERVER_URL;
+	$rootScope.LINKS = Constants.links
+	$rootScope.SERVER_URL = $rootScope.getCurrentEnvironment().SERVER_URL;
 
-    ngMeta.init();
+	ngMeta.init();
 
-    $transitions.onSuccess({}, (s) => {
-        s.promise.then(res => setTimeout(() => {
-            window.scrollTo(0, 0)
-            if (res.name === '/') {
-                $('navbar-diretive').removeClass('invert')
-                $("main").css("margin-top", "0px")
-                $(window).scroll(function () {
-                    if ($(this).scrollTop() > 200)
-                        $('navbar-diretive').addClass('invert')
-                    else
-                        $('navbar-diretive').removeClass('invert')
-                })
-            }
-            else if (res.name !== '/' && res.name !== '') {
-                $(window).off("scroll")
-                $('navbar-diretive').addClass('invert')
-            }
+	$transitions.onSuccess({}, (s) => {
+		s.promise.then(res => setTimeout(() => {
+			window.scrollTo(0, 0)
+			if (res.name === '/') {
+				$('navbar-diretive').removeClass('invert')
+				$("main").css("margin-top", "0px")
+				$(window).scroll(function () {
+					if ($(this).scrollTop() > 200)
+						$('navbar-diretive').addClass('invert')
+					else
+						$('navbar-diretive').removeClass('invert')
+				})
+			}
+			else if (res.name !== '/' && res.name !== '') {
+				$(window).off("scroll")
+				$('navbar-diretive').addClass('invert')
+			}
 
-            if (res.name == 'home') {
-                $('navbar-diretive').addClass('in-home');
-                $('navbar-diretive').removeClass('out-home');
-                // $("main").css("margin-top", "90px")
-            }else{
-                $('navbar-diretive').removeClass('in-home');
-                $('navbar-diretive').addClass('out-home');
-                $("main").css("margin-top", "0px")
-            }
-            $("body, main").css({ "opacity": "1", "overflow": "auto", "transition": "opacity 300ms" })
-        }, 500))
-    })
+			if (res.name == 'home') {
+				$('navbar-diretive').addClass('in-home');
+				$('navbar-diretive').removeClass('out-home');
+				// $("main").css("margin-top", "90px")
+			} else {
+				$('navbar-diretive').removeClass('in-home');
+				$('navbar-diretive').addClass('out-home');
+				$("main").css("margin-top", "0px")
+			}
+			$("body, main").css({ "opacity": "1", "overflow": "auto", "transition": "opacity 300ms" })
+		}, 500))
+	})
 
-    $transitions.onExit({}, () => {
-        $("main").css({ "opacity": "0", "overflow": "hide", "transition": "none" })
-    })
+	$transitions.onExit({}, () => {
+		$("main").css({ "opacity": "0", "overflow": "hide", "transition": "none" })
+	})
 
-    $rootScope.modalContato = () => {
-        swangular.open({
-            html: require("./modals/contato/contato.component.html"),
-            controller: 'ModalContatoController',
-            showConfirmButton: false,
-            showCloseButton: true,
-            customClass: "swal-modal-contato",
-            animation: true
-        });
-    }
-    $rootScope.modalLead = () => {
-        swangular.open({
-            html: require("./modals/lead/lead.component.html"),
-            controller: 'ModalLeadController',
-            showConfirmButton: false,
-            showCloseButton: true,
-            customClass: "swal-modal-lead",
-            animation: true
-        });
-    }
+	$rootScope.modalContato = () => {
+		swangular.open({
+			html: require("./modals/contato/contato.component.html"),
+			controller: 'ModalContatoController',
+			showConfirmButton: false,
+			showCloseButton: true,
+			customClass: "swal-modal-contato",
+			animation: true
+		});
+	}
+	$rootScope.modalLead = () => {
+		swangular.open({
+			html: require("./modals/lead/lead.component.html"),
+			controller: 'ModalLeadController',
+			showConfirmButton: false,
+			showCloseButton: true,
+			customClass: "swal-modal-lead",
+			animation: true
+		});
+	}
+
 }

@@ -29,7 +29,7 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 		vm.images = resp.data.images[0];
 		if (vm.images) {
 			vm.images.link_youtube = vm.images.link_youtube.replace("watch?v=", "embed/")
-			
+
 			vm.images.link_youtube = vm.images.link_youtube.replace(".be/", "be.com/embed/")
 
 			vm.images.link_youtube = $sce.trustAsResourceUrl(vm.images.link_youtube);
@@ -69,4 +69,8 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 		}
 	}).on('slideChange', function () { $('span.init').text(`0${this.activeIndex + 1}`) }), 300)
 
+
+	$scope.openCatalogo = () => {
+		window.open($rootScope.LINKS.catalogo, '_blank')
+	}
 }
