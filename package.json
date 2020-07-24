@@ -37,7 +37,7 @@
 		"animate.css": "^3.7.2",
 		"bootstrap": "^4.3.1",
 		"checklist-model": "^1.0.0",
-		"jquery": "^3.4.1",
+		"jquery": "^3.5.0",
 		"mini-css-extract-plugin": "^0.9.0",
 		"moment": "^2.24.0",
 		"ng-meta": "^1.0.3",
