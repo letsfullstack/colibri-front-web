@@ -63,6 +63,7 @@
     "LEAD_MODAL_TITLE": "Acceda a nuestro catálogo",
     "LEAD_MODAL_SUBTITLE": "¡Complete los campos a continuación para descargar!",
     "LEAD_MODAL_BUTTON": "Baixar PDF",
-    "PRODUCT_ALL": "Todas"
+    "PRODUCT_ALL": "Todas",
+    "FILTER_TITLE": "Filtrar"
 
 }
