@@ -5,9 +5,11 @@
         </div>
         <div class="text">
             {{'CONTACT_MODAL_SUBTITLE'|translate}}
+            {{'CONTACT_MODAL_SUBTITLE2'|translate}}
         </div>
         <div class="inputs">
             <input required="true" ng-model="data.nome" type="text" placeholder="{{'CONTACT_MODAL_PLACE_NAME'|translate}}">
+            <input required="false" ng-model="data.cpfcnpj" maxlength="20" type="text" placeholder="CNPJ">
             <input required="true" ng-model="data.email" type="text" placeholder="E-mail">
             <!-- <input required="true" ng-model="data.telefone" ui-mask="(99) 9 9999-9999" ui-mask-placeholder-char="space" type="text"> -->
             <input required="true" ng-model="data.telefone" maxlength="11" type="text" placeholder="{{'CONTACT_MODAL_PLACE_TEL'|translate}}">
