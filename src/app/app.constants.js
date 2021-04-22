@@ -1,6 +1,6 @@
 export default {
 	links: {
-		catalogo: 'https://conteudo.colibrimoveis.com.br/colecao-2020',
+		catalogo: 'https://conteudo.colibrimoveis.com.br/colecao-2021',
 	},
 	dev: {
 		// SERVER_URL: "http://localhost:3000/api",
