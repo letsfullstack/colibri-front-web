@@ -33,7 +33,6 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 			vm.images.link_youtube = vm.images.link_youtube.replace(".be/", "be.com/embed/")
 
 			vm.images.link_youtube = $sce.trustAsResourceUrl(vm.images.link_youtube);
-			debugger
 		}
 
 		vm.params.title = resp.data.params.find(x => x.par_chave === 'title').par_valor;
