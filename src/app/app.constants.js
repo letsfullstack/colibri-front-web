@@ -10,7 +10,7 @@ export default {
 		PROD: false
 	},
 	production: {
-		SERVER_URL: "http://colibrimoveis.com.br/api/",
+		SERVER_URL: "https://colibrimoveis.com.br/api/",
 		BLOG_URL: "http://blog.colibrimoveis.com.br/",
 		PROD: true
 	}
