@@ -150,7 +150,11 @@ function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpServic
 
 	vm.setSliders = function(){
 		let medidas = vm.filters[2][0];
-
+		if (medidas){
+			medidas.largura_max += 10;
+			medidas.altura_max += 10;
+			medidas.profundidade_max += 10;
+		}
 		$scope.tabSliders = {
 			slider1: {
 				minValue: parseInt(medidas.largura_min),
