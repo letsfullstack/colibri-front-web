@@ -27,7 +27,8 @@
         <div class="right">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: false} as qtd_fotos" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}">
+                    <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {} as qtd_fotos" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}">
+                    <!-- <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: false} as qtd_fotos" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}"> -->
                 </div>
                 <!-- <div class="swiper-button-prev swiper-button-white"></div>
                 <div class="swiper-button-next swiper-button-white"></div> -->
