@@ -29,7 +29,7 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 		vm.images = resp.data.images[0];
 		if (vm.images) {
 			vm.images.link_youtube = vm.images.link_youtube.replace("watch?v=", "embed/")
-			
+
 			vm.images.link_youtube = vm.images.link_youtube.replace(".be/", "be.com/embed/")
 
 			vm.images.link_youtube = $sce.trustAsResourceUrl(vm.images.link_youtube);
@@ -39,14 +39,14 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 		vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor;
 	});
 
+	$("navbar-diretive").addClass("invertido")
 	window.addEventListener('scroll', function () {
 		if ($state.current.state == "home") {
-			if ($(this).scrollTop() > 100) {
-				$("navbar-diretive").addClass("invertido")
-			}
-			else {
-				$("navbar-diretive").removeClass("invertido")
-			}
+			// if ($(this).scrollTop() > 100) {
+			// }
+			// else {
+			// 	$("navbar-diretive").removeClass("invertido")
+			// }
 		}
 	})
 
