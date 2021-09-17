@@ -5,7 +5,7 @@ export default {
 	dev: {
 		// SERVER_URL: "http://localhost:3000/api",
 		// SERVER_URL: "https://colibrimoveis.com.br/api/",
-		SERVER_URL: "https://colibrimoveis.com.br/api/",
+		SERVER_URL: "http://ci-admin.letscomunica.com.br/api/",
 		BLOG_URL: "http://blog.colibrimoveis.com.br/",
 		CLIENT_URL: "https://colibrimoveis.portaldocliente.online/",
 		PROD: false
