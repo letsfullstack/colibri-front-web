@@ -4,10 +4,10 @@
         <div class="left">
             <div class="d-flex flex-column align-items-start content">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">home</a></li>
-                    <li class="breadcrumb-item" style="text-transform: lowercase;"><a href="#">{{'MENU_PRODUCT'|translate}}</a></li>
-                    <li class="breadcrumb-item"><a href="#">{{vm.produto.categoriaproduto.ambiente.nome.toLowerCase()}}</a></li>
-                    <li class="breadcrumb-item active">{{vm.produto.categoriaproduto.nome.toLowerCase()}}</li>
+                    <li class="breadcrumb-item"><a href="/home">home</a></li>
+                    <li class="breadcrumb-item" style="text-transform: lowercase;"><a href="/produtos">{{'MENU_PRODUCT'|translate}}</a></li>
+                    <li class="breadcrumb-item"><a href="/produtos/{{vm.produto.categoriaproduto.ambiente.slug}}">{{vm.produto.categoriaproduto.ambiente.nome.toLowerCase()}}</a></li>
+                    <li class="breadcrumb-item active"><a href="/produtos/{{vm.produto.categoriaproduto.ambiente.slug}}/{{vm.produto.categoriaproduto.slug}}">{{vm.produto.categoriaproduto.nome.toLowerCase()}}</a></li>
                 </ol>
                 <h1>{{vm.produto.nome}}</h1>
                 <span class="cod">cod. {{vm.produto.codigo}}</span>
