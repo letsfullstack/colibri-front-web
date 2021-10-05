@@ -15,7 +15,7 @@
                 <div class="colors no-mobi">
                     <span>{{'PRODUCT_COLORS'|translate}}:</span>
                     <label class="color" ng-repeat="(key, value) in vm.cores" title="{{value.nome}}">
-                        <input type="radio" name="f_color" ng-model="vm.cor" ng-click="vm.changeColor(value)" ng-value="key">
+                        <input type="radio" name="f_color" ng-model="vm.cor" ng-click="changeColor(value)" ng-value="key">
                         <span class="checkmark" ng-style="{'background-color' : value.codigo}" ></span>
                     </label>
                 </div>
@@ -36,7 +36,7 @@
             <div class="bottom">
                 <span class="init">01</span>
                 <div class="swiper-pagination"></div>
-                <span class="end">0{{qtd_fotos.length}}</span>
+                <span class="end">0{{maxColors}}</span>
                 <div class="prev-next">
                     <div class="swiper-button-prev">
                         <!-- <i class="fas fa-arrow-left"></i> -->
