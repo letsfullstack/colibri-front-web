@@ -23,12 +23,14 @@ function ModalLeadController($scope, $rootScope, swangular, $http, HttpService) 
 		}
 	});
 
+	var STORAGE_URL = $rootScope.getCurrentEnvironment().STORAGE_URL;
+
 	$scope.openPDF = function () {
 		if ($scope.lead) {
 			if ($scope.lead.nome && $scope.lead.nome != "") {
 				if ($scope.lead.email && $scope.lead.email != "") {
 					HttpService.get("/leads/post-new-lead/", $scope.lead, $scope.lead).then(function (resp) {
-						window.open('http://prod.colibri.letscomunica.com.br/api/upload/uploads/download/' + catalogo)
+						window.open(STORAGE_URL + catalogo)
 						$scope.lead = {}
 						swangular.close()
 					});

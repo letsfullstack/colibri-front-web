@@ -57,7 +57,7 @@ import { FooterDiretive } from './footer/footer.diretive'
 import { NavbarDiretive } from './navbar/navbar.diretive'
 import { PhraseDiretive } from './phrase/phrase.diretive'
 
-import MetaService from './services/meta.service'
+import SeoService from './services/seo.service'
 
 const MODULE_IMPORTS = [
 	ngResource,
@@ -86,7 +86,7 @@ const COMPONENTS_IMPORTS = [
 ]
 
 const SERVICES_IMPORTS = [
-	MetaService,
+	SeoService,
 	HttpWebService
 ]
 
@@ -113,23 +113,21 @@ app.component(AppComponent.selector, AppComponent)
 
 app.constant("constants", Constants)
 
-
-for (const SERVICE of SERVICES_IMPORTS)
+for (const SERVICE of SERVICES_IMPORTS){
 	app.service(SERVICE.name, SERVICE.function)
-
-// for (const COMPONENT of COMPONENTS_IMPORTS)
-//     app.controller(COMPONENT.options.controller, COMPONENT.controller)
-
+}
+	
 for (const COMPONENT of COMPONENTS_IMPORTS) {
 	if (COMPONENT.controller) {
 		app.controller(COMPONENT.options.controller, COMPONENT.controller)
 	}
 }
 
-for (const DIRETIVE of DIRETIVES_IMPORTS)
+for (const DIRETIVE of DIRETIVES_IMPORTS){
 	app.directive(DIRETIVE.element, DIRETIVE.options)
+}
 
-app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider, ngMetaProvider, $translateProvider) => {
+app.config(($stateProvider, $urlRouterProvider, $locationProvider, $translateProvider) => {
 
 	$urlRouterProvider.otherwise('/')
 
@@ -138,28 +136,18 @@ app.config(($logProvider, $stateProvider, $urlRouterProvider, $locationProvider,
 
 	$locationProvider.html5Mode(true)
 
-	$logProvider.debugEnabled(true)
-
-	ngMetaProvider.setDefaultTitle('Colibri');
-
-	ngMetaProvider.useTitleSuffix(true)
-
-	// ngMetaProvider.setDefaultTitleSuffix(' | Best Website on the Internet!')
-
-	ngMetaProvider.setDefaultTag('author', 'Lets Comunicação')
-
 	window.moment.locale('pt-BR');
 
 	$translateProvider.translations('en', TranslateFileEN);
 	$translateProvider.translations('es', TranslateFileES);
 	$translateProvider.translations('pt', TranslateFilePT);
-
 	$translateProvider.preferredLanguage('pt');
 	$translateProvider.useLocalStorage();
 
-}).run(['ngMeta', '$transitions', 'constants', '$rootScope', 'swangular', ConstructorModule])
+}).run(['ngMeta', '$transitions', 'constants', '$rootScope', 'swangular', '$translate', 'SeoService', ConstructorModule])
 
-function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangular) {
+function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangular, $translate, SeoService) {
+
 	$rootScope.getCurrentEnvironment = () => {
 		if (ENV === "development") {
 			return constants.dev;
@@ -168,12 +156,17 @@ function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangula
 		}
 	}
 
-	$rootScope.LINKS = Constants.links
+	$rootScope.lang = $translate.use();
+	$rootScope.LINKS = Constants.links;
 	$rootScope.SERVER_URL = $rootScope.getCurrentEnvironment().SERVER_URL;
+	$rootScope.STORAGE_URL = $rootScope.getCurrentEnvironment().STORAGE_URL;
 
 	ngMeta.init();
 
 	$transitions.onSuccess({}, (s) => {
+
+		SeoService.ldJsonHome();
+
 		s.promise.then(res => setTimeout(() => {
 			window.scrollTo(0, 0)
 			if (res.name === '/') {
@@ -229,4 +222,21 @@ function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangula
 		});
 	}
 
+}
+
+
+app.filter('trusted', trusted);
+trusted.inject = ['$sce'];
+function trusted($sce) {
+	return function (url) {
+		return $sce.trustAsResourceUrl(url);
+	}
+}
+
+app.filter('trustedHTML', trustedHTML);
+trustedHTML.inject = ['$sce'];
+function trustedHTML($sce) {
+	return function (html) {
+		return $sce.trustAsHtml(html);
+	}
 }

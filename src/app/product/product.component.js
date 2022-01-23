@@ -9,10 +9,10 @@ export const ProductComponent = {
 		controllerAs: "vm",
 		authenticate: false
 	},
-	controller: ["$scope", "$rootScope", "$state", "ngMeta", "$stateParams", "HttpService", "$sce", ProductController]
+	controller: ["$scope", "$rootScope", "$state", "$stateParams", "HttpService", "$sce", ProductController]
 }
 
-function ProductController($scope, $rootScope, $state, ngMeta, $stateParams, HttpService, $sce) {
+function ProductController($scope, $rootScope, $state, $stateParams, HttpService, $sce) {
 	var vm = this;
 
 	vm.produto = null;

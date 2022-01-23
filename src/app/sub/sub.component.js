@@ -9,10 +9,10 @@ export const SubComponent = {
     controllerAs: "vm",
     authenticate: false
   },
-  controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$rootScope", SubController]
+  controller: ["$scope", "HttpService", "$rootScope", SubController]
 }
 
-function SubController($scope, ngMeta, MetaService, HttpService, $rootScope) {
+function SubController($scope, HttpService, $rootScope) {
   var vm = this
 
   $scope.home = "HOME"
@@ -20,7 +20,7 @@ function SubController($scope, ngMeta, MetaService, HttpService, $rootScope) {
   vm.params = {};
   vm.images = [];
 
-  vm.url = $rootScope.getCurrentEnvironment().SERVER_URL + "/upload/uploads/download/";
+  vm.url = $rootScope.getCurrentEnvironment().STORAGE_URL;
 
   HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
     vm.most_viewed = resp.data.most_viewed;

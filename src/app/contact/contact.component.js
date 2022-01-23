@@ -9,10 +9,10 @@ export const ContactComponent = {
     controllerAs: "vm",
     authenticate: false
   },
-  controller: ["$scope", "ngMeta", "MetaService", ContactController]
+  controller: ["$scope", ContactController]
 }
 
-function ContactController($scope, ngMeta, MetaService) {
+function ContactController($scope) {
 
 
   $scope.showChat = () => {

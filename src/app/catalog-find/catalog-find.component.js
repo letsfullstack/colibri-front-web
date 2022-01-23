@@ -9,10 +9,10 @@ export const CatalogFindComponent = {
 		controllerAs: "vm",
 		authenticate: false
 	},
-	controller: ["$scope", "ngMeta", "MetaService", "$timeout", "HttpService", "$stateParams", CatalogFindController]
+	controller: ["$scope", "$timeout", "HttpService", "$stateParams", CatalogFindController]
 }
 
-function CatalogFindController($scope, ngMeta, MetaService, $timeout, HttpService, $stateParams) {
+function CatalogFindController($scope, $timeout, HttpService, $stateParams) {
 	var vm = this
 	vm.most_viewed = []
 
