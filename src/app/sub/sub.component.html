@@ -1,4 +1,4 @@
-<section id="banner">
+<section id="banner" ng-if="vm.viewable">
     <div class="top">
         <div class="left">
             <ol class="breadcrumb">
@@ -10,10 +10,10 @@
                 {{vm.params.subtitle_1}}
             </p>
         </div>
-        <img class="right" src="{{vm.url + vm.images.img_6_link}}" alt="">
+        <img class="right" ng-src="{{vm.url + vm.images.img_6_link}}" alt="">
     </div>
     <div class="bottom">
-        <img class="left" src="{{vm.url + vm.images.img_7_link}}" alt="">
+        <img class="left" ng-src="{{vm.url + vm.images.img_7_link}}" alt="">
         <div class="right">
             <h2>{{vm.params.title_2}}</h2>
             <p>

@@ -14,7 +14,7 @@ function ModalLeadController($scope, $rootScope, swangular, $http, HttpService) 
 	$scope.close = () => {
 		swangular.close()
 	}
-
+ 
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.most_viewed = resp.data.most_viewed;
 		vm.images = resp.data.images[0];

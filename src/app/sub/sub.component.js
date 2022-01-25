@@ -23,6 +23,7 @@ function SubController($scope, HttpService, $rootScope) {
   vm.url = $rootScope.getCurrentEnvironment().STORAGE_URL;
 
   HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
+    vm.viewable = true;
     vm.most_viewed = resp.data.most_viewed;
     vm.images = resp.data.images[0];
 

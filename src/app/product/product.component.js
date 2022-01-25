@@ -2,7 +2,7 @@ import './product.component.scss';
 
 export const ProductComponent = {
 	options: {
-		url: '/produto/:ambient/:category/:slug/:id',
+		url: '/produtos/:ambient/:category/:slug/:id',
 		state: 'product',
 		template: require("./product.component.html"),
 		controller: ProductController.name,
@@ -15,7 +15,7 @@ export const ProductComponent = {
 function ProductController($scope, $rootScope, $state, $stateParams, HttpService, $sce) {
 	var vm = this;
 
-	vm.produto = null;
+	vm.produto = null; 
 	vm.produtos_relacionados = null;
 	vm.cor = null;
 	vm.cores = [];

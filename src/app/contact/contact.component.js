@@ -14,7 +14,6 @@ export const ContactComponent = {
 
 function ContactController($scope) {
 
-
   $scope.showChat = () => {
     zE('webWidget', 'open');
   }

@@ -55,7 +55,7 @@ const rules = [
   },
   {
     test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-    loader: 'file-loader'
+    loader: 'file-loader?name=[name].[ext]'
   }
 ];
 
