@@ -2,21 +2,34 @@ import './product.component.scss';
 
 export const ProductComponent = {
 	options: {
-		url: '/produtos/:ambient/:category/:slug/:id',
+		url: '/produtos/:ambient/:category/:id/:slug',
 		state: 'product',
 		template: require("./product.component.html"),
 		controller: ProductController.name,
 		controllerAs: "vm",
-		authenticate: false
+		authenticate: false,
+		resolve:{
+			data:["$q", "$stateParams", "HttpService", function($q, $stateParams, HttpService){
+				var deffered = $q.defer();
+
+				HttpService.get("/produtos/get-produto/", { id: $stateParams.id }).then(function (response) {
+					deffered.resolve(response.data.data);
+				},function (err) {
+					deffered.resolve()
+				});
+
+				return deffered.promise;
+			}]
+		}
 	},
-	controller: ["$scope", "$rootScope", "$state", "$stateParams", "HttpService", "$sce", ProductController]
+	controller: ["$scope", "$rootScope", "$location", "SeoService", "$stateParams", "$sce", "data", ProductController]
 }
 
-function ProductController($scope, $rootScope, $state, $stateParams, HttpService, $sce) {
+function ProductController($scope, $rootScope, $location, SeoService, $stateParams, $sce, data) {
 	var vm = this;
 
-	vm.produto = null; 
-	vm.produtos_relacionados = null;
+	vm.produto = data.produto; 
+	vm.produtos_relacionados = data.relacionados;
 	vm.cor = null;
 	vm.cores = [];
 	$scope.maxColors = 0;
@@ -24,39 +37,14 @@ function ProductController($scope, $rootScope, $state, $stateParams, HttpService
 	$scope.trslt = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
 	$scope.trslt = $scope.trslt == 'en' ? 'us' : $scope.trslt
 
-	if ($stateParams.id) {
-		HttpService.get("/produtos/get-produto/", { id: $stateParams.id }).then(function (resp) {
-			vm.produto = resp.data.data.produto;
-			vm.produtos_relacionados = resp.data.data.relacionados;
-			if (vm.produto && vm.produto.link_youtube) {
+	console.log(vm.produto.categoriaproduto.ambiente)
+			
+	if (vm.produto && vm.produto.link_youtube) {
 
-				vm.produto.link_youtube = vm.produto.link_youtube.replace("watch?v=", "embed/")
-				vm.produto.link_youtube = $sce.trustAsResourceUrl(vm.produto.link_youtube);
-			}
-			if (!vm.checkSlugs()) {
-				//$state.go("/");
-			}
-			vm.produto.produtocor.forEach(function (elm, idx) {
-				if (elm.destaque) {
-					vm.cor = idx;
-					$scope.maxColors = vm.produto.produtocor[idx].produtoimagem.length
-				}
-				elm.cor.idx = idx
-				vm.cores.push(elm.cor)
-
-				// elm.imagemprincipal = {};
-				// elm.produtoimagem.forEach(function(value, i){
-				// 	if(value.principal){
-				// 		elm.imagemprincipal = value;
-				// 		delete elm.produtoimagem[i];
-				// 	}
-				// });
-			});
-		}, function (err) {
-			$state.go("/");
-			console.log(err);
-		});
+		vm.produto.link_youtube = vm.produto.link_youtube.replace("watch?v=", "embed/")
+		vm.produto.link_youtube = $sce.trustAsResourceUrl(vm.produto.link_youtube);
 	}
+
 	vm.checkSlugs = () => {
 		vm.produto.categoriaproduto.ambiente.nome = vm.produto.categoriaproduto.ambiente["nome_" + $scope.trslt]
 		vm.produto.categoriaproduto.nome = vm.produto.categoriaproduto["nome_" + $scope.trslt]
@@ -65,6 +53,19 @@ function ProductController($scope, $rootScope, $state, $stateParams, HttpService
 		}
 		return true;
 	}
+
+	if (!vm.checkSlugs()) {
+		//$state.go("/");
+	}
+
+	vm.produto.produtocor.forEach(function (elm, idx) {
+		if (elm.destaque) {
+			vm.cor = idx;
+			$scope.maxColors = vm.produto.produtocor[idx].produtoimagem.length
+		}
+		elm.cor.idx = idx
+		vm.cores.push(elm.cor)
+	});
 
 	$scope.changeColor = function (value) {
 		$scope.maxColors = vm.produto.produtocor[value.idx].produtoimagem.length
@@ -113,5 +114,16 @@ function ProductController($scope, $rootScope, $state, $stateParams, HttpService
 		bar[this.activeIndex].classList.add('swiper-pagination-bullet-active')
 		bar[this.activeIndex - 1].classList.remove('swiper-pagination-bullet-active')
 		bar[this.activeIndex + 1].classList.remove('swiper-pagination-bullet-active')
-	}), 300)
+	}), 300);
+
+	var slug = $location.absUrl().split('?')[0];
+	SeoService.generateTags({
+		title: vm.produto.nome,
+		description:vm.produto.descricao,
+		image:$rootScope.STORAGE_URL+vm.produto.imagem_capa,
+		slug: slug,
+		canonical: slug
+	}); 
+
+
 }

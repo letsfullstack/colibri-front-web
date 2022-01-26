@@ -27,7 +27,8 @@ function SeoService(ngMeta, $location, $rootScope, constants) {
         config = Object.assign({},config_,config || {});
         config.canonical = config.canonical || config.slug;
 
-        ngMeta.setTitle(config.title);
+        $('title').text(config.title);
+        // ngMeta.setTitle(config.title);
 
         ngMeta.setTag('type', 'website');
         ngMeta.setTag('image',  config.image);

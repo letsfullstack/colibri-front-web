@@ -9,10 +9,10 @@ export const CatalogFindComponent = {
 		controllerAs: "vm",
 		authenticate: false
 	},
-	controller: ["$scope", "$timeout", "HttpService", "$stateParams", CatalogFindController]
+	controller: ["$scope", "$timeout", "HttpService", "$stateParams", "SeoService", "$location", CatalogFindController]
 }
 
-function CatalogFindController($scope, $timeout, HttpService, $stateParams) {
+function CatalogFindController($scope, $timeout, HttpService, $stateParams, SeoService, $location) {
 	var vm = this
 	vm.most_viewed = []
 
@@ -22,7 +22,6 @@ function CatalogFindController($scope, $timeout, HttpService, $stateParams) {
 
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.most_viewed = resp.data.most_viewed;
-		
 	});
 
 	vm.width = window.innerWidth;
@@ -44,7 +43,6 @@ function CatalogFindController($scope, $timeout, HttpService, $stateParams) {
 	}
 
 	if ($stateParams.ambiente && $stateParams.ambiente != "all"){
-		// vm.filter.ambiente = parseInt($stateParams.ambiente);
 		vm.filter.ambiente.push($stateParams.ambiente)
 	}
 
@@ -206,4 +204,14 @@ function CatalogFindController($scope, $timeout, HttpService, $stateParams) {
 			}
 		}
 	}
+
+	var slug = $location.absUrl().split('?')[0];
+	SeoService.generateTags({
+		title: "Catálogo de produtos",
+		// description:vm.produto.descricao,
+		// image:$rootScope.STORAGE_URL+vm.imagem,
+		slug: slug,
+		canonical: slug
+	}); 
+
 }

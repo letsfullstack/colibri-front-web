@@ -17,7 +17,7 @@ function NewsController($scope, HttpService, swangular) {
 
 	vm.subscribe = function () {
 		if(!vm.email){
-			swangular.swal({ 
+			swangular.swal({
 				title: 'Atenção',
 				text: 'Informe um e-mail para continuar.',
 				icon: 'success',
