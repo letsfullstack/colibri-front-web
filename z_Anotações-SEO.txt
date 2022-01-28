@@ -57,3 +57,5 @@ Backup DB cron
 dotEnv
 
 Anti-cache
+
+Maquina linode
