@@ -1,5 +1,5 @@
 <nav class="container normal">
-    <img class="img" src="../../assets/img/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
+    <img class="img" src="/assets/images/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
     <div id="menu" class="menu">
 
         <ul class="navigation">
@@ -49,7 +49,7 @@
                         <input required="true" ng-class="{'active':vm.search}" id="nav-search" autofocus
                             ng-model-options="{ debounce: 400 }" type="text" ng-model="vm.search"
                             ng-change="vm._search()">
-                        <button ng-click="buscar()" type="submit"><img src="../../assets/img/search.png"
+                        <button ng-click="buscar()" type="submit"><img src="/assets/images/search.png"
                                 alt=""></button>
                     </a>
                 </form>
@@ -57,7 +57,7 @@
             <li rel="noopener noreferrer images">
                 <a href="https://apps.colibrimoveis.com.br:5789/f3iConnect/app/login.faces;jsessionid=8B51859A3DBA128F252F35C973F29E8B"
                     target="_blank">
-                    <button><img src="../../assets/img/user.png" alt=""></button>
+                    <button><img src="/assets/images/user.png" alt=""></button>
                 </a>
             </li>
             <div class="idioma">
@@ -85,15 +85,11 @@
         <ul ng-if="vm.isMobile" class="mobile">
             <div id="accordion">
                 <div class="input">
-                    <!-- <div>
-                        <input id="nav-search" type="text" ng-model="vm.search" ng-change="vm._search()">
-                        <img ng-click="buscar()" src="../../assets/img/search.png" alt="">
-                    </div> -->
                     <form>
                         <a>
                             <input id="nav-search" autofocus ng-model-options="{ debounce: 400 }" type="text"
                                 ng-model="vm.search" ng-change="vm._search()">
-                            <button ng-click="buscar()" type="submit"><img src="../../assets/img/search.png"
+                            <button ng-click="buscar()" type="submit"><img src="/assets/images/search.png"
                                     alt=""></button>
                         </a>
                     </form>
@@ -178,7 +174,7 @@
         </ul>
 
         <ul ng-if="vm.isMobile" class="buttons extra">
-            <img class="img" src="../../assets/img/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
+            <img class="img" src="/assets/images/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
             <li class="menu-toggle" rel="noopener noreferrer images">
                 <a ng-click="open()">
                     <i ng-if="!vm.menuOpen" class="fas fa-bars"></i>

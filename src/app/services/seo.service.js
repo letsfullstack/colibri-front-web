@@ -12,7 +12,7 @@ function SeoService(ngMeta, $location, $rootScope, constants) {
         var config_ = {
             title: 'Colibri Móveis',
             description: 'Somos umas das principais industriais do setor moveleiro na produção de móveis, reconhecidos por ser uma empresa inovadora no segmento através do nosso design.',
-            image: appSettings.SITE_URL+'/assets/img/share-default.jpg',
+            image: appSettings.SITE_URL+'/assets/images/share-default.jpg',
             slug: appSettings.SITE_URL,
             canonical: appSettings.SITE_URL
         };
@@ -98,10 +98,10 @@ function SeoService(ngMeta, $location, $rootScope, constants) {
                 "postalCode": "86706-418",
                 "streetAddress": "Tatuapé, Arapongas - PR"
             },
-            "logo": appSettings.SITE_URL+"/assets/img/logo-bird.png",
+            "logo": appSettings.SITE_URL+"/assets/images/logo-bird.png",
             "brand": {
                 "@type": "Brand",
-                "logo": appSettings.SITE_URL+"/assets/img/logo-bird.png"
+                "logo": appSettings.SITE_URL+"/assets/images/logo-bird.png"
             },
             "telephone": "+55 43 3275-8600",
             "URL": appSettings.SITE_URL+"/"

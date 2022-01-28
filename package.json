@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "Any",
 	"scripts": {
-		"build": "cross-env NODE_ENV=production webpack",
+		"build": "npm run clean && cross-env NODE_ENV=production webpack",
 		"build:test": "cross-env NODE_ENV=development webpack",
 		"build:dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0",
 		"build:prod": "npm run clean && npm run build",

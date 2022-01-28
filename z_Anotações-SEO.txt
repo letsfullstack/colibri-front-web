@@ -1,0 +1,31 @@
+Google tag manager
+
+imagens com nome legivel / Não usar hash
+Atributo alt nas imagens
+imagens jpg
+png somente se estiver transparencia
+compressão das imagens
+
+Somente 1 h1 na pagina
+
+application/ld+json
+
+Meta descriptions
+
+AMP
+
+https
+
+friendly url
+
+sitemaps
+
+Google search console
+
+Prerender.io
+
+cnd Cloudflare/Cloudfront
+
+Responsivo
+
+https://developers.facebook.com/tools/debug/?locale=pt_BR

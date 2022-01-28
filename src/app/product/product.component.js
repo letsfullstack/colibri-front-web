@@ -37,8 +37,6 @@ function ProductController($scope, $rootScope, $location, SeoService, $statePara
 	$scope.trslt = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
 	$scope.trslt = $scope.trslt == 'en' ? 'us' : $scope.trslt
 
-	console.log(vm.produto.categoriaproduto.ambiente)
-			
 	if (vm.produto && vm.produto.link_youtube) {
 
 		vm.produto.link_youtube = vm.produto.link_youtube.replace("watch?v=", "embed/")

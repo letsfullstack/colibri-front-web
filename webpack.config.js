@@ -54,8 +54,12 @@ const rules = [
 		use: [{ loader: 'style-loader' }, { loader: 'css-loader' }]
 	},
 	{
-		test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
-		loader: 'file-loader?name=[name].[ext]'
+		test: /\.(woff|woff2|ttf|eot)$/,
+		loader: 'file-loader?name=/assets/fonts/[name].[ext]'
+	},
+	{
+		test: /\.(png|jpg|jpeg|gif|svg)$/,
+		loader: 'file-loader?name=/assets/images/[name].[ext]',
 	}
 ];
 
@@ -75,12 +79,9 @@ const plugins = [
 		inject: true
 	}),
 	new CopyPlugin([
-		{ from: 'src/assets/fonts/Gordita_Regular.woff', to: path.resolve(__dirname, 'build') },
-		{ from: 'src/assets/fonts/Gordita_Medium.woff', to: path.resolve(__dirname, 'build') },
-		{ from: 'src/assets/fonts/Gordita_Light.woff', to: path.resolve(__dirname, 'build') },
-		{ from: 'src/assets/fonts/Gordita_Bold.woff', to: path.resolve(__dirname, 'build') },
-		{ from: 'src/assets/fonts/Font-Awesome-5-Pro-Light-300.woff', to: path.resolve(__dirname, 'build') },
-		// { from: 'src/robots.txt', to: path.resolve(__dirname, 'build')},
+		{ from: 'src/assets/fonts', to: path.resolve(__dirname, 'build/assets/fonts') },
+		{ from: 'src/assets/images', to: path.resolve(__dirname, 'build/assets/images') },
+		{ from: 'node_modules/@fortawesome/fontawesome-free/webfonts', to: path.resolve(__dirname, 'build/assets/fonts') }
 	]),
 	new webpack.ProvidePlugin({
 		// jQuery: 'jquery',
