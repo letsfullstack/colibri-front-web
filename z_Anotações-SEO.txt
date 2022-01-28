@@ -6,6 +6,12 @@ imagens jpg
 png somente se estiver transparencia
 compressão das imagens
 
+Acesso direto ao arquivo /files
+https://colibrimoveis.com.br/api//upload/uploads/download/marajo__1_1621271057491.png
+
+Slug URL
+https://www.colibrimoveis.com.br/produtos/sala-de-estar/home-theater/67/Home%20Theater%20Niteroi
+
 Somente 1 h1 na pagina
 
 application/ld+json
@@ -28,4 +34,11 @@ cnd Cloudflare/Cloudfront
 
 Responsivo
 
+Facebook debug
 https://developers.facebook.com/tools/debug/?locale=pt_BR
+
+Nginx gzip
+
+sendToserver 
+
+ssh-copy-id
