@@ -143,6 +143,7 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider, $translatePro
 	$translateProvider.translations('pt', TranslateFilePT);
 	$translateProvider.preferredLanguage('pt');
 	$translateProvider.useLocalStorage();
+	$translateProvider.useSanitizeValueStrategy(null)
 
 }).run(['ngMeta', '$transitions', 'constants', '$rootScope', 'swangular', '$translate', 'SeoService', ConstructorModule])
 
