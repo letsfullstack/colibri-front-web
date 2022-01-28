@@ -81,7 +81,11 @@ const plugins = [
 	new CopyPlugin([
 		{ from: 'src/assets/fonts', to: path.resolve(__dirname, 'build/assets/fonts') },
 		{ from: 'src/assets/images', to: path.resolve(__dirname, 'build/assets/images') },
-		{ from: 'node_modules/@fortawesome/fontawesome-free/webfonts', to: path.resolve(__dirname, 'build/assets/fonts') }
+		{ from: 'node_modules/@fortawesome/fontawesome-free/webfonts', to: path.resolve(__dirname, 'build/assets/fonts') },
+		{ from: 'src/sitemap.xml', to: path.resolve(__dirname, 'build') },
+		{ from: 'src/sitemap-static.xml', to: path.resolve(__dirname, 'build') },
+		{ from: 'src/robots.txt', to: path.resolve(__dirname, 'build') },
+
 	]),
 	new webpack.ProvidePlugin({
 		// jQuery: 'jquery',
