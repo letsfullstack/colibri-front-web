@@ -59,3 +59,7 @@ dotEnv
 Anti-cache
 
 Maquina linode
+
+Senha Master
+
+Auto_layout
