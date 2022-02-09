@@ -10,30 +10,22 @@
                     <li><a ui-sref="contact">{{'FOOTER_WORK_WITH_US'|translate}}</a></li>
                 </ul>
             </nav>
-            <nav class="col-3" ng-repeat="ambi in vm.filters | limitTo: 3">   
+            <nav class="col-3" ng-repeat="ambi in vm.filters | limitTo: 3">
                 <ul>
                     <li rel="noopener noreferrer">{{ambi.nome}}</li>
-                    <li ng-repeat="cat in ambi.categoriaproduto" ><a href="produtos/{{ambi.slug}}/{{cat.slug}}">{{cat.nome}}</a>
+                    <li ng-repeat="cat in ambi.categoriaproduto">
+                        <a href="produtos/{{ambi.slug}}/{{cat.slug}}">
+                            {{cat.nome}}
+                        </a>
+                    </li>
                 </ul>
             </nav>
-            <!-- <nav class="col-3">
-                <ul>
-                    <li rel="noopener noreferrer">Dormitório</li>
-                    <li ng-repeat="cat in vm.filters[1].categoriaproduto" ><a href="produtos/{{vm.filters[1].id}}/{{cat.id}}/all">{{cat.nome}}</a>
-                </ul>
-            </nav>
-            <nav class="col-3">
-                <ul>
-                    <li rel="noopener noreferrer">Home Office</li>
-                    <li ng-repeat="cat in vm.filters[2].categoriaproduto" ><a href="produtos/{{vm.filters[2].id}}/{{cat.id}}/all">{{cat.nome}}</a>
-                </ul>
-            </nav> -->
         </div>
     </div>
     <div class="mid">
         <div class="container">
             <div class="left">
-                <img src="../../assets/img/logo-colibri.png" alt="">
+                <img src="/assets/images/logo-colibri.png" alt="">
                 <p class="informations">
                     Rua Rouxinol, 5530 - Pq. Industrial IV
                     Arapongas . Paraná . Brasil
@@ -43,7 +35,8 @@
             <div class="group-a">
                 <a href="https://www.facebook.com/colibrimoveis/" class="face"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://www.instagram.com/colibrimoveis/" class="insta"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/colibri-moveis-do-brasil/" class="link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/company/colibri-moveis-do-brasil/" class="link"><i
+                        class="fab fa-linkedin-in"></i></a>
                 <a href="https://www.youtube.com/user/ColibriMoveis" class="you"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
@@ -55,15 +48,22 @@
             <span>{{'FOOTER_POLICY'|translate}}</span>
             <span>/</span>
             <div class="language">
-                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLanguage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="btn dropdown-toggle" role="button" id="dropdownMenuLanguage" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-globe"></i> {{currentLanguage}}
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLanguage">
-                    <a class="dropdown-item" ng-click="changeLanguage('pt')"><img src="https://www.countryflags.io/br/flat/32.png"><div class="title">Português</div></a>
-                    <a class="dropdown-item" ng-click="changeLanguage('en')"><img src="https://www.countryflags.io/us/flat/32.png"><div class="title">English</div></a>
-                    <a class="dropdown-item" ng-click="changeLanguage('es')"><img src="https://www.countryflags.io/es/flat/32.png"><div class="title"></div>Español</div></a>
-                </div>
-              </div>
+                    <a class="dropdown-item" ng-click="changeLanguage('pt')"><img src="https://flagcdn.com/w40/br.png">
+                        <div class="title">Português</div>
+                    </a>
+                    <a class="dropdown-item" ng-click="changeLanguage('en')"><img src="https://flagcdn.com/w40/us.png">
+                        <div class="title">English</div>
+                    </a>
+                    <a class="dropdown-item" ng-click="changeLanguage('es')"><img src="https://flagcdn.com/w40/es.png">
+                        <div class="title"></div>Español
+                </div></a>
+            </div>
         </div>
+    </div>
     </div>
 </footer>

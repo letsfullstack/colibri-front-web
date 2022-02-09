@@ -27,6 +27,6 @@ function CatalogProductController($scope, $element) {
         slidesPerView: 1.4,
         spaceBetween: 20
       }
-    }
+    } 
   }), 300);
 }

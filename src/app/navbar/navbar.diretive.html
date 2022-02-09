@@ -1,5 +1,5 @@
 <nav class="container normal">
-    <img class="img" src="../../assets/img/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
+    <img class="img" src="/assets/images/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
     <div id="menu" class="menu">
 
         <ul class="navigation">
@@ -15,15 +15,14 @@
                 </div>
             </li>
             <li rel="noopener noreferrer" class="dropdown">
-                <a ng-click="close()" class="dropdown-toggle" href="/produtos" role="button"
-                    id="dropdownMenuLink2" aria-haspopup="true" aria-expanded="false">
+                <a ng-click="close()" class="dropdown-toggle" href="/produtos" role="button" id="dropdownMenuLink2"
+                    aria-haspopup="true" aria-expanded="false">
                     {{'MENU_PRODUCT'|translate}}
                     <i class="fas fa-chevron-down"></i>
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                    <a ng-repeat="cat in vm.filters" class="dropdown-item"
-                        href="produtos/{{cat.slug}}">{{cat.nome}}</a>
+                    <a ng-repeat="cat in vm.filters" class="dropdown-item" href="produtos/{{cat.slug}}">{{cat.nome}}</a>
                 </div>
             </li>
             <li rel="noopener noreferrer" class="dropdown">
@@ -33,13 +32,13 @@
                     Blog
                 </a>
             </li>
-												<li rel="noopener noreferrer" class="dropdown">
-													<a ng-click="close()" class="nondrop-blog" target="_blank"
-																	href="{{$root.getCurrentEnvironment().CLIENT_URL}}" role="button" id="dropdownMenuLink4"
-																	aria-haspopup="true" aria-expanded="false">
-																	Área do Cliente
-													</a>
-									</li>
+            <li rel="noopener noreferrer" class="dropdown">
+                <a ng-click="close()" class="nondrop-blog" target="_blank"
+                    href="{{$root.getCurrentEnvironment().CLIENT_URL}}" role="button" id="dropdownMenuLink4"
+                    aria-haspopup="true" aria-expanded="false">
+                    Área do Cliente
+                </a>
+            </li>
         </ul>
 
 
@@ -48,15 +47,17 @@
                 <form>
                     <a>
                         <input required="true" ng-class="{'active':vm.search}" id="nav-search" autofocus
-                            ng-model-options="{ debounce: 400 }" type="text" ng-model="vm.search" ng-change="vm._search()">
-                        <button ng-click="buscar()" type="submit"><img src="../../assets/img/search.png" alt=""></button>
+                            ng-model-options="{ debounce: 400 }" type="text" ng-model="vm.search"
+                            ng-change="vm._search()">
+                        <button ng-click="buscar()" type="submit"><img src="/assets/images/search.png"
+                                alt=""></button>
                     </a>
                 </form>
             </li>
             <li rel="noopener noreferrer images">
                 <a href="https://apps.colibrimoveis.com.br:5789/f3iConnect/app/login.faces;jsessionid=8B51859A3DBA128F252F35C973F29E8B"
                     target="_blank">
-                    <button><img src="../../assets/img/user.png" alt=""></button>
+                    <button><img src="/assets/images/user.png" alt=""></button>
                 </a>
             </li>
             <div class="idioma">
@@ -66,15 +67,15 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLanguage">
                     <a class="dropdown-item item-idioma" ng-click="changeLanguage('pt')">
-                        <img class="item-bandeira" src="https://www.countryflags.io/br/flat/32.png">
+                        <img class="item-bandeira" src="https://flagcdn.com/w40/br.png">
                         <span class="title">Português</span>
                     </a>
                     <a class="dropdown-item item-idioma" ng-click="changeLanguage('en')">
-                        <img class="item-bandeira" src="https://www.countryflags.io/us/flat/32.png">
+                        <img class="item-bandeira" src="https://flagcdn.com/w40/us.png">
                         <span class="title">English</span>
                     </a>
                     <a class="dropdown-item item-idioma" ng-click="changeLanguage('es')">
-                        <img class="item-bandeira" src="https://www.countryflags.io/es/flat/32.png">
+                        <img class="item-bandeira" src="https://flagcdn.com/w40/es.png">
                         <span class="title">Español</span>
                     </a>
                 </div>
@@ -84,15 +85,12 @@
         <ul ng-if="vm.isMobile" class="mobile">
             <div id="accordion">
                 <div class="input">
-                    <!-- <div>
-                        <input id="nav-search" type="text" ng-model="vm.search" ng-change="vm._search()">
-                        <img ng-click="buscar()" src="../../assets/img/search.png" alt="">
-                    </div> -->
                     <form>
                         <a>
-                            <input id="nav-search" autofocus
-                                ng-model-options="{ debounce: 400 }" type="text" ng-model="vm.search" ng-change="vm._search()">
-                            <button ng-click="buscar()" type="submit"><img src="../../assets/img/search.png" alt=""></button>
+                            <input id="nav-search" autofocus ng-model-options="{ debounce: 400 }" type="text"
+                                ng-model="vm.search" ng-change="vm._search()">
+                            <button ng-click="buscar()" type="submit"><img src="/assets/images/search.png"
+                                    alt=""></button>
                         </a>
                     </form>
                 </div>
@@ -127,30 +125,30 @@
                     </div>
                 </div>
 
-																<div class="obj">
-																	<div class="card-header" id="headingOne" class="btn btn-link" data-toggle="collapse"
-																					data-target="#collapseIdioma" aria-expanded="true" aria-controls="collapseIdioma">
-																					Idiomas
-																					<i class="fas fa-chevron-down"></i>
-																	</div>
+                <div class="obj">
+                    <div class="card-header" id="headingOne" class="btn btn-link" data-toggle="collapse"
+                        data-target="#collapseIdioma" aria-expanded="true" aria-controls="collapseIdioma">
+                        Idiomas
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
 
-																	<div id="collapseIdioma" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-																					<div class="card-body">
-																									<a class="item-idioma" ng-click="changeLanguage('pt')">
-																													<img class="item-bandeira" src="https://www.countryflags.io/br/flat/32.png">
-																													<span class="title">Português</span>
-																									</a>
-																									<a class="item-idioma" ng-click="changeLanguage('en')">
-																													<img class="item-bandeira" src="https://www.countryflags.io/us/flat/32.png">
-																													<span class="title">English</span>
-																									</a>
-																									<a class="item-idioma" ng-click="changeLanguage('es')">
-																													<img class="item-bandeira" src="https://www.countryflags.io/es/flat/32.png">
-																													<span class="title">Español</span>
-																									</a>
-																					</div>
-																	</div>
-													</div>
+                    <div id="collapseIdioma" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <a class="item-idioma" ng-click="changeLanguage('pt')">
+                                <img class="item-bandeira" src="https://flagcdn.com/w40/br.png">
+                                <span class="title">Português</span>
+                            </a>
+                            <a class="item-idioma" ng-click="changeLanguage('en')">
+                                <img class="item-bandeira" src="https://flagcdn.com/w40/us.png">
+                                <span class="title">English</span>
+                            </a>
+                            <a class="item-idioma" ng-click="changeLanguage('es')">
+                                <img class="item-bandeira" src="https://flagcdn.com/w40/es.png">
+                                <span class="title">Español</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="obj">
                     <a href="{{$root.getCurrentEnvironment().BLOG_URL}}" target="_blank" class="card-header">
@@ -158,11 +156,11 @@
                     </a>
                 </div>
 
-																<div class="obj">
-																		<a href="{{$root.getCurrentEnvironment().CLIENT_URL}}" target="_blank" class="card-header">
-																					Área do Cliente
-																		</a>
-																</div>
+                <div class="obj">
+                    <a href="{{$root.getCurrentEnvironment().CLIENT_URL}}" target="_blank" class="card-header">
+                        Área do Cliente
+                    </a>
+                </div>
 
 
 
@@ -176,7 +174,7 @@
         </ul>
 
         <ul ng-if="vm.isMobile" class="buttons extra">
-            <img class="img" src="../../assets/img/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
+            <img class="img" src="/assets/images/logo.png" alt="Logo" width="94" onclick="window.location.href='/'">
             <li class="menu-toggle" rel="noopener noreferrer images">
                 <a ng-click="open()">
                     <i ng-if="!vm.menuOpen" class="fas fa-bars"></i>

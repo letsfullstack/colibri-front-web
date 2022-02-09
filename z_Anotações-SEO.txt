@@ -1,0 +1,65 @@
+Google tag manager
+
+imagens com nome legivel / Não usar hash
+Atributo alt nas imagens
+imagens jpg
+png somente se estiver transparencia
+compressão das imagens
+
+Acesso direto ao arquivo /files
+https://colibrimoveis.com.br/api//upload/uploads/download/marajo__1_1621271057491.png
+
+Slug URL
+https://www.colibrimoveis.com.br/produtos/sala-de-estar/home-theater/67/Home%20Theater%20Niteroi
+Remover Acentuação
+
+Somente 1 h1 na pagina
+
+application/ld+json
+
+Meta descriptions
+
+Usar link click blog
+
+AMP
+
+https
+
+friendly url
+
+sitemaps
+
+Google search console
+
+Prerender.io
+- Reload cached
+- ignore params
+
+cnd Cloudflare/Cloudfront
+
+Responsivo
+
+Facebook debug
+https://developers.facebook.com/tools/debug/?locale=pt_BR
+
+Nginx gzip
+
+sendToserver 
+
+ssh-copy-id
+
+web-pack assets
+
+LoopbackContext
+
+Backup DB cron
+
+dotEnv
+
+Anti-cache
+
+Maquina linode
+
+Senha Master
+
+Auto_layout

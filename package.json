@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "Any",
 	"scripts": {
-		"build": "cross-env NODE_ENV=production webpack",
+		"build": "npm run clean && cross-env NODE_ENV=production webpack",
 		"build:test": "cross-env NODE_ENV=development webpack",
 		"build:dev": "cross-env NODE_ENV=development webpack-dev-server --host 0.0.0.0",
 		"build:prod": "npm run clean && npm run build",
@@ -40,7 +40,7 @@
 		"jquery": "^3.4.1",
 		"mini-css-extract-plugin": "^0.9.0",
 		"moment": "^2.24.0",
-		"ng-meta": "^1.0.3",
+		"ng-meta": "^1.0.0",
 		"popper.js": "^1.16.0",
 		"swangular": "^1.4.3",
 		"sweetalert2": "^7.1.3",

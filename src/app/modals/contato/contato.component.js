@@ -26,5 +26,5 @@ function ModalContatoController($scope, $rootScope, swangular, $http, HttpServic
 				});
 			}
 		}
-	}
+	} 
 }

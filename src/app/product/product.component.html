@@ -27,8 +27,8 @@
         <div class="right">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {} as qtd_fotos" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}">
-                    <!-- <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: false} as qtd_fotos" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}"> -->
+                    <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {} as qtd_fotos" ng-src="{{$root.STORAGE_URL}}{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}">
+                    <!-- <img class="swiper-slide" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: false} as qtd_fotos" ng-src="{{$root.STORAGE_URL}}{{imagem.arquivo}}" alt="Foto de {{vm.produto.nome}}"> -->
                 </div>
                 <!-- <div class="swiper-button-prev swiper-button-white"></div>
                 <div class="swiper-button-next swiper-button-white"></div> -->
@@ -53,7 +53,7 @@
     </div>
 
     <div class="bottom">
-        <img class="left" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: true}" ng-src="{{$root.SERVER_URL}}/upload/uploads/download/{{imagem.arquivo}}" alt="">
+        <img class="left" ng-repeat="imagem in vm.produto.produtocor[vm.cor].produtoimagem|filter: {principal: true}" ng-src="{{$root.STORAGE_URL}}{{imagem.arquivo}}" alt="">
         <div class="right">
             <div class="characteristics">
                 <div class="mobile-info">
@@ -109,8 +109,8 @@
                     {{vm.produto.descricao}}
                 </p>
                 <div class="download">
-                    <a ng-if="vm.produto.arquivo_imagens && vm.produto.arquivo_imagens != ' '" target="blank_" class="image" ng-show="vm.produto.arquivo_imagens && vm.produto.arquivo_imagens != ' '" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.arquivo_imagens}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_IMAGES'|translate}}</a>
-                    <a ng-if="vm.produto.esquema_montagem && vm.produto.esquema_montagem != ' '" target="blank_" class="schema" ng-show="vm.produto.esquema_montagem && vm.produto.esquema_montagem != ' '" href="{{$root.SERVER_URL}}/upload/uploads/download/{{vm.produto.esquema_montagem}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_SCHEMA'|translate}}</a>
+                    <a ng-if="vm.produto.arquivo_imagens && vm.produto.arquivo_imagens != ' '" target="blank_" class="image" ng-show="vm.produto.arquivo_imagens && vm.produto.arquivo_imagens != ' '" href="{{$root.STORAGE_URL}}{{vm.produto.arquivo_imagens}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_IMAGES'|translate}}</a>
+                    <a ng-if="vm.produto.esquema_montagem && vm.produto.esquema_montagem != ' '" target="blank_" class="schema" ng-show="vm.produto.esquema_montagem && vm.produto.esquema_montagem != ' '" href="{{$root.STORAGE_URL}}{{vm.produto.esquema_montagem}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_SCHEMA'|translate}}</a>
                 </div>
             </div>
         </div>

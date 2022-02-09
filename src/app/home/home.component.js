@@ -9,10 +9,10 @@ export const HomeComponent = {
 		controllerAs: "vm",
 		authenticate: false
 	},
-	controller: ["$scope", "ngMeta", "MetaService", "HttpService", "$http", "$rootScope", "$sce", "$state", HomeController]
+	controller: ["$scope", "HttpService", "$sce", "$state", "SeoService", HomeController]
 }
 
-function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootScope, $sce, $state) {
+function HomeController($scope, HttpService, $sce, $state, SeoService) {
 	var vm = this;
 
 	vm.most_viewed = [];
@@ -22,9 +22,8 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 
 	vm.params = {};
 
-	vm.url = $rootScope.getCurrentEnvironment().SERVER_URL + "/upload/uploads/download/";
-
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
+		vm.viewable = true;
 		vm.most_viewed = resp.data.most_viewed;
 		vm.images = resp.data.images[0];
 		if (vm.images) {
@@ -50,13 +49,6 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 		}
 	})
 
-	// $(window).scroll(function (event) {
-	// 	var scroll = $(window).scrollTop();
-	// 	// Do something
-	// 	console.log("alo");
-
-	// });
-
 	setTimeout(() => new Swiper('.banner .swiper-container', {
 		slidesPerView: 1,
 		pagination: {
@@ -67,6 +59,9 @@ function HomeController($scope, ngMeta, MetaService, HttpService, $http, $rootSc
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
 		}
-	}).on('slideChange', function () { $('span.init').text(`0${this.activeIndex + 1}`) }), 300)
+	}).on('slideChange', function () { $('span.init').text(`0${this.activeIndex + 1}`) }), 300);
+
+
+	SeoService.generateTags();
 
 }

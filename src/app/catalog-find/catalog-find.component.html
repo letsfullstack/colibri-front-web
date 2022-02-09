@@ -1,6 +1,6 @@
 <section ng-if="!vm.resultProd" class="container find no-find">
 
-    <img id="produto-nao-encontrado" src="../../assets/img/lupa.png" alt="descrição da imagem" align="middle">
+    <img id="produto-nao-encontrado" src="/assets/images/lupa.png" alt="descrição da imagem" align="middle">
 
     <div class="container-find2">
         <h2 id="produto-nao-encontrado-titulo" class="title">Produto não encontrado</h2>
@@ -154,7 +154,7 @@
         <div class="col-12 col-md-8">
             <div class="list" style="display: none;">
                 <section ng-repeat="product in vm.products" class="card_b" ui-sref="product({ambient: product.slug_ambiente, category: product.slug_categoria, slug: product.slug_produto, id: product.id})">
-                    <img src="{{$root.SERVER_URL}}/upload/uploads/download/{{product.produto_imagem}}" alt="">
+                    <img ng-src="{{$root.STORAGE_URL + product.produto_imagem}}" alt="">
                     <h1>{{product.nome}}</h1>
                     <h2>{{product.nome_ambiente}}</h2>
                 </section>

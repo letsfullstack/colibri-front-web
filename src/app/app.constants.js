@@ -3,17 +3,19 @@ export default {
 		catalogo: 'https://conteudo.colibrimoveis.com.br/colecao-2021',
 	},
 	dev: {
-		// SERVER_URL: "http://localhost:3000/api",
-		// SERVER_URL: "https://colibrimoveis.com.br/api/",
-		SERVER_URL: "http://ci-admin.letscomunica.com.br/api/",
-		BLOG_URL: "http://blog.colibrimoveis.com.br/",
+		SITE_URL: "http://0.0.0.0:3009",
+		SERVER_URL: "http://0.0.0.0:3009/api/",
+		BLOG_URL: "https://blog.colibrimoveis.com.br/",
 		CLIENT_URL: "https://colibrimoveis.portaldocliente.online/",
+		STORAGE_URL: "http://0.0.0.0/colibrifiles/",
 		PROD: false
 	},
 	production: {
-		SERVER_URL: "https://colibrimoveis.com.br/api/",
-		BLOG_URL: "http://blog.colibrimoveis.com.br/",
+		SITE_URL: "https://www.colibrimoveis.com.br",
+		SERVER_URL: "https://www.colibrimoveis.com.br/api/",
+		BLOG_URL: "https://blog.colibrimoveis.com.br/",
 		CLIENT_URL: "https://colibrimoveis.portaldocliente.online/",
+		STORAGE_URL: "https://www.colibrimoveis.com.br/files/",
 		PROD: true
 	}
 }
