@@ -1,0 +1,27 @@
+<section id="blog">
+	<div class="container">
+
+   <div class="post-card" ng-repeat="post in posts">
+				<div class="cover" style="background-image: url({{post.cover}});">
+				</div>
+				<div class="details">
+					<div class="title">
+						{{post.titulo}}
+					</div>
+					<div class="category">
+						{{post.categoriapublicacao.nome.toUpperCase()}}
+					</div>
+					<div class="desc">
+						{{post.conteudo}}
+					</div>
+				</div>
+			</div>
+
+
+	</div>
+
+</section>
+
+<sidebar-diretive></sidebar-diretive>
+
+<news-diretive></news-diretive>

@@ -45,6 +45,7 @@ import { CatalogFindTipoComponent } from './catalog-find/catalog-find-tipo.compo
 import { CatalogFindBuscaComponent } from './catalog-find/catalog-find-busca.component'
 
 import { ProductComponent } from './product/product.component'
+import { BlogComponent } from './blog/blog.component'
 import { ModalContatoComponent } from './modals/contato/contato.component'
 import { ModalLeadComponent } from './modals/lead/lead.component'
 
@@ -56,6 +57,7 @@ import { CatalogProductDiretive } from './catalog-product/catalog-product.direti
 import { FooterDiretive } from './footer/footer.diretive'
 import { NavbarDiretive } from './navbar/navbar.diretive'
 import { PhraseDiretive } from './phrase/phrase.diretive'
+import { SidebarDiretive } from './blog/sidebar/sidebar.diretive'
 
 import SeoService from './services/seo.service'
 
@@ -78,6 +80,7 @@ const COMPONENTS_IMPORTS = [
 	ContactComponent,
 	CatalogFindComponent,
 	ProductComponent,
+	BlogComponent,
 	ModalContatoComponent,
 	ModalLeadComponent,
 	CatalogFindAmbienteComponent,
@@ -93,6 +96,7 @@ const SERVICES_IMPORTS = [
 const DIRETIVES_IMPORTS = [
 	NewsDiretive,
 	FooterDiretive,
+	SidebarDiretive,
 	NavbarDiretive,
 	PhraseDiretive,
 	CatalogBlogDiretive,
@@ -116,7 +120,7 @@ app.constant("constants", Constants)
 for (const SERVICE of SERVICES_IMPORTS){
 	app.service(SERVICE.name, SERVICE.function)
 }
-	
+
 for (const COMPONENT of COMPONENTS_IMPORTS) {
 	if (COMPONENT.controller) {
 		app.controller(COMPONENT.options.controller, COMPONENT.controller)

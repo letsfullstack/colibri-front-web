@@ -1,0 +1,98 @@
+sidebar-diretive {
+				#sidebar {
+								height: calc(100vh - 20px);
+								width: 330px;
+								position: fixed;
+								z-index: 200;
+								display: flex;
+								top: 20px;
+								left: -250px;
+								transition: left 0.2s ease-out;
+
+								.menu, .btn-toggle {
+									background-color: #22222d;
+									// box-shadow: 3px 2px 4px #00000060;
+								}
+
+								.menu {
+									color: #eee;
+									height: 100%;
+									width: 250px;
+									overflow-x: hidden;
+									overflow-y: auto;
+
+									display: flex;
+									flex-direction: column;
+
+									.menu-item {
+										padding: 10px 20px;
+										font-size: 14px;
+										cursor: pointer;
+										// transition: textShadow 0.3s linear, fontSize 0.3s linear;
+
+										&:hover {
+											text-shadow: 0px 0px 3px #ffffffaa;
+											font-size: 15px;
+										}
+									}
+
+									.menu-title:not(:first-child) {
+										margin-top: 30px;
+									}
+									.menu-title {
+										font-size: 24px;
+										font-weight: 500;
+										padding: 10px;
+									}
+
+
+									/* width */
+									&::-webkit-scrollbar {
+										width: 10px;
+									}
+
+									/* Track */
+									&::-webkit-scrollbar-track {
+										background: #00000010;
+									}
+
+									/* Handle */
+									&::-webkit-scrollbar-thumb {
+										background: #fff;
+										border-radius: 8px;
+									}
+
+									/* Handle on hover */
+									&::-webkit-scrollbar-thumb:hover {
+										background: #aaa;
+									}
+								}
+
+								.btn-toggle {
+									padding: 10px 10px 10px 45px;
+									height: 50px;
+									width: 80px;
+									border-top-right-radius: 10px;
+									border-bottom-right-radius: 10px;
+									display: flex;
+									justify-content: center;
+									align-items: center;
+									cursor: pointer;
+
+									svg {
+										fill: #eee;
+										transition: transform 0.2s 0.2s linear;
+									}
+								}
+
+
+								&.active {
+									left: 0px;
+
+									.btn-toggle {
+										width: 80px;
+										padding: 10px 45px 10px 10px;
+									}
+								}
+				}
+}

@@ -1,0 +1,18 @@
+<section id="sidebar" ng-class="{'active' : active}">
+	<div class="menu">
+		<div class="menu-title">Categorias</div>
+		<div class="menu-item" ng-repeat="cat in categories">{{cat.nome}}</div>
+	</div>
+
+	<div ng-click="toggleActive()" class="btn-toggle">
+		<svg
+			viewBox="0 0 150 150"
+		>
+			<g>
+				<rect x="0" y="0" width="150" height="30" />
+				<rect x="0" y="60" width="150" height="30" />
+				<rect x="0" y="120" width="150" height="30" />
+			</g>
+		</svg>
+	</div>
+</section>

@@ -4,6 +4,7 @@
 @import "./app/phrase/phrase.diretive.scss";
 @import "./app/navbar/navbar.diretive.scss";
 @import "./app/footer/footer.diretive.scss";
+@import "./app/blog/sidebar/sidebar.diretive.scss";
 
 * {
     margin: 0px;
@@ -69,9 +70,9 @@ button {
         border-radius: 50%;
         width: 40px;
         height: 40px;
-        animation: spin 2s linear infinite;  
+        animation: spin 2s linear infinite;
     }
-    
+
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
