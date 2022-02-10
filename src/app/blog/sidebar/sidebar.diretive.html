@@ -1,7 +1,7 @@
 <section id="sidebar" ng-class="{'active' : active}">
 	<div class="menu">
 		<div class="menu-title">Categorias</div>
-		<div class="menu-item" ng-repeat="cat in categories">{{cat.nome}}</div>
+		<a class="menu-item" ng-repeat="cat in categories" href="/blog/category/{{cat.slug}}">{{cat.nome}}</a>
 	</div>
 
 	<div ng-click="toggleActive()" class="btn-toggle">

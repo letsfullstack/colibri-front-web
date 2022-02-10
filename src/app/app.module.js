@@ -46,6 +46,8 @@ import { CatalogFindBuscaComponent } from './catalog-find/catalog-find-busca.com
 
 import { ProductComponent } from './product/product.component'
 import { BlogComponent } from './blog/blog.component'
+import { PostComponent } from './blog/post/post.component'
+import { PostCategoryComponent } from './blog/post-category/post-category.component'
 import { ModalContatoComponent } from './modals/contato/contato.component'
 import { ModalLeadComponent } from './modals/lead/lead.component'
 
@@ -81,6 +83,8 @@ const COMPONENTS_IMPORTS = [
 	CatalogFindComponent,
 	ProductComponent,
 	BlogComponent,
+	PostComponent,
+	PostCategoryComponent,
 	ModalContatoComponent,
 	ModalLeadComponent,
 	CatalogFindAmbienteComponent,

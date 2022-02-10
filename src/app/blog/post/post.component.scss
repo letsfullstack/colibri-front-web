@@ -1,0 +1,240 @@
+#post {
+				width: 100%;
+
+				.cover {
+					margin-top: 90px;
+					height: 550px;
+					background-position: center center;
+					background-size: cover;
+				}
+
+				.container {
+					min-height: 300px;
+					// border: dashed 2px gray;
+					margin-top: 50px;
+					margin-bottom: 40px;
+
+					.my-breadcrumb {
+						font-size: 1.8em ;
+						color: #00000077;
+						font-weight: 500;
+						margin-top: 10px;
+						margin-bottom: 40px;
+
+						a {
+							color: #00000077;
+							padding: 3px 10px;
+						}
+
+						a:hover {
+							text-decoration: none;
+							cursor: pointer;
+							color: #000000cc;
+						}
+					}
+
+					.title {
+						margin-bottom: 50px;
+					}
+
+					.conteudo {
+						a {
+							color: #1abb60;
+						}
+
+						h1, h2, h3, h4, h5 {
+							margin: 30px 0px;
+						}
+
+						iframe {
+							max-width: 100%;
+						}
+
+						li, ul {
+							font-size: 0.9rem;
+							margin-top: 10px;
+							margin-bottom: 10px;
+						}
+
+						p {
+							font-size: 0.9rem;
+							margin-top: 25px;
+							margin-bottom: 25px;
+						}
+					}
+
+					.comentarios {
+						color: #222;
+						margin-top: 50px;
+						width: 100%;
+						min-height: 300px;
+						border-top: solid 1px gray;
+						padding: 30px 0px;
+
+
+						p {
+							font-size: 1.3em;
+							margin-bottom: 20px;
+						}
+
+						.input-group {
+							display: flex;
+							flex-wrap: wrap;
+							width: 100%;
+							justify-content: space-between;
+
+							.custom-input {
+								padding: 10px 0;
+								display: flex;
+								flex-direction: column;
+								width: 100%;
+
+								span {
+									margin-bottom: 10px;
+									font-size: 1.2em;
+								}
+
+								input, textarea {
+									font-size: 1.2em;
+									padding: 3px 5px;
+
+									&:focus, &:focus-visible {
+										border: solid 2px #1abb60;
+									}
+								}
+
+								&.w30 {
+									width: 33%;
+									min-width: 200px;
+								}
+							}
+						}
+
+						.btn-white {
+							margin: 20px 0;
+							border: solid 1px #222;
+							padding: 10px 20px;
+							background-color: #fff;
+							display: flex;
+							justify-content: center;
+							align-items: center;
+
+							transition: all 0.1s linear;
+
+							&:hover {
+								background-color: #222;
+								color: #fff;
+							}
+						}
+					}
+
+					.comentarios-list {
+						.comentario-item {
+							border: solid 1px #888;
+							margin: 15px 0;
+							border-radius: 5px;
+							padding: 20px 10px;
+							.nome {
+								font-size: 1.3em;
+								font-weight: 500;
+							}
+
+							.comentario {
+								padding-top: 5px;
+								font-size: 1.1em;
+								width: 100%;
+								height: fit-content;
+								white-space: pre-line;
+							}
+						}
+					}
+
+
+					.others {
+						display: flex;
+						justify-content: space-between;
+						flex-wrap: wrap;
+
+
+						.post-card {
+							min-width: 250px;
+							margin-bottom: 60px;
+							width: 250px;
+							min-height: 600px;
+							// border: dotted 1px gray;
+
+							.title {
+								margin-bottom: 10px;
+							}
+
+							.cover {
+								margin-top: 10px;
+								height: 250px;
+								width: 100%;
+								border-radius: 10px;
+								background-size: cover;
+								background-position: center;
+								cursor: pointer;
+								transition: filter 0.2s linear;
+
+								&:hover {
+									filter: brightness(1.2);
+								}
+							}
+
+							.title, .desc, .category {
+								font-size: 1.3em;
+								line-height: 1.5em;
+								padding: 10px 20px;
+							}
+
+							.desc {
+								padding: 0px 20px;
+								overflow: hidden;
+   					text-overflow: ellipsis;
+				 	  display: -webkit-box;
+   					-webkit-line-clamp: 2;
+   					-webkit-box-orient: vertical;
+							}
+
+							a {
+								text-decoration: none;
+
+								&:hover {
+									text-decoration: none;
+								}
+							}
+							.title {
+								font-weight: 500;
+								line-height: 1.4em;
+								font-size: 1.5rem;
+								cursor: pointer;
+								transition: color 0.2s linear;
+								color: #111;
+
+								&:hover {
+									color: #777;
+								}
+							}
+						}
+
+					}
+
+					@media (min-width: 576px) {
+    		max-width: 540px;
+					}
+
+					@media (min-width: 576px) {
+    		max-width: 540px;
+					}
+
+					@media (min-width: 768px) {
+    		max-width: 720px;
+				 }
+
+					@media (min-width: 960px) {
+    		max-width: 900px;
+				 }
+			 }
+}
+

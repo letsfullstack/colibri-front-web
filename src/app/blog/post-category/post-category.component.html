@@ -1,7 +1,9 @@
-<section id="blog">
-	<div class="container">
+<section id="post-cat">
 
-   <div class="post-card" ng-repeat="post in posts">
+	<h3 class="main-title">Mostrando publicações da categoria: {{posts.nome}}</h3>
+
+	<div class="container">
+   <div class="post-card" ng-repeat="post in posts.publicacao">
 				<a href="/blog/{{post.slug}}">
 						<div class="cover" style="background-image: url({{post.cover}});">
 					</div>
@@ -13,11 +15,9 @@
 							{{post.titulo}}
 						</div>
 					</a>
-					<a href="/blog/category/{{post.categoriapublicacao.slug}}">
-						<div class="category">
-							{{post.categoriapublicacao.nome.toUpperCase()}}
-						</div>
-					</a>
+					<!-- <div class="category">
+						{{post.categoriapublicacao.nome.toUpperCase()}}
+					</div> -->
 					<div class="desc">
 						{{post.conteudo}}
 					</div>

@@ -1,0 +1,86 @@
+<section id="post">
+	<div class="cover" style="background-image: url({{post.cover}});"></div>
+
+	<div class="container">
+
+		<div class="my-breadcrumb">
+			<a href="/blog">Início</a>	> <a href="/blog/category/{{post.categoriapublicacao.slug}}">{{post.categoriapublicacao.nome}}</a>
+		</div>
+
+		<h1 class="title">
+			{{post.titulo}}
+		</h1>
+
+		<div class="conteudo" id="conteudo">
+
+		</div>
+
+		<div class="comentarios">
+			<p style="font-size: 1em">DEIXE UMA RESPOSTA</p>
+			<p>O seu endereço de e-mail não será publicado. Campos obrigatórios são marcados com *</p>
+
+			<div class="input-group">
+				<div class="custom-input">
+					<span>COMENTÁRIO *</span>
+					<textarea ng-model="coment_data.comentario" cols="30" rows="10"></textarea>
+				</div>
+
+				<div class="custom-input w30">
+					<span>NOME *</span>
+					<input ng-model="coment_data.nome" type="text">
+				</div>
+				<div class="custom-input w30">
+					<span>E-MAIL *</span>
+					<input ng-model="coment_data.email" type="text">
+				</div>
+				<div class="custom-input w30">
+					<span>SITE</span>
+					<input ng-model="coment_data.site" type="text">
+				</div>
+		</div>
+
+		<div style="display: flex; align-items: center;">
+			<input ng-model="saveData" type="checkbox">
+			<span>&nbsp; SALVAR MEUS DADOS NESTE NAVEGADOR PARA A PRÓXIMA VEZ QUE EU COMENTAR</span>
+		</div>
+
+		<button ng-click="postComent()" class="btn-white">PUBLICAR COMENTÁRIO</button>
+
+		</div>
+
+		<div class="comentarios-list">
+			<div class="comentario-item" ng-repeat="com in comments">
+				<div class="nome">{{com.nome}}</div>
+				<!-- <textarea class="comentario" ng-model="com.comentario" readonly cols="30" rows="6"></textarea> -->
+				<div class="comentario">{{com.comentario}}</div>
+			</div>
+		</div>
+
+		<h6 style="margin-top: 30px;">Você também poderá gostar de:</h6>
+		<div class="others">
+			<div class="post-card" ng-repeat="ot in others">
+				<a href="/blog/{{ot.slug}}">
+					<div class="cover" style="background-image: url({{ot.cover}});">
+				</div>
+
+			</a>
+			<div class="details">
+				<a href="/blog/{{ot.slug}}">
+					<div class="title">
+						{{ot.titulo}}
+					</div>
+				</a>
+				<div class="desc">
+					{{ot.conteudo}}
+				</div>
+			</div>
+			</div>
+		</div>
+
+	</div>
+
+</section>
+
+<sidebar-diretive></sidebar-diretive>
+
+<news-diretive></news-diretive>

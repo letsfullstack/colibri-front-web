@@ -2,13 +2,17 @@ navbar-directive {
 	display: none;
 }
 
-#blog {
+#post-cat {
 				width: 100%;
+				.main-title {
+					text-align: center;
+    	margin-top: 150px;
+				}
 
 				.container {
 					min-height: 300px;
 					// border: dashed 2px gray;
-					margin-top: 170px;
+					margin-top: 20px;
 					margin-bottom: 40px;
 					display: flex;
 					flex-wrap: wrap;
@@ -46,7 +50,7 @@ navbar-directive {
 							overflow: hidden;
    				text-overflow: ellipsis;
 				   display: -webkit-box;
-   				-webkit-line-clamp: 2;
+   				-webkit-line-clamp: 3;
    				-webkit-box-orient: vertical;
 						}
 
@@ -54,7 +58,6 @@ navbar-directive {
 							cursor: pointer;
 							transition: color 0.2s linear;
 							font-weight: 500;
-							color: #222;
 
 							&:hover {
 								color: #19b95f;

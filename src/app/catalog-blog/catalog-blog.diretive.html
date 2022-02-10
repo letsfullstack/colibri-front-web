@@ -1,4 +1,4 @@
-<section class="blog container" ng-show="vm.posts"> 
+<section class="blog container" ng-show="vm.posts">
     <div class="left">
         <h1 ng-bind-html="vm.title"></h1>
         <p ng-bind-html="vm.description"></p>
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="right">
-        <button ng-click="vm.open($root.getCurrentEnvironment().BLOG_URL)"><span>{{'BLOG_BUTTON'|translate}}</span> <span>⟶</span></button>
+        <button ng-click="vm.open(/blog)"><span>{{'BLOG_BUTTON'|translate}}</span> <span>⟶</span></button>
     </div>
     <div class="list row">
         <div class="col-3 mw-100 post" ng-repeat="post in vm.posts" ng-click="vm.open(post.url)">

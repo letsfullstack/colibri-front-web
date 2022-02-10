@@ -24,7 +24,16 @@ sidebar-diretive {
 									display: flex;
 									flex-direction: column;
 
+									a {
+										text-decoration: none;
+
+										&:hover {
+											text-decoration: none;
+										}
+									}
+
 									.menu-item {
+										color: #eee;
 										padding: 10px 20px;
 										font-size: 14px;
 										cursor: pointer;
