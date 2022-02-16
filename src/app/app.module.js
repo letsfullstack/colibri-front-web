@@ -197,6 +197,10 @@ function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangula
 				$('navbar-diretive').addClass('in-home');
 				$('navbar-diretive').removeClass('out-home');
 				// $("main").css("margin-top", "90px")
+			} else if (['blog', 'post', 'post-category'].includes(res.name)) {
+				$('navbar-diretive').addClass('in-home');
+				$('navbar-diretive').removeClass('out-home');
+				$('navbar-diretive').removeClass('invertido');
 			} else {
 				$('navbar-diretive').removeClass('in-home');
 				$('navbar-diretive').addClass('out-home');

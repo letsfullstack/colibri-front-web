@@ -39,15 +39,7 @@ function HomeController($scope, HttpService, $sce, $state, SeoService) {
 	});
 
 	$("navbar-diretive").addClass("invertido")
-	window.addEventListener('scroll', function () {
-		if ($state.current.state == "home") {
-			// if ($(this).scrollTop() > 100) {
-			// }
-			// else {
-			// 	$("navbar-diretive").removeClass("invertido")
-			// }
-		}
-	})
+
 
 	setTimeout(() => new Swiper('.banner .swiper-container', {
 		slidesPerView: 1,
