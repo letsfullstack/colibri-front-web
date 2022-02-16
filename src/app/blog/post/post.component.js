@@ -41,6 +41,12 @@ function PostController($scope, $rootScope, $location, SeoService, $stateParams,
 		$scope.post.cover = url + resp.data.data.post_details.capa;
 		$scope.coment_data.publicacao_id = $scope.post.id;
 
+		$scope.shareLinks = {
+			facebook: `https://www.facebook.com/sharer.php?u=${location.href}`,
+			twitter: `https://twitter.com/share?&text=${encodeURI($scope.post.titulo)}&url=${location.href}`,
+			pinterest: `https://pinterest.com/pin/create/bookmarklet/?url=${location.href}&media=${$scope.post.cover}`
+		}
+
 		for (var i in resp.data.data.others) {
 			const e = document.createElement('div');
 			e.innerHTML = resp.data.data.others[i].conteudo;
@@ -51,7 +57,7 @@ function PostController($scope, $rootScope, $location, SeoService, $stateParams,
 		$scope.others = resp.data.data.others;
 
 		$scope.saveData = false;
-		document.getElementById('conteudo').innerHTML = $scope.post.conteudo;
+		document.getElementById('conteudo').innerHTML += $scope.post.conteudo;
 		getComments();
 	})
 
