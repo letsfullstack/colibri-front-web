@@ -59,6 +59,18 @@ function PostController($scope, $rootScope, $location, SeoService, $stateParams,
 		$scope.saveData = false;
 		document.getElementById('conteudo').innerHTML += $scope.post.conteudo;
 		getComments();
+
+		const e = document.createElement('div');
+		e.innerHTML = $scope.post.conteudo;
+
+
+		SeoService.generateTags({
+			title: $scope.post.titulo,
+			description: `${e.innerText.substring(0,255)}[...]`,
+			image: $scope.post.cover,
+			slug: $location.absUrl().split('?')[0],
+			canonical: $location.absUrl().split('?')[0]
+		});
 	})
 
 	$scope.postComent = function() {

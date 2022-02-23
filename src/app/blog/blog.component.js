@@ -23,6 +23,13 @@ function BlogController($scope, $rootScope, $location, SeoService, $stateParams,
 	$scope.posts = [];
 	const url = appSettings.STORAGE_URL;
 
+	SeoService.generateTags({
+		title: 'Blog',
+		description:'Blog da Colibri Moveis',
+		slug: $location.absUrl().split('?')[0],
+		canonical: $location.absUrl().split('?')[0]
+	});
+
 	HttpService.get("/publicacoes/get-posts", {}).then(function (resp) {
 		for (var i in resp.data.data) {
 			const e = document.createElement('div');

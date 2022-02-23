@@ -32,6 +32,13 @@ function PostCategoryController($scope, $rootScope, $location, SeoService, $stat
 			resp.data.data.publicacao[i].cover = url + resp.data.data.publicacao[i].capa;
 		}
 		$scope.posts = resp.data.data;
+		SeoService.generateTags({
+			title: `Publicacoes da categoria ${$scope.posts.nome} no Blog`,
+			description: `Publicacoes da categoria ${$scope.posts.nome} no Blog da Colibri Moveis`,
+			image: $scope.posts.publicacao[0].cover,
+			slug: $location.absUrl().split('?')[0],
+			canonical: $location.absUrl().split('?')[0]
+		});
 	})
 
 }
