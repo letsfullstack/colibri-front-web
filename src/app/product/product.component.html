@@ -109,7 +109,7 @@
                     {{vm.produto.descricao}}
                 </p>
                 <div class="download">
-                    <a ng-if="vm.produto.arquivo_imagens && vm.produto.arquivo_imagens != ' '" target="blank_" class="image" ng-show="vm.produto.arquivo_imagens && vm.produto.arquivo_imagens != ' '" href="{{$root.STORAGE_URL}}{{vm.produto.arquivo_imagens}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_IMAGES'|translate}}</a>
+                    <a ng-if="vm.produto.arquivo_imagens && vm.produto.arquivo_imagens != ' '" target="blank_" class="image" ng-show="vm.produto.arquivo_imagens && vm.produto.arquivo_imagens != ' '" href="{{vm.produto.arquivo_imagens}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_IMAGES'|translate}}</a>
                     <a ng-if="vm.produto.esquema_montagem && vm.produto.esquema_montagem != ' '" target="blank_" class="schema" ng-show="vm.produto.esquema_montagem && vm.produto.esquema_montagem != ' '" href="{{$root.STORAGE_URL}}{{vm.produto.esquema_montagem}}"><i class="fal fa-cloud-download"></i>{{'PRODUCT_GET_SCHEMA'|translate}}</a>
                 </div>
             </div>
