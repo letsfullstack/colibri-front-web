@@ -12,4 +12,10 @@
   <sitemap>
     <loc>https://www.colibrimoveis.com.br/sitemap/produtos.xml</loc>
   </sitemap>
+   <sitemap>
+    <loc>https://www.colibrimoveis.com.br/sitemap/publicacoes.xml</loc>
+  </sitemap>
+  <sitemap>
+    <loc>https://www.colibrimoveis.com.br/sitemap/categorias-publicacoes.xml</loc>
+  </sitemap>
 </sitemapindex>

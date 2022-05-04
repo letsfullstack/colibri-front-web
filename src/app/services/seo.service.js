@@ -11,6 +11,7 @@ function SeoService(ngMeta, $location, $rootScope, constants) {
 
         var config_ = {
             title: 'Colibri Móveis',
+            keywords:'colibrimoveis colibri produção moveis sala jantar bancada escritório arapongas moveleiro',
             description: 'Somos umas das principais industriais do setor moveleiro na produção de móveis, reconhecidos por ser uma empresa inovadora no segmento através do nosso design.',
             image: appSettings.SITE_URL+'/assets/images/share-default.jpg',
             slug: appSettings.SITE_URL,
@@ -33,6 +34,7 @@ function SeoService(ngMeta, $location, $rootScope, constants) {
         ngMeta.setTag('type', 'website');
         ngMeta.setTag('image',  config.image);
         ngMeta.setTag('description', config.description);
+        ngMeta.setTag('keywords', config.keywords);
         
         ngMeta.setTag('og:type', 'website');
         ngMeta.setTag('og:site_name', 'colibrimoveis');

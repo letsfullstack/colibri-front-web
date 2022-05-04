@@ -6,24 +6,28 @@
     <div class="mid">
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide product" ng-repeat="post in vm.posts" ng-click="vm.open(post.url)">
-                    <img ng-src="{{post.image}}" alt="Imagem do post">
-                    <h2>
-                        {{post.title}}
-                    </h2>
+                <div class="swiper-slide product" ng-repeat="post in vm.posts">
+                    <a href="/blog/{{post.slug}}">
+                        <img ng-src="{{post.image}}" alt="{{post.titulo}}">
+                        <h2>
+                            {{post.titulo}}
+                        </h2>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
     <div class="right">
-        <button ng-click="vm.open(/blog)"><span>{{'BLOG_BUTTON'|translate}}</span> <span>⟶</span></button>
+        <button ui-sref="blog"><span>{{'BLOG_BUTTON'|translate}}</span> <span>⟶</span></button>
     </div>
     <div class="list row">
-        <div class="col-3 mw-100 post" ng-repeat="post in vm.posts" ng-click="vm.open(post.url)">
-            <img ng-src="{{post.image}}" alt="Imagem do post">
-            <h2>
-                {{post.title}}
-            </h2>
+        <div class="col-3 mw-100 post" ng-repeat="post in vm.posts">
+            <a href="/blog/{{post.slug}}">
+                <img ng-src="{{post.image}}" alt="Imagem do post">
+                <h2>
+                    {{post.titulo}}
+                </h2>
+            </a>
         </div>
     </div>
 </section>

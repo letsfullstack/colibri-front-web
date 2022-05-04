@@ -17,4 +17,8 @@
         <loc>https://www.colibrimoveis.com.br/produtos</loc>
         <changefreq>daily</changefreq>
    </url>
+    <url>
+        <loc>https://www.colibrimoveis.com.br/blog</loc>
+        <changefreq>daily</changefreq>
+   </url>
 </urlset>

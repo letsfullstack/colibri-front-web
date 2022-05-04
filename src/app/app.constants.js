@@ -5,7 +5,6 @@ export default {
 	dev: {
 		SITE_URL: "http://0.0.0.0:3009",
 		SERVER_URL: "http://0.0.0.0:3009/api/",
-		BLOG_URL: "https://blog.colibrimoveis.com.br/",
 		CLIENT_URL: "https://colibrimoveis.portaldocliente.online/",
 		STORAGE_URL: "http://0.0.0.0/colibrifiles/",
 		PROD: false
@@ -13,7 +12,6 @@ export default {
 	production: {
 		SITE_URL: "https://www.colibrimoveis.com.br",
 		SERVER_URL: "https://www.colibrimoveis.com.br/api/",
-		BLOG_URL: "https://blog.colibrimoveis.com.br/",
 		CLIENT_URL: "https://colibrimoveis.portaldocliente.online/",
 		STORAGE_URL: "https://www.colibrimoveis.com.br/files/",
 		PROD: true

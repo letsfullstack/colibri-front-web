@@ -62,15 +62,25 @@ function PostController($scope, $rootScope, $location, SeoService, $stateParams,
 
 		const e = document.createElement('div');
 		e.innerHTML = $scope.post.conteudo;
+		var _description = e.innerText.substring(0,255)+"[...]";
 
-
-		SeoService.generateTags({
+		var params = {
 			title: $scope.post.titulo,
-			description: `${e.innerText.substring(0,255)}[...]`,
+			description: _description,
 			image: $scope.post.cover,
 			slug: $location.absUrl().split('?')[0],
 			canonical: $location.absUrl().split('?')[0]
-		});
+		}
+
+		if($scope.post.metadescription){
+			params.description = $scope.post.metadescription;
+		}
+
+		if($scope.post.metatags){
+			params.keywords = $scope.post.metatags;
+		}
+
+		SeoService.generateTags(params);
 	})
 
 	$scope.postComent = function() {

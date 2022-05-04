@@ -25,7 +25,6 @@ function BlogController($scope, $rootScope, $location, SeoService, $stateParams,
 
 	SeoService.generateTags({
 		title: 'Blog',
-		description:'Blog da Colibri Moveis',
 		slug: $location.absUrl().split('?')[0],
 		canonical: $location.absUrl().split('?')[0]
 	});
