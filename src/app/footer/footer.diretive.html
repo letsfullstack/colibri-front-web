@@ -8,6 +8,7 @@
                     <li><a ui-sref="blog">Blog</a></li>
                     <li><a ui-sref="contact">{{'MENU_CONTACT'|translate}}</a></li>
                     <li><a ui-sref="contact">{{'FOOTER_WORK_WITH_US'|translate}}</a></li>
+                    <li><a ui-sref="policy">{{'FOOTER_POLICY'|translate}}</a></li>
                 </ul>
             </nav>
             <nav class="col-3" ng-repeat="ambi in vm.filters | limitTo: 3">
@@ -45,7 +46,7 @@
         <span class="left">Colibri - Indústria e Comércio de Móveis LTDA</span>
         <div class="right">
             <span>{{'FOOTER_SITE_MAP'|translate}}</span>
-            <span>{{'FOOTER_POLICY'|translate}}</span>
+            <span><a ui-sref="policy">{{'FOOTER_POLICY'|translate}}</a></span>
             <span>/</span>
             <div class="language">
                 <a class="btn dropdown-toggle" role="button" id="dropdownMenuLanguage" data-toggle="dropdown"

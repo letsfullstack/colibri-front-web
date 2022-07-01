@@ -38,6 +38,7 @@ import { AppComponent } from './app.component'
 import { HomeComponent } from './home/home.component'
 import { SubComponent } from './sub/sub.component'
 import { ContactComponent } from './contact/contact.component'
+import { PolicyComponent } from './policy/policy.component'
 
 import { CatalogFindComponent } from './catalog-find/catalog-find.component'
 import { CatalogFindAmbienteComponent } from './catalog-find/catalog-find-ambiente.component'
@@ -80,6 +81,7 @@ const COMPONENTS_IMPORTS = [
 	HomeComponent,
 	SubComponent,
 	ContactComponent,
+	PolicyComponent,
 	CatalogFindComponent,
 	ProductComponent,
 	BlogComponent,
