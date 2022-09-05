@@ -50,6 +50,7 @@ import { PostComponent } from './blog/post/post.component'
 import { PostCategoryComponent } from './blog/post-category/post-category.component'
 import { ModalContatoComponent } from './modals/contato/contato.component'
 import { ModalLeadComponent } from './modals/lead/lead.component'
+import {ModalCookiesComponent} from './modals/cookies/cookies.component'
 
 import Constants from './app.constants'
 
@@ -87,6 +88,7 @@ const COMPONENTS_IMPORTS = [
 	PostCategoryComponent,
 	ModalContatoComponent,
 	ModalLeadComponent,
+	ModalCookiesComponent,
 	CatalogFindAmbienteComponent,
 	CatalogFindBuscaComponent,
 	CatalogFindTipoComponent
@@ -153,9 +155,9 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider, $translatePro
 	$translateProvider.useLocalStorage();
 	$translateProvider.useSanitizeValueStrategy(null)
 
-}).run(['ngMeta', '$transitions', 'constants', '$rootScope', 'swangular', '$translate', 'SeoService', ConstructorModule])
+}).run(['ngMeta', '$transitions', 'constants', '$rootScope', 'swangular', '$translate', 'SeoService','$cookies', ConstructorModule])
 
-function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangular, $translate, SeoService) {
+function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangular, $translate, SeoService,$cookies) {
 
 	$rootScope.getCurrentEnvironment = () => {
 		if (ENV === "development") {
@@ -224,6 +226,16 @@ function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangula
 			animation: true
 		});
 	}
+	$rootScope.modalCookies = () => {
+		swangular.open({
+			html: require("./modals/cookies/cookies.component.html"),
+			controller: 'ModalCookiesController',
+			showConfirmButton: false,
+			showCloseButton: false,
+			customClass: "swal-modal-cookies",
+			animation: true
+		});
+	}
 	$rootScope.modalLead = () => {
 		swangular.open({
 			html: require("./modals/lead/lead.component.html"),
@@ -233,6 +245,11 @@ function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangula
 			customClass: "swal-modal-lead",
 			animation: true
 		});
+	}
+	const acceptCookies = $cookies.get('acceptCookies');
+
+	if(acceptCookies!='true'){
+		$rootScope.modalCookies()
 	}
 
 }

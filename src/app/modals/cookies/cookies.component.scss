@@ -1,0 +1,30 @@
+.swal-modal-cookies{
+    padding: 20px 20px;
+    border-radius: 5px;
+
+    .logo{
+        margin-bottom: 30px;
+        font-size: 30PX;
+        color: #22222d;
+    }
+    .text{
+        font-size: 16px;
+        margin-bottom: 30px;
+        color: #22222d;
+        line-height: 31px;
+    }
+    .btn-white {
+        margin: 20px 0;
+        border: solid 1px #222;
+        padding: 10px 20px;
+        background-color: #fff;
+        
+
+        transition: all 0.1s linear;
+
+        &:hover {
+            background-color: #222;
+            color: #fff;
+        }
+    }
+}

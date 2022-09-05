@@ -13,6 +13,9 @@
 							{{post.titulo}}
 						</div>
 					</a>
+					<div class="desc" ng-show="!!post.timeread">
+						{{post.timeread}} minutos para ler
+					</div>
 					<a href="/blog/category/{{post.categoriapublicacao.slug}}">
 						<div class="category">
 							{{post.categoriapublicacao.nome.toUpperCase()}}

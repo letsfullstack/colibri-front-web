@@ -34,7 +34,10 @@ function BlogController($scope, $rootScope, $location, SeoService, $stateParams,
 			const e = document.createElement('div');
 			e.innerHTML = resp.data.data[i].conteudo;
 			resp.data.data[i].conteudo = e.innerText;
-
+			if(resp.data.data[i].timeread){
+				const time = new Date(resp.data.data[i].timeread)
+				resp.data.data[i].timeread = time.getHours()*60+time.getMinutes()
+			}
 			resp.data.data[i].cover = url + resp.data.data[i].capa;
 		}
 		$scope.posts = resp.data.data;

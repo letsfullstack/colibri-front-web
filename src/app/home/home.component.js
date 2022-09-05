@@ -21,7 +21,6 @@ function HomeController($scope, HttpService, $sce, $state, SeoService) {
 	$scope.leadValid = {}
 
 	vm.params = {};
-
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.viewable = true;
 		vm.most_viewed = resp.data.most_viewed;
