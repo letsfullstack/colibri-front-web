@@ -104,9 +104,30 @@ navbar-diretive {
         }
 
         .menu {
-            width: 80%;
+            width: 85%;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+
+            .be-a-partner {
+                text-align: center;
+                a {
+                    padding: 14px 8px 10px;
+                    background-color: #1ecd6a;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    color: #fff;
+                    font-weight: 500;
+                    font-size: 0.9em;
+                    margin-top: 4px;
+                    border-radius: 10px;
+                    box-shadow: #000000dd -2px 4px 6px;
+
+                    &:hover {
+                        background-color: #4ec582;
+                    }
+                }
+            }
             .navigation {
                 list-style: none;
                 display: flex;
@@ -114,7 +135,7 @@ navbar-diretive {
                 margin-bottom: 0;
                 li {
                     a {
-                        margin-right: 50px;
+                        margin-right: 40px;
                         text-decoration: none;
                         padding: 5px 0;
                         i {
@@ -123,6 +144,12 @@ navbar-diretive {
 
                         &::after {
                             content: none;
+                        }
+
+                    }
+                    &:last-child {
+                        a {
+                            margin-right: 10px;
                         }
                     }
                 }
@@ -200,12 +227,12 @@ navbar-diretive {
                         }
                         &:hover > #nav-search{
                             padding: 0 10px;
-                            width: 260px;
+                            width: 200px;
                         }
 
                         .active{
                             padding: 0 10px;
-                            width: 260px;
+                            width: 200px;
                         }
                     }
 
