@@ -192,6 +192,17 @@
                 </a>
             </li>
         </ul>
-
     </div>
+
 </nav>
+<div class="cookies-bar" ng-if="!acceptCookies">
+    <div class="text">
+        {{acceptCookies}}
+        A Colibri utiliza cookies essenciais à navegabilidade do site, para melhorar a sua experiência com nossos canais
+        e serviços, inexistindo quaisquer coletas de dados adicionais ou armazenamento de dados pessoais/personalizados.
+        Você pode acessar por meio do navegador as informações do site e os cookies em uso para gerenciar suas
+        preferências a qualquer momento. Contudo, o bloqueio de alguns tipos de cookies poderá afetar a sua navegação.
+        Para saber mais informações confira nossa Política de Privacidade.
+    </div>
+    <button ng-click="aceitarCookies()" class="btn-white">ACEITAR</button>
+</div>

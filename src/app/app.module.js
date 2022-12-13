@@ -250,9 +250,9 @@ function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangula
 	}
 	const acceptCookies = $cookies.get('acceptCookies');
 
-	if(acceptCookies!='true'){
-		$rootScope.modalCookies()
-	}
+	// if(acceptCookies!='true'){
+	// 	$rootScope.modalCookies()
+	// }
 
 }
 

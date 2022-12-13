@@ -471,3 +471,43 @@ navbar-diretive {
         }
     }
 }
+
+.cookies-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0px -2px 4px #00000033;
+
+    @media screen and (max-width: 768px) {
+        flex-direction: column;
+    }
+
+    .text{
+        padding: 10px;
+        font-size: 16px;
+        color: #22222d;
+        line-height: 24px;
+    }
+    .btn-white {
+        border: solid 1px #222;
+        padding: 10px 20px;
+        background-color: #fff;
+        height: max-content;
+        width: max-content;
+        
+
+        transition: all 0.1s linear;
+
+        &:hover {
+            background-color: #222;
+            color: #fff;
+        }
+    }
+}

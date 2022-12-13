@@ -4,7 +4,7 @@ export const NavbarDiretive = {
       restrict: 'E',
       template: require("./navbar.diretive.html"),
       scope: {},
-      controller: ["$state", "$scope", "$element", "HttpService", "$translate", "$window", NavbarController],
+      controller: ["$state", "$scope", "$element", "HttpService", "$translate", "$window", "$cookies", NavbarController],
       controllerAs: "vm",
       bindToController: true
     }
@@ -12,7 +12,7 @@ export const NavbarDiretive = {
   element: "navbarDiretive"
 }
 
-function NavbarController($state, $scope, $element, HttpService, $translate, $window) {
+function NavbarController($state, $scope, $element, HttpService, $translate, $window, $cookies) {
   var vm = this
 
   vm.isMobile = false;
@@ -49,6 +49,13 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
   $scope.close = function(){
     $('#menu').removeClass('menu-open')
     vm.menuOpen = false;
+  }
+
+  $scope.acceptCookies = $cookies.get('acceptCookies');
+
+  $scope.aceitarCookies = function() {
+    $cookies.put('acceptCookies', 'true')
+    $scope.acceptCookies = 'true';
   }
 
   HttpService.get("/ambientes/get-nav-info/", {}).then(function (resp) {
