@@ -59,7 +59,7 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
   }
 
   HttpService.get("/ambientes/get-nav-info/", {}).then(function (resp) {
-    vm.filters = resp.data;
+    vm.filters = resp.data.filter(item => item.categoriaproduto?.length > 0);
     vm.filters.forEach(element => {
       // debugger
       if ($scope.currentLanguage == "pt"){
