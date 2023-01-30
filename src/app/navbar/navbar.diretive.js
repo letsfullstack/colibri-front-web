@@ -59,18 +59,28 @@ function NavbarController($state, $scope, $element, HttpService, $translate, $wi
   }
 
   HttpService.get("/ambientes/get-nav-info/", {}).then(function (resp) {
-    vm.filters = resp.data.filter(item => item.categoriaproduto && item.categoriaproduto.length > 0);
-    vm.filters.forEach(element => {
-      // debugger
-      if ($scope.currentLanguage == "pt"){
-        element.nome = element.nome_pt
-      } else if ($scope.currentLanguage == "en"){
-        element.nome = element.nome_us
-      } else if ($scope.currentLanguage == "es"){
-        element.nome = element.nome_es
-      }
+    var ambientes = resp.data.filter(item => item.categoriaproduto && item.categoriaproduto.length > 0);
 
+    var filteredCategories = [];
+
+    ambientes.forEach(element => {
+      // debugger
+      element.categoriaproduto.forEach(category => {
+        if ($scope.currentLanguage == "pt"){
+          category.nome = category.nome_pt
+        } else if ($scope.currentLanguage == "en"){
+          category.nome = category.nome_us
+        } else if ($scope.currentLanguage == "es"){
+          category.nome = category.nome_es
+        }
+
+        category.main_slug = element.slug
+
+        filteredCategories.push(category)
+      });
     });
+
+    vm.filters = filteredCategories
 	});
   // $scope.$watch(function () { return $state.$current.name }, function (newVal) {
   //   if (newVal === '/') $(window).scroll(function () {

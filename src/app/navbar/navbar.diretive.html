@@ -22,7 +22,7 @@
                 </a>
 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink2">
-                    <a ng-repeat="cat in vm.filters" class="dropdown-item" href="produtos/{{cat.slug}}">{{cat.nome}}</a>
+                    <a ng-repeat="cat in vm.filters" class="dropdown-item" href="produtos/{{cat.main_slug}}/{{cat.slug}}">{{cat.nome}}</a>
                 </div>
             </li>
             <li rel="noopener noreferrer" class="dropdown">
@@ -39,7 +39,7 @@
                 </a>
             </li>
             <div class="be-a-partner">
-                <a ng-click="close()" href="https://lp.colibrimoveis.com.br/?utm_source=Site&utm_medium=Seja%20Parceiro" role="button" id="dropdownMenuLink3.5"
+                <a ng-click="close()" href="https://conteudo.colibrimoveis.com.br/cadastrolojista?utm_source=Site&utm_medium=sejaumparceiro" role="button" id="dropdownMenuLink3.5"
                     aria-haspopup="true" aria-expanded="false">
                     Venda móveis Colibri
                 </a>
@@ -124,7 +124,7 @@
                     <div id="collapseProduto" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                         <div class="card-body">
                             <a ng-click="close()" ng-repeat="cat in vm.filters" class="dropdown-item"
-                                href="produtos/{{cat.slug}}">{{cat.nome}}</a>
+                                href="produtos/{{cat.main_slug}}/{{cat.slug}}">{{cat.nome}}</a>
                         </div>
                     </div>
                 </div>
@@ -176,7 +176,7 @@
                 </div>
 
                 <div class="be-a-partner" style="padding-top: 30px">
-                    <a ng-click="close()" href="https://lp.colibrimoveis.com.br/?utm_source=Site&utm_medium=Seja%20Parceiro" class="card-header">
+                    <a ng-click="close()" href="https://conteudo.colibrimoveis.com.br/cadastrolojista?utm_source=Site&utm_medium=sejaumparceiro" class="card-header">
                         Venda móveis Colibri
                     </a>
                 </div>
