@@ -64,6 +64,7 @@
     "LEAD_MODAL_SUBTITLE": "¡Complete los campos a continuación para descargar!",
     "LEAD_MODAL_BUTTON": "Baixar PDF",
     "PRODUCT_ALL": "Todas",
-    "FILTER_TITLE": "Filtrar"
-
+    "FILTER_TITLE": "Filtrar",
+    "MY_ACCOUNT":"Mi cuenta",
+    "LANGUAGES":"Idiomas"
 }

@@ -20,6 +20,8 @@ function HomeController($scope, HttpService, $sce, $state, SeoService) {
 
 	$scope.leadValid = {}
 
+	var currentLanguage = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
+
 	vm.params = {};
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.viewable = true;
@@ -33,8 +35,18 @@ function HomeController($scope, HttpService, $sce, $state, SeoService) {
 			vm.images.link_youtube = $sce.trustAsResourceUrl(vm.images.link_youtube);
 		}
 
-		vm.params.title = resp.data.params.find(x => x.par_chave === 'title').par_valor;
-		vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor;
+		if (currentLanguage=='en'){
+			vm.params.title = resp.data.params.find(x => x.par_chave === 'title').par_valor_en;
+			vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor_en;
+		}else if (currentLanguage=='es'){
+			vm.params.title = resp.data.params.find(x => x.par_chave === 'title').par_valor_es;
+			vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor_es;
+		}else{
+			vm.params.title = resp.data.params.find(x => x.par_chave === 'title').par_valor;
+			vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor;
+		}
+
+		
 	});
 
 	$("navbar-diretive").addClass("invertido")

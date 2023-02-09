@@ -64,5 +64,7 @@
     "LEAD_MODAL_SUBTITLE": "Fill in the fields below to download!",
     "LEAD_MODAL_BUTTON": "Download PDF",
     "PRODUCT_ALL": "All",
-    "FILTER_TITLE": "Filter"
+    "FILTER_TITLE": "Filter",
+    "MY_ACCOUNT":"My account",
+    "LANGUAGES":"Languages"
 }

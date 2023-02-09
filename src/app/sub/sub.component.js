@@ -22,15 +22,31 @@ function SubController($scope, HttpService, $rootScope, SeoService, $location) {
 
 	vm.url = $rootScope.getCurrentEnvironment().STORAGE_URL;
 
+	var currentLanguage = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
+
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.viewable = true;
 		vm.most_viewed = resp.data.most_viewed;
 		vm.images = resp.data.images[0];
 
-		vm.params.title_1 = resp.data.params.find(x => x.par_chave === 'about_sub_1').par_valor;
-		vm.params.subtitle_1 = resp.data.params.find(x => x.par_chave === 'about_cont_1').par_valor;
-		vm.params.title_2 = resp.data.params.find(x => x.par_chave === 'about_sub_2').par_valor;
-		vm.params.subtitle_2 = resp.data.params.find(x => x.par_chave === 'about_cont_2').par_valor;
+		if (currentLanguage=='en'){
+			vm.params.title_1 = resp.data.params.find(x => x.par_chave === 'about_sub_1').par_valor_en;
+			vm.params.subtitle_1 = resp.data.params.find(x => x.par_chave === 'about_cont_1').par_valor_en;
+			vm.params.title_2 = resp.data.params.find(x => x.par_chave === 'about_sub_2').par_valor_en;
+			vm.params.subtitle_2 = resp.data.params.find(x => x.par_chave === 'about_cont_2').par_valor_en;
+
+		}else if (currentLanguage=='es'){
+			vm.params.title_1 = resp.data.params.find(x => x.par_chave === 'about_sub_1').par_valor_es;
+			vm.params.subtitle_1 = resp.data.params.find(x => x.par_chave === 'about_cont_1').par_valor_es;
+			vm.params.title_2 = resp.data.params.find(x => x.par_chave === 'about_sub_2').par_valor_es;
+			vm.params.subtitle_2 = resp.data.params.find(x => x.par_chave === 'about_cont_2').par_valor_es;
+
+		}else{
+			vm.params.title_1 = resp.data.params.find(x => x.par_chave === 'about_sub_1').par_valor;
+			vm.params.subtitle_1 = resp.data.params.find(x => x.par_chave === 'about_cont_1').par_valor;
+			vm.params.title_2 = resp.data.params.find(x => x.par_chave === 'about_sub_2').par_valor;
+			vm.params.subtitle_2 = resp.data.params.find(x => x.par_chave === 'about_cont_2').par_valor;
+		}
 	});
 
 	vm.products = [
