@@ -117,7 +117,7 @@ if (process.env.NODE_ENV === 'production') {
 module.exports = {
 	mode: process.env.NODE_ENV,
 	cache: true,
-	watch: true,
+	watch: (process.env.NODE_ENV === 'development'),
 	context: __dirname,
 	performance: {
 		hints: false
