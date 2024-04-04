@@ -1,0 +1,60 @@
+name: Deploy on production
+
+on:
+  push:
+    branches: [master]
+
+env:
+  file: colibri.tar.gz
+  user: root
+  host: 23.239.28.71
+  folder: /var/www/colibri/colibrifrontweb
+  env: testing
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '10'
+          
+      # Caching Node dependencies (node_modules)
+      - name: Cache NODE dependencies
+        uses: actions/cache@v2
+        env:
+          node-cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-build-$env-${{ env.node-cache-name }}-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-$env-${{ env.node-cache-name }}
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      # Install dependencies
+      - name: Install dependencies
+        run: |
+          npm install
+      
+      - name: Build project
+        run: npm run build
+
+      - name: Zip application
+        run: tar -czvf $file build/
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+          known_hosts: 'server_known_hosts'
+
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H $host >> ~/.ssh/known_hosts
+
+      - name: Send file to serverr
+        run: scp $file $user@$host:$folder
+
+      - name: Unzip file
+        run: ssh $user@$host "cd $folder && tar -xzvf $file"
