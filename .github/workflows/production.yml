@@ -9,7 +9,7 @@ env:
   user: root
   host: 23.239.28.71
   folder: /var/www/colibri/colibrifrontweb
-  enviroment: testing
+  enviroment: production
 
 jobs:
   deploy:
