@@ -15,14 +15,14 @@ jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '10'
           
       # Caching Node dependencies (node_modules)
       - name: Cache NODE dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         env:
           node-cache-name: cache-node-modules
         with:
