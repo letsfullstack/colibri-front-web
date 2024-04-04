@@ -22,6 +22,10 @@ function HomeController($scope, HttpService, $sce, $state, SeoService) {
 
 	var currentLanguage = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
 
+	vm.trustAsHtml = function(string) {
+		return $sce.trustAsHtml(string);
+	};
+
 	vm.params = {};
 	HttpService.get("/resources/get-home-data/", {}, {}).then(function (resp) {
 		vm.viewable = true;

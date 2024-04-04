@@ -1,6 +1,6 @@
 {
   "github-actions.workflows.pinned.workflows": [
-    ".github/workflows/testing.yml"
+    ".github/workflows/production.yml"
   ],
   "github-actions.workflows.pinned.refresh.enabled": true,
   "github-actions.workflows.pinned.refresh.interval": 10

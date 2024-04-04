@@ -1,8 +1,8 @@
 <section class="banner" ng-if="vm.viewable"> 
 	<div class="banner-in" style="display: flex;">
 		<div class="left-top">
-			<h1>{{vm.params.title}}</h1>
-			<p>{{vm.params.subtitle}}</p>
+			<h1 ng-bind-html="vm.trustAsHtml(vm.params.title)"></h1>
+			<p  ng-bind-html="vm.trustAsHtml(vm.params.subtitle)"></p>
 		</div>
 		<div class="right-top swiper-container">
 			<div class="swiper-wrapper">
