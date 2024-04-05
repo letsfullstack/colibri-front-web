@@ -42,12 +42,20 @@ function HomeController($scope, HttpService, $sce, $state, SeoService) {
 		if (currentLanguage=='en'){
 			vm.params.title = resp.data.params.find(x => x.par_chave === 'title').par_valor_en;
 			vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor_en;
+			vm.params.catalog_title = resp.data.params.find(x => x.par_chave === 'catalog_title').par_valor_en;
+			vm.params.catalog_link = $sce.trustAsResourceUrl(resp.data.params.find(x => x.par_chave === 'catalog_link').par_valor_en);
+			
 		}else if (currentLanguage=='es'){
 			vm.params.title = resp.data.params.find(x => x.par_chave === 'title').par_valor_es;
 			vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor_es;
+			vm.params.catalog_title = resp.data.params.find(x => x.par_chave === 'catalog_title').par_valor_es;
+			vm.params.catalog_link = $sce.trustAsResourceUrl(resp.data.params.find(x => x.par_chave === 'catalog_link').par_valor_es);
+
 		}else{
 			vm.params.title = resp.data.params.find(x => x.par_chave === 'title').par_valor;
 			vm.params.subtitle = resp.data.params.find(x => x.par_chave === 'subtitle').par_valor;
+			vm.params.catalog_title = resp.data.params.find(x => x.par_chave === 'catalog_title').par_valor;
+			vm.params.catalog_link = $sce.trustAsResourceUrl(resp.data.params.find(x => x.par_chave === 'catalog_link').par_valor);
 		}
 
 		
