@@ -7,36 +7,35 @@ on:
 env:
   file: colibri.tar.gz
   user: root
-  host: 23.239.28.71
-  folder: /var/www/colibri/colibrifrontweb
+  host: letshub.com.br
+  folder: /var/www/colibri/front-web
   enviroment: production
 
 jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Clone repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Configure node version
+        uses: actions/setup-node@v4
         with:
           node-version: '10'
           
-      # Caching Node dependencies (node_modules)
-      - name: Cache NODE dependencies
+      - name: Cache node_modules
         uses: actions/cache@v4
         env:
-          node-cache-name: cache-node-modules
+          cache-name: ${{ github.ref_name }}-${{ github.job }}-node_modules
         with:
           path: node_modules
-          key: ${{ runner.os }}-build-${{env.enviroment}}-${{ env.node-cache-name }}-${{ hashFiles('**/package.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{env.enviroment}}-${{ env.node-cache-name }}
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          key: ${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
+          restore-keys: ${{ env.cache-name }}
 
-      # Install dependencies
       - name: Install dependencies
-        run: |
-          npm install
+        run: npm install
       
       - name: Build project
         run: npm run build
@@ -47,7 +46,7 @@ jobs:
       - name: Install SSH Key
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.PRODUCTION_SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: 'server_known_hosts'
 
       - name: Adding Known Hosts
@@ -58,3 +57,6 @@ jobs:
 
       - name: Unzip file
         run: ssh $user@$host "cd $folder && tar -xzvf $file"
+      
+      - name: Reload Nginx
+        run: ssh $user@$host "nginx -t && service nginx reload"
