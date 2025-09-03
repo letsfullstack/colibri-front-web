@@ -90,6 +90,7 @@
                     <label class="color" ng-repeat="color in vm.filters[1]">
                         <input type="radio" name="f_color" ng-model="vm.filter.cor" ng-value="color.id">
                         <span class="checkmark" ng-style="{ 'background-color' : color.codigo }" title="{{color.descricao}}"></span>
+                        <span class="color-label">{{color.descricao}}</span>
                     </label>
                 </div>
             </div>
@@ -156,7 +157,7 @@
                 <section ng-repeat="product in vm.products" class="card_b" ui-sref="product({ambient: product.slug_ambiente, category: product.slug_categoria, slug: product.slug_produto, id: product.id})">
                     <img ng-src="{{$root.STORAGE_URL + product.produto_imagem}}" alt="">
                     <h1>{{product.nome}}</h1>
-                    <h2>{{product.nome_ambiente}}</h2>
+                    <!-- <h2>{{product.nome_ambiente}}</h2> -->
                 </section>
             </div>
             <div class="container-loader"><div class="loader"></div></div>
