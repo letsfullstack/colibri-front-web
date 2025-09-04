@@ -200,7 +200,7 @@ section{
     .right{
         background-color: #f5f5f5;
 
-        h1, p{
+        h1, p, button{
             margin-left: 7.4vw;
         }
 
@@ -219,6 +219,26 @@ section{
             font-size: 1.6em;
             line-height: 1.55;
             color: rgba(0, 0, 0, 0.85);
+        }
+
+        button{
+            border-radius: 5px;
+            border: solid 2px #25e779;
+            padding: 15px 25px;
+            background: transparent;  
+            font-size: 1.4em;
+            font-weight: 500;
+            color: #00ca7a;
+            display: flex;
+            justify-content: space-between;
+            width: 230px;
+            transition: all .4s ease;
+            -webkit-transition: all .4s ease;
+            &:hover{
+                border-color: transparent;
+                color: white;
+                background: #25e779;
+            }
         }
     }
 }

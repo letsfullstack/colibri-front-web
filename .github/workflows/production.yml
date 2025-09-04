@@ -1,62 +1,62 @@
 name: Deploy on production
 
 on:
-  push:
-    branches: [master]
+    push:
+        branches: [master]
 
 env:
-  file: colibri.tar.gz
-  user: root
-  host: letshub.com.br
-  folder: /var/www/colibri/front-web
-  enviroment: production
+    file: colibri.tar.gz
+    user: root
+    host: letshub.com.br
+    folder: /var/www/colibri/front-web
+    enviroment: production
 
 jobs:
-  deploy:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v4
-        with:
-          persist-credentials: false
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Clone repository
+              uses: actions/checkout@v4
+              with:
+                  persist-credentials: false
 
-      - name: Configure node version
-        uses: actions/setup-node@v4
-        with:
-          node-version: '10'
-          
-      - name: Cache node_modules
-        uses: actions/cache@v4
-        env:
-          cache-name: ${{ github.ref_name }}-${{ github.job }}-node_modules
-        with:
-          path: node_modules
-          key: ${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
-          restore-keys: ${{ env.cache-name }}
+            - name: Configure node version
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "10"
 
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Build project
-        run: npm run build
+            - name: Cache node_modules
+              uses: actions/cache@v4
+              env:
+                  cache-name: ${{ github.ref_name }}-${{ github.job }}-node_modules
+              with:
+                  path: node_modules
+                  key: ${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
+                  restore-keys: ${{ env.cache-name }}
 
-      - name: Zip application
-        run: tar -czvf $file build/ .nginx/
+            - name: Install dependencies
+              run: npm install
 
-      - name: Install SSH Key
-        uses: shimataro/ssh-key-action@v2
-        with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          known_hosts: 'server_known_hosts'
+            - name: Build project
+              run: npm run build
 
-      - name: Adding Known Hosts
-        run: ssh-keyscan -H $host >> ~/.ssh/known_hosts
+            - name: Zip application
+              run: tar -czvf $file build/ .nginx/
 
-      - name: Send file to serverr
-        run: scp $file $user@$host:$folder
+            - name: Install SSH Key
+              uses: shimataro/ssh-key-action@v2
+              with:
+                  key: ${{ secrets.SSH_PRIVATE_KEY }}
+                  known_hosts: "server_known_hosts"
 
-      - name: Unzip file
-        run: ssh $user@$host "cd $folder && tar -xzvf $file && rm ${file}"
-      
-      - name: Reload Nginx
-        run: ssh $user@$host "nginx -t && service nginx reload"
+            - name: Adding Known Hosts
+              run: ssh-keyscan -H $host >> ~/.ssh/known_hosts
+
+            - name: Send file to serverr
+              run: scp $file $user@$host:$folder
+
+            - name: Unzip file
+              run: ssh $user@$host "cd $folder && tar -xzvf $file && rm ${file}"
+
+            - name: Reload Nginx
+              run: ssh $user@$host "nginx -t && service nginx reload"

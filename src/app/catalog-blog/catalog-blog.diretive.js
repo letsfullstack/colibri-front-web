@@ -20,7 +20,7 @@ function CatalogBlogController($scope, HttpService, $rootScope) {
 
 	var appSettings = $rootScope.getCurrentEnvironment();
 
-	HttpService.get("/publicacoes/get-posts", {limit:4}).then(function (resp) {
+	HttpService.get("/publicacoes/get-posts-home", {limit:4}).then(function (resp) {
 		for (var i in resp.data.data) {
 			resp.data.data[i].image = appSettings.STORAGE_URL + resp.data.data[i].capa;
 		}
