@@ -32,124 +32,125 @@
             <h1>{{'CATALOG_TITLE'|translate}}</h1>
         </div>
 
-        <div class="col-12 col-md-4 filter" ng-if="vm.filter_open || vm.width > 992">
+        <div class="col-12 col-md-4 filter" id="filter-col" ng-if="vm.filter_open || vm.width > 992">
+            <div class="filter-box" id="filter-box">
+                <ol class="breadcrumb d-none d-md-flex">
+                    <li class="breadcrumb-item"><a href="#">home</a></li>
+                    <li class="breadcrumb-item active" style="text-transform: lowercase;">{{'MENU_PRODUCT'|translate}}</li>
+                </ol>
 
-            <ol class="breadcrumb d-none d-md-flex">
-                <li class="breadcrumb-item"><a href="#">home</a></li>
-                <li class="breadcrumb-item active" style="text-transform: lowercase;">{{'MENU_PRODUCT'|translate}}</li>
-            </ol>
+                <h1 class="d-none d-md-flex">{{'CATALOG_TITLE'|translate}}</h1>
 
-            <h1 class="d-none d-md-flex">{{'CATALOG_TITLE'|translate}}</h1>
-
-            <div class="release">
-                <label class="square_b">
-                    <input type="checkbox" ng-model="vm.filter.lancamentos" ng-value="true">
-                    <span class="checkmark"></span>
-                    {{'CATALOG_RELEASE'|translate}}
-                </label>
-            </div>
-
-            <div class="options">
-                <h3>{{'CATALOG_AMBIENT'|translate}}:</h3>
-                <ul>
-                    <li>
-                        <label class="square_b">
-                            <input type="checkbox" name="optionsAmbiente" ng-click="vm.selectAllAmbiente()">
-                            <span class="checkmark"></span>
-                            {{'PRODUCT_ALL'|translate}}
-                        </label>
-                    </li>
-                    <li ng-repeat="(idx, ambiente) in vm.filters[0]">
-                        <label class="square_b">
-                            <input id="check_{{ambiente.slug}}" type="checkbox" name="ambiente" checklist-model="vm.filter.ambiente" checklist-value="ambiente.slug" ng-change="vm.clickAmbiente(true)">
-                            <span class="checkmark"></span>
-                            {{ambiente.nome}}
-                        </label>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="type" style="display: none;">
-                <h3>Tipo:</h3>
-                <ul>
-                    <li ng-repeat="categoria in vm.filtersTipo">
-                        <label class="square_b">
-                            <input type="checkbox" name="type" checklist-model="vm.filter.categoria" checklist-value="categoria.slug">
-                            <span class="checkmark"></span>
-                            {{categoria.nome}}
-                        </label>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="pallete">
-
-                <h3>{{'CATALOG_COLORS'|translate}}:</h3>
-
-                <div style="margin-bottom: 20px;">
-                    <label class="color" ng-repeat="color in vm.filters[1]">
-                        <input type="radio" name="f_color" ng-model="vm.filter.cor" ng-value="color.id">
-                        <span class="checkmark" ng-style="{ 'background-color' : color.codigo }" title="{{color.descricao}}"></span>
-                        <span class="color-label">{{color.descricao}}</span>
+                <div class="release">
+                    <label class="square_b">
+                        <input type="checkbox" ng-model="vm.filter.lancamentos" ng-value="true">
+                        <span class="checkmark"></span>
+                        {{'CATALOG_RELEASE'|translate}}
                     </label>
                 </div>
+
+                <div class="options">
+                    <h3>{{'CATALOG_AMBIENT'|translate}}:</h3>
+                    <ul>
+                        <li>
+                            <label class="square_b">
+                                <input type="checkbox" name="optionsAmbiente" ng-click="vm.selectAllAmbiente()">
+                                <span class="checkmark"></span>
+                                {{'PRODUCT_ALL'|translate}}
+                            </label>
+                        </li>
+                        <li ng-repeat="(idx, ambiente) in vm.filters[0]">
+                            <label class="square_b">
+                                <input id="check_{{ambiente.slug}}" type="checkbox" name="ambiente" checklist-model="vm.filter.ambiente" checklist-value="ambiente.slug" ng-change="vm.clickAmbiente(true)">
+                                <span class="checkmark"></span>
+                                {{ambiente.nome}}
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="type" style="display: none;">
+                    <h3>Tipo:</h3>
+                    <ul>
+                        <li ng-repeat="categoria in vm.filtersTipo">
+                            <label class="square_b">
+                                <input type="checkbox" name="type" checklist-model="vm.filter.categoria" checklist-value="categoria.slug">
+                                <span class="checkmark"></span>
+                                {{categoria.nome}}
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pallete">
+
+                    <h3>{{'CATALOG_COLORS'|translate}}:</h3>
+
+                    <div style="margin-bottom: 20px;">
+                        <label class="color" ng-repeat="color in vm.filters[1]">
+                            <input type="radio" name="f_color" ng-model="vm.filter.cor" ng-value="color.id">
+                            <span class="checkmark" ng-style="{ 'background-color' : color.codigo }" title="{{color.descricao}}"></span>
+                            <span class="color-label">{{color.descricao}}</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="measures" ng-if="false">
+
+                    <h3>{{'CATALOG_MEASURES'|translate}}:</h3>
+
+                    <div class="measure">
+                        <div class="top">
+                            <i class="fas fa-arrows-alt-h"></i>
+                            <span>{{'CATALOG_WIDTH'|translate}}</span>
+                        </div>
+                        <div class="bot">
+                            <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
+                            <div>
+                                <rzslider class="custom-slider" rz-slider-model="tabSliders.slider1.minValue" rz-slider-high="tabSliders.slider1.maxValue"
+                                    rz-slider-options="tabSliders.slider1.options"></rzslider>
+                            </div>
+                            <div class="lenght">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="measure">
+                        <div class="top">
+                            <i class="fas fa-arrows-alt-v"></i>
+                            <span>{{'CATALOG_HEIGHT'|translate}}</span>
+                        </div>
+                        <div class="bot">
+                            <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
+                            <div>
+                                <rzslider class="custom-slider" rz-slider-model="tabSliders.slider2.minValue" rz-slider-high="tabSliders.slider2.maxValue"
+                                    rz-slider-options="tabSliders.slider2.options"></rzslitabSliders.der>
+                            </div>
+                            <div class="lenght">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="measure">
+                        <div class="top">
+                            <i class="fas fa-arrows-alt-v"></i>
+                            <span>{{'CATALOG_DEPTH'|translate}}</span>
+                        </div>
+                        <div class="bot">
+                            <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
+                            <div>
+                                <rzslider class="custom-slider" rz-slider-model="tabSliders.slider3.minValue" rz-slider-high="tabSliders.slider3.maxValue"
+                                    rz-slider-options="tabSliders.slider3.options"></rzslider>
+                            </div>
+                            <div class="lenght">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <button ng-click="vm.filtrar()" class="filter" id="filter-btn">{{'CATALOG_BUTTON_FILTER'|translate}}</button>
             </div>
-
-            <div class="measures" ng-if="false">
-
-                <h3>{{'CATALOG_MEASURES'|translate}}:</h3>
-
-                <div class="measure">
-                    <div class="top">
-                        <i class="fas fa-arrows-alt-h"></i>
-                        <span>{{'CATALOG_WIDTH'|translate}}</span>
-                    </div>
-                    <div class="bot">
-                        <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
-                        <div>
-                            <rzslider class="custom-slider" rz-slider-model="tabSliders.slider1.minValue" rz-slider-high="tabSliders.slider1.maxValue"
-                                rz-slider-options="tabSliders.slider1.options"></rzslider>
-                        </div>
-                        <div class="lenght">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="measure">
-                    <div class="top">
-                        <i class="fas fa-arrows-alt-v"></i>
-                        <span>{{'CATALOG_HEIGHT'|translate}}</span>
-                    </div>
-                    <div class="bot">
-                        <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
-                        <div>
-                            <rzslider class="custom-slider" rz-slider-model="tabSliders.slider2.minValue" rz-slider-high="tabSliders.slider2.maxValue"
-                                rz-slider-options="tabSliders.slider2.options"></rzslitabSliders.der>
-                        </div>
-                        <div class="lenght">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="measure">
-                    <div class="top">
-                        <i class="fas fa-arrows-alt-v"></i>
-                        <span>{{'CATALOG_DEPTH'|translate}}</span>
-                    </div>
-                    <div class="bot">
-                        <!-- <input type="range" min="0" max="100" value="0" class="slider" id="myRange"> -->
-                        <div>
-                            <rzslider class="custom-slider" rz-slider-model="tabSliders.slider3.minValue" rz-slider-high="tabSliders.slider3.maxValue"
-                                rz-slider-options="tabSliders.slider3.options"></rzslider>
-                        </div>
-                        <div class="lenght">
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <button ng-click="vm.filtrar()" class="filter">{{'CATALOG_BUTTON_FILTER'|translate}}</button>
         </div>
 
         <div class="col-12 col-md-8">
@@ -165,4 +166,5 @@
         </div>
     </div>
 </section>
+<div id="filter-stopper"></div>
 <news-diretive></news-diretive>
