@@ -214,4 +214,90 @@ function CatalogFindController($scope, $timeout, HttpService, $stateParams, SeoS
 		canonical: slug
 	}); 
 
+	$timeout(function () {
+		if (vm.width < 768) return;
+
+		const FIX_BOTTOM_OFFSET = 20;
+		const col = document.getElementById('filter-col');
+		const box = document.getElementById('filter-box');
+		const stopper = document.getElementById('filter-stopper');
+		if (!col || !box) return;
+
+		let isFixed = false;
+		let affixStart = 0;
+
+		function docTop(el) {
+			return el.getBoundingClientRect().top + window.pageYOffset;
+		}
+
+		function computeAffixStart() {
+			const boxTop = docTop(box);
+			const h = box.offsetHeight;
+			const vh = window.innerHeight;
+			affixStart = boxTop + h - vh + FIX_BOTTOM_OFFSET;
+			if (h + FIX_BOTTOM_OFFSET <= vh) affixStart = boxTop;
+		}
+
+		function alignBox() {
+			const rect = col.getBoundingClientRect();
+			box.style.width = rect.width + 'px';
+			box.style.left = rect.left + window.pageXOffset + 'px';
+			box.style.right = 'auto';
+		}
+
+		function resetBox() {
+			box.style.width = '';
+			box.style.left = '';
+			box.style.right = '';
+			box.style.transform = '';
+		}
+
+		function setFixedState(shouldFix) {
+			if (shouldFix && !isFixed) {
+			isFixed = true;
+			box.classList.add('is-fixed');
+			alignBox();
+			} else if (!shouldFix && isFixed) {
+			isFixed = false;
+			box.classList.remove('is-fixed');
+			resetBox();
+			} else if (shouldFix && isFixed) {
+			alignBox();
+			}
+		}
+
+		function applyStopperOffset() {
+			if (!isFixed || !stopper) {
+			box.style.transform = '';
+			return;
+			}
+			const fixedBottom = window.pageYOffset + window.innerHeight - FIX_BOTTOM_OFFSET;
+			const stopperTop = docTop(stopper);
+			const delta = Math.max(0, fixedBottom - stopperTop);
+			box.style.transform = delta ? `translateY(-${delta}px)` : '';
+		}
+
+		function onScroll() {
+			setFixedState(window.pageYOffset >= affixStart);
+			applyStopperOffset();
+		}
+
+		function onResize() {
+			const wasFixed = isFixed;
+			if (wasFixed) setFixedState(false);
+			computeAffixStart();
+			onScroll();
+		}
+
+		computeAffixStart();
+		onScroll();
+		window.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('resize', onResize);
+
+		$scope.$on('$destroy', function () {
+			window.removeEventListener('scroll', onScroll);
+			window.removeEventListener('resize', onResize);
+		});
+	}, 0);
+
 }
