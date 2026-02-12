@@ -67,6 +67,9 @@
                     <span class="have mobi">{{'PRODUCT_HAVE_PRODUCT'|translate}}</span>
                     <button ng-click="$root.modalContato()" class="mobi request">{{'PRODUCT_GET_BUDGET'|translate}}</button>
                 </div>
+                <div ng-show="vm.produto.categoriaproduto.slug == 'bancada-e-painel'" class="category">
+                    {{'BANCADA'|translate}}
+                </div>
                 <ul>
                     <li class="characteristic">
                         <i class="fas fa-arrows-alt-h"></i>
@@ -103,6 +106,42 @@
                         <span class="tag">tv</span>
                         <span class="other">size/tamaño</span>
                         <span class="unit">{{vm.produto.tv}}</span>
+                    </li>
+                </ul>
+                <div ng-show="vm.produto.categoriaproduto.slug == 'bancada-e-painel'" class="category">
+                    {{'PAINEL'|translate}}
+                </div>
+                <ul ng-show="vm.produto.categoriaproduto.slug == 'bancada-e-painel'">
+                    
+                    <li class="characteristic">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        <span class="tag">largura</span>
+                        <span class="other">width/largo</span>
+                        <span class="unit">{{vm.produto.largura_2}}mm</span>
+                    </li>
+                    <li class="characteristic">
+                        <i class="fas fa-arrows-alt-v"></i>
+                        <span class="tag">altura</span>
+                        <span class="other">height/alto</span>
+                        <span class="unit">{{vm.produto.altura_2}}mm</span>
+                    </li>
+                    <li class="characteristic">
+                        <i class="fas fa-arrows-alt-h"></i>
+                        <span class="tag">profundidade</span>
+                        <span class="other">long/profundidad</span>
+                        <span class="unit">{{vm.produto.profundidade_2}}mm</span>
+                    </li>
+                    <li class="characteristic">
+                        <i class="fas fa-cube"></i>
+                        <span class="tag">cubagem</span>
+                        <span class="other">cubing/cubicaje</span>
+                        <span class="unit">{{vm.produto.cubagem_2}}mm</span>
+                    </li>
+                    <li class="characteristic">
+                        <i class="fas fa-weight-hanging"></i>
+                        <span class="tag">peso</span>
+                        <span class="other">weight/peso</span>
+                        <span class="unit">{{vm.produto.peso_2}}kg</span>
                     </li>
                 </ul>
                 <p class="description">
