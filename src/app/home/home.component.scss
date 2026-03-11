@@ -246,60 +246,73 @@ section{
 .know{  
     background-color: #f5f5f5;
     display: flex;
-    flex-direction: column;
+    flex-direction:row;
+    justify-content: center;
     align-items: center;
-    padding: 90px 0;
-
-    h1{
-        font-size: 3.6em;
-        font-weight: 300;
-        line-height: 1.25;
-        letter-spacing: -0.85px;
-        text-align: center;
-        color: rgba(0, 0, 0, 0.85);
-        margin-bottom: 60px;
+    height: 395px;
+    .image{
+        height: 100%;
+        img{
+            height: 100%;
+        }
     }
-
-    .group-buttons{
+    .content{
         display: flex;
-
-        button, a{
-            padding: 17px 0;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 40px;
+        h1{
+            font-size: 3.6em;
+            font-weight: 300;
+            line-height: 1.25;
+            letter-spacing: -0.85px;
             text-align: center;
-            border-radius: 5px;
-            box-shadow: 20px 20px 60px 0 rgba(2, 8, 22, 0.4);
-            color: white;
-            border: none;  
-            font-size: 1.2em;  
-            font-weight: 500;
-            outline: none;
-            text-decoration: none;
-            width: 170px;
-            transition: all .4s ease;
-            -webkit-transition: all .4s ease;
+            color: rgba(0, 0, 0, 0.85);
+            margin-bottom: 60px;
         }
 
-        .left{
-            background-color: #22222d;
-            margin-right: 15px;
-            border: 1px solid #22222d;
-            transition: 0.2s;
-        }
-        .left:hover{
-            background-color: white;
-            color: #22222d;
-        }
+        .group-buttons{
+            display: flex;
 
-        .right{
-            background-color: #25e779;
-            border: 1px solid #25e779;
-            transition: 0.2s;
-        }
-        .right:hover{
-            background-color: white;
-            color: #25e779;
+            button, a{
+                padding: 17px 0;
+                text-align: center;
+                border-radius: 5px;
+                box-shadow: 20px 20px 60px 0 rgba(2, 8, 22, 0.4);
+                color: white;
+                border: none;  
+                font-size: 1.2em;  
+                font-weight: 500;
+                outline: none;
+                text-decoration: none;
+                width: 170px;
+                transition: all .4s ease;
+                -webkit-transition: all .4s ease;
+            }
+
+            .left{
+                background-color: #22222d;
+                margin-right: 15px;
+                border: 1px solid #22222d;
+                transition: 0.2s;
+            }
+            .left:hover{
+                background-color: white;
+                color: #22222d;
+            }
+
+            .right{
+                background-color: #25e779;
+                border: 1px solid #25e779;
+                transition: 0.2s;
+            }
+            .right:hover{
+                background-color: white;
+                color: #25e779;
+            }
         }
     }
+    
 }
 
 @media (max-width: 1200px) {
@@ -383,15 +396,26 @@ section{
     }
 
     .know{
-        padding: 50px 15px;
+        height: unset;
+        padding: 50px 0px !important;
         font-size: 7px;
-
-        .group-buttons{
-            font-size: 9px;
-            width: 400px;
-            display: flex;
-            justify-content: center;
+        flex-direction: column-reverse;
+        .image{
+            margin-top: 30px;
         }
+        .content{
+            margin-left: 0px;
+            .h1{
+                margin-bottom: 40px !important;
+            }
+            .group-buttons{
+                font-size: 9px;
+                width: 400px;
+                display: flex;
+                justify-content: center;
+            }
+        }
+        
     }
 }
 
@@ -439,9 +463,12 @@ section{
         //         display: none;
         //     }
         // }
-
-        .group-buttons{
-            width: 100%;
+        .content{
+            .group-buttons{
+                width: 100%;
+            }
         }
+
+        
     }
 }
