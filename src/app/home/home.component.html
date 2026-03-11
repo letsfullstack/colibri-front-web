@@ -78,14 +78,16 @@
 </catalog-product-diretive>
 
 <section class="know">
-	<h1 ng-bind-html="vm.trustAsHtml(vm.params.catalog_title)"></h1>
-    <div class="group-buttons">
-        <button class="left"
-            ui-sref="catalogFind({'ambiente': 'all', 'tipo': 'all', 'busca': 'all'})">{{'HOME_CATALOG_BUTTON_1'|translate}}</button>
-		<a href="{{vm.params.catalog_link}}" target="_blank" class="right">{{'HOME_CATALOG_BUTTON_2'|translate}}</a>
-    </div>
-	<div style="display: flex; justify-content: center; margin-top: 40px;">
+	<div class="image">
 		<img style="max-width: 100%;" src="https://www.colibrimoveis.com.br/files/catalogo1773261523683.png">
+	</div>
+	<div class="content">
+		<h1 ng-bind-html="vm.trustAsHtml(vm.params.catalog_title)"></h1>
+		<div class="group-buttons">
+			<button class="left"
+				ui-sref="catalogFind({'ambiente': 'all', 'tipo': 'all', 'busca': 'all'})">{{'HOME_CATALOG_BUTTON_1'|translate}}</button>
+			<a href="{{vm.params.catalog_link}}" target="_blank" class="right">{{'HOME_CATALOG_BUTTON_2'|translate}}</a>
+		</div>
 	</div>
 </section>
 
