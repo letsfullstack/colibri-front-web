@@ -17,6 +17,8 @@ function FooterController($rootScope, HttpService, $translate, $window, $scope) 
 
 	$scope.currentLanguage = window.localStorage.getItem("NG_TRANSLATE_LANG_KEY") || "pt";
 
+	$scope.modalTrabalheConosco = () => $rootScope.modalTrabalheConosco();
+
 	$scope.changeLanguage = function (langKey) {
 		$translate.use(langKey);
 		$window.location.reload();
