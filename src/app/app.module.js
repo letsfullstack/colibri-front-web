@@ -52,6 +52,7 @@ import { PostCategoryComponent } from './blog/post-category/post-category.compon
 import { ModalContatoComponent } from './modals/contato/contato.component'
 import { ModalLeadComponent } from './modals/lead/lead.component'
 import {ModalCookiesComponent} from './modals/cookies/cookies.component'
+import { ModalInfoComponent } from './modals/info/info.component'
 
 import Constants from './app.constants'
 
@@ -91,6 +92,7 @@ const COMPONENTS_IMPORTS = [
 	ModalContatoComponent,
 	ModalLeadComponent,
 	ModalCookiesComponent,
+	ModalInfoComponent,
 	CatalogFindAmbienteComponent,
 	CatalogFindBuscaComponent,
 	CatalogFindTipoComponent
@@ -245,6 +247,29 @@ function ConstructorModule(ngMeta, $transitions, constants, $rootScope, swangula
 			showConfirmButton: false,
 			showCloseButton: true,
 			customClass: "swal-modal-lead",
+			animation: true
+		});
+	}
+	$rootScope.modalTrabalheConosco = () => {
+		$rootScope.modalInfo({
+			title: 'Trabalhe Conosco',
+			description: `
+				Quer fazer parte do time da Colibri Móveis?<br>
+				Estamos sempre em busca de pessoas comprometidas, criativas e dispostas a crescer junto com a gente.<br><br>
+				Envie seu currículo ou entre em contato com o nosso RH:<br><br>
+				📞 <strong>Telefone:</strong> (43) 99171-3367<br>
+				✉️ <strong>E-mail:</strong> <a href="mailto:rh@colibrimoveis.com.br">rh@colibrimoveis.com.br</a>
+			`
+		});
+	}
+	$rootScope.modalInfo = (options) => {
+		$rootScope._modalInfo = options || {};
+		swangular.open({
+			html: require("./modals/info/info.component.html"),
+			controller: 'ModalInfoController',
+			showConfirmButton: false,
+			showCloseButton: true,
+			customClass: "swal-modal-info",
 			animation: true
 		});
 	}

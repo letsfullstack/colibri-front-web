@@ -1,0 +1,11 @@
+<div class="swal-modal-info">
+    <div class="content">
+        <img ng-if="image" ng-src="{{image}}" class="modal-image" alt="{{title}}" />
+        <div class="modal-title">{{title}}</div>
+        <div class="modal-description" ng-bind-html="description"></div>
+        <div class="buttons" ng-if="buttonText">
+            <a ng-if="link" ng-href="{{link}}" target="_blank" class="modal-btn">{{buttonText}}</a>
+            <button ng-if="!link" ng-click="close()" class="modal-btn">{{buttonText}}</button>
+        </div>
+    </div>
+</div>
